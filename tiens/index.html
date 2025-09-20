@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo TIENS Bolivia</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+body {
+  background:#f8f9fa;
+  font-family:Segoe UI,Roboto,Arial,sans-serif;
+}
+
+/* === NAVBAR === */
+.navbar-tiends{background:#007F3E;}
+.navbar-tiends .navbar-brand,
+.navbar-tiends .nav-link,
+.navbar-tiends .dropdown-toggle{color:#F4B223!important;font-weight:600;}
+.navbar-tiends .navbar-toggler {
+  border-color:#F4B223;
+}
+.navbar-tiends .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(244,178,35, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.card {
+  border:0;
+  box-shadow:0 4px 8px rgba(0,0,0,.05);
+  transition:transform .2s;
+}
+.card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 6px 16px rgba(0,0,0,.1);
+}
+.card-img-top {
+  aspect-ratio:4/3;
+  object-fit:cover;
+  cursor:pointer;
+}
+.btn-whatsapp{background:#25d366;color:#fff;}
+.btn-whatsapp:hover{background:#1ebc59;color:#fff;}
+
+.price{
+  font-size:1.4rem;
+  font-weight:700;
+  color:#F4B223;
+}
+
+footer {
+  background:#007F3E;
+  color:#fff;
+  padding:2rem 0;
+}
+footer a{color:#F4B223;text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+
+/* Modal imagen */
+.modal-content{background:transparent;border:none;}
+.modal-body{padding:0;}
+.modal-body img{width:100%;height:auto;object-fit:contain;}
+
+/* Loader */
+#loader {
+  display:none;
+  width:2rem;
+  height:2rem;
+  border:3px solid #f4b223;
+  border-top-color:transparent;
+  border-radius:50%;
+  animation:spin 0.7s linear infinite;
+  margin:1rem auto;
+}
+@keyframes spin {100%{transform:rotate(360deg);}}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-tiends sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">TIENS Bolivia</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="categoriaDropdown" role="button" data-bs-toggle="dropdown">Categoría</a>
+          <ul class="dropdown-menu" aria-labelledby="categoriaDropdown">
+            <li><a class="dropdown-item filtro-btn" data-cat="Todas" href="#">Todas</a></li>
+            <li><a class="dropdown-item filtro-btn" data-cat="Suplementos" href="#">Suplementos</a></li>
+            <li><a class="dropdown-item filtro-btn" data-cat="Equipos para la Salud" href="#">Equipos para la Salud</a></li>
+            <li><a class="dropdown-item filtro-btn" data-cat="Linea de Belleza" href="#">Linea de Belleza</a></li>
+            <li><a class="dropdown-item filtro-btn" data-cat="Cuidado Personal" href="#">Cuidado Personal</a></li>
+            <li><a class="dropdown-item filtro-btn" data-cat="Promociones" href="#">Promociones</a></li>
+            <li><a class="dropdown-item filtro-btn" data-cat="Marketing" href="#">Marketing</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex ms-auto" role="search">
+        <div class="input-group input-group-sm">
+            <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+            <input id="buscador" class="form-control" type="search" placeholder="Buscar producto o código">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- Catálogo -->
+<section id="catalogo" class="container my-5">
+  <h2 class="text-center text-success mb-4">Catálogo de Productos</h2>
+  <div id="loader"></div>
+  <div class="row" id="contenedor-productos"></div>
+  <p id="mensaje-no-producto" class="text-center text-muted mt-3" style="display:none;">El producto que busca aún no está disponible.</p>
+</section>
+
+<!-- Modal para zoom de imagen -->
+<div class="modal fade" id="modalImagen" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img id="imagenZoom" src="" class="img-fluid rounded" alt="Vista de producto">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="contacto">
+  <div class="container text-center">
+    <h4 class="mb-3">Quiénes Somos</h4>
+    <p>TIENS Bolivia ofrece suplementos de calidad, respaldo internacional y compromiso con tu salud.</p>
+    <h5 class="mt-4">Contacto</h5>
+    <p>Email: <a href="mailto:info@tiensbolivia.com">info@tiensbolivia.com</a> | Tel: +591 63488086</p>
+    <p>
+      <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+      <a href="#"><i class="bi bi-whatsapp"></i></a>
+    </p>
+    <p class="small mt-4">© 2025 TIENS Bolivia. Todos los derechos reservados.</p>
+  </div>
+</footer>
+<script>
+const numeroWhatsApp = '59163488086';
+let productosGlobal = [];
+
+// Cargar productos
+const contenedor = document.getElementById('contenedor-productos');
+const loader = document.getElementById('loader');
+const mensajeNoProducto = document.getElementById('mensaje-no-producto');
+
+function renderProductos(lista){
+  contenedor.innerHTML='';
+  if(lista.length===0){
+    mensajeNoProducto.style.display='block';
+    return;
+  } else {
+    mensajeNoProducto.style.display='none';
+  }
+
+  lista.forEach(p=>{
+    // Mensaje WhatsApp más natural y visual
+    const mensajeWhatsApp = `Hola 👋,%0A
+Estoy interesado en este producto de *TIENS Bolivia*:%0A
+*Nombre:* ${p.nombre}%0A
+*Código:* ${p.codigo}%0A
+*Precio:* ${p.precio}%0A
+Imagen: ${p.imagen}%0A
+Por favor, contáctenme para más información.`;
+
+    const col=document.createElement('div');
+    col.className='col-12 col-sm-6 col-lg-4 mb-4';
+    col.innerHTML=`
+      <div class="card h-100">
+        <img src="${p.imagen}" class="card-img-top" alt="${p.nombre}"
+             data-bs-toggle="modal" data-bs-target="#modalImagen" data-img="${p.imagen}">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title text-success">${p.nombre}</h5>
+          <p class="card-text small flex-grow-1">${p.descripcion}</p>
+          <p class="price mb-2">Precio: ${p.precio}</p>
+          <a href="producto.html?codigo=${p.codigo}" class="btn btn-outline-success mb-2">
+            <i class="bi bi-eye"></i> Ver producto
+          </a>
+          <a href="https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}" target="_blank" class="btn btn-whatsapp">
+            <i class="bi bi-whatsapp"></i> Pedir por WhatsApp
+          </a>
+        </div>
+      </div>`;
+    contenedor.appendChild(col);
+  });
+}
+
+// Fetch productos
+fetch('productos.json')
+  .then(r => r.json())
+  .then(data => {
+    productosGlobal = data;
+    renderProductos(data);
+  });
+
+// Buscador con loader
+const buscador=document.getElementById('buscador');
+buscador.addEventListener('input', ()=>{
+  loader.style.display='block';
+  clearTimeout(window.timer);
+  window.timer=setTimeout(()=>{
+    loader.style.display='none';
+    const term=buscador.value.trim().toLowerCase();
+    const filtrados = productosGlobal.filter(p =>
+      p.nombre.toLowerCase().includes(term) ||
+      p.codigo.toLowerCase().includes(term) ||
+      p.categoria.toLowerCase().includes(term)
+    );
+    renderProductos(filtrados);
+  },400);
+});
+
+// Filtros por dropdown
+document.querySelectorAll('.filtro-btn').forEach(btn=>{
+  btn.addEventListener('click', e=>{
+    e.preventDefault();
+    const cat=btn.getAttribute('data-cat');
+    if(cat==='Todas') renderProductos(productosGlobal);
+    else renderProductos(productosGlobal.filter(p=>p.categoria===cat));
+  });
+});
+
+// Modal imagen HD
+const modalImagen = document.getElementById('modalImagen');
+modalImagen.addEventListener('show.bs.modal', e=>{
+  const img = e.relatedTarget.getAttribute('data-img');
+  document.getElementById('imagenZoom').src = img;
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
