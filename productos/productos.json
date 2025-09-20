@@ -1,0 +1,94 @@
+[
+  {
+    "codigo": "A01",
+    "nombre": "Calcio Nutritivo en Polvo",
+    "descripcion": "Suplemento alimenticio que fortalece huesos, dientes y mejora el metabolismo.",
+    "precio": "300 Bs",
+    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A01_bdsrbc.webp",
+    "categoria": "Suplementos",
+    "combo": false,
+    "pdf": "https://tuservidor.com/pdf/A01.pdf",
+    "beneficios": [
+      "Fortalece huesos y dientes",
+      "Mejora el metabolismo",
+      "Favorece la salud muscular"
+    ],
+    "video": "https://www.youtube.com/watch?v=VIDEO_A01"
+  },
+  {
+    "codigo": "A02",
+    "nombre": "Viokal Plus",
+    "descripcion": "Mayor concentración de zinc, ideal para piel, cabello y uñas.",
+    "precio": "300 Bs",
+    "imagen": "https://www.tienslar.com/storage/productos/September2023/wglqPchnC7UZZudc4tB1.webp",
+    "categoria": "Suplementos",
+    "combo": false,
+    "pdf": "https://tuservidor.com/pdf/A02.pdf",
+    "beneficios": [
+      "Aporta zinc de alta biodisponibilidad",
+      "Fortalece uñas y cabello",
+      "Apoya la salud de la piel"
+    ],
+    "video": "https://www.youtube.com/watch?v=VIDEO_A02"
+  },
+  {
+    "codigo": "A03",
+    "nombre": "Viokal Diet",
+    "descripcion": "Ayuda en el control de peso y regula niveles de glucosa.",
+    "precio": "275 Bs",
+    "imagen": "https://via.placeholder.com/800x600?text=Viokal+Diet",
+    "categoria": "Suplementos",
+    "combo": false,
+    "pdf": "https://tuservidor.com/pdf/A03.pdf",
+    "beneficios": [
+      "Controla el apetito",
+      "Apoya el equilibrio de glucosa",
+      "Promueve bienestar general"
+    ]
+  },
+  {
+    "codigo": "B01",
+    "nombre": "Suplemento de Zinc",
+    "descripcion": "60 cápsulas para función inmune, piel y cabello.",
+    "precio": "180 Bs",
+    "imagen": "https://via.placeholder.com/800x600?text=Zinc",
+    "categoria": "Suplementos",
+    "combo": false,
+    "pdf": "https://tuservidor.com/pdf/B01.pdf",
+    "beneficios": [
+      "Refuerza el sistema inmunológico",
+      "Mantiene la salud de la piel",
+      "Favorece la cicatrización"
+    ]
+  },
+  {
+    "codigo": "B02",
+    "nombre": "Spirulina Cápsulas",
+    "descripcion": "Superalimento con proteínas, minerales y antioxidantes.",
+    "precio": "220 Bs",
+    "imagen": "https://via.placeholder.com/800x600?text=Spirulina",
+    "categoria": "Suplementos",
+    "combo": false,
+    "pdf": "https://tuservidor.com/pdf/B02.pdf",
+    "beneficios": [
+      "Aporta proteínas vegetales",
+      "Rica en antioxidantes",
+      "Apoya energía y vitalidad"
+    ]
+  },
+  {
+    "codigo": "C01",
+    "nombre": "Té Tianshi Antilipídico",
+    "descripcion": "Té natural que ayuda a reducir lípidos y desintoxicar el organismo.",
+    "precio": "150 Bs",
+    "imagen": "https://via.placeholder.com/800x600?text=Te+Antilipidico",
+    "categoria": "Suplementos",
+    "combo": false,
+    "pdf": "https://tuservidor.com/pdf/C01.pdf",
+    "beneficios": [
+      "Apoya la reducción de lípidos",
+      "Favorece la desintoxicación",
+      "Contribuye al bienestar digestivo"
+    ]
+  }
+]
