@@ -1,244 +1,1106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Catálogo TIENS Bolivia</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#007F3E" id="theme-color"/>
+  <title>TIENS Bolivia | Catálogo de Productos</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
-<style>
-body {
-  background:#f8f9fa;
-  font-family:Segoe UI,Roboto,Arial,sans-serif;
-}
+  <style>
+    :root {
+      --primario: #2E8B57;      /* Verde mar más suave */
+      --secundario: #20B2AA;    /* Verde azulado claro */
+      --dorado: #DAA520;        /* Dorado más suave */
+      --dorado-claro: #F0E68C;  /* Dorado muy claro */
+      --fondo: #f8fffe;         /* Fondo muy claro con toque verde */
+      --texto: #2c3e50;         /* Azul grisáceo suave */
+      --blanco: #ffffff;
+      --gris-claro: #e8f5f3;    /* Gris con toque verde */
+      --verde-claro: #f0f9f6;   /* Verde muy claro */
+      --sombra: 0 2px 15px rgba(46, 139, 87, 0.08);
+      --sombra-hover: 0 8px 25px rgba(46, 139, 87, 0.12);
+      --transicion: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-/* === NAVBAR === */
-.navbar-tiends{background:#007F3E;}
-.navbar-tiends .navbar-brand,
-.navbar-tiends .nav-link,
-.navbar-tiends .dropdown-toggle{color:#F4B223!important;font-weight:600;}
-.navbar-tiends .navbar-toggler {
-  border-color:#F4B223;
-}
-.navbar-tiends .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(244,178,35, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.card {
-  border:0;
-  box-shadow:0 4px 8px rgba(0,0,0,.05);
-  transition:transform .2s;
-}
-.card:hover {
-  transform:translateY(-5px);
-  box-shadow:0 6px 16px rgba(0,0,0,.1);
-}
-.card-img-top {
-  aspect-ratio:4/3;
-  object-fit:cover;
-  cursor:pointer;
-}
-.btn-whatsapp{background:#25d366;color:#fff;}
-.btn-whatsapp:hover{background:#1ebc59;color:#fff;}
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, var(--fondo) 0%, var(--verde-claro) 100%);
+      color: var(--texto);
+      line-height: 1.6;
+      font-weight: 400;
+      min-height: 100vh;
+    }
 
-.price{
-  font-size:1.4rem;
-  font-weight:700;
-  color:#F4B223;
-}
+    /* Navbar suave y elegante */
+    .navbar {
+      background: linear-gradient(135deg, var(--primario) 0%, var(--secundario) 100%) !important;
+      box-shadow: var(--sombra);
+      backdrop-filter: blur(15px);
+      transition: var(--transicion);
+      padding: 0.8rem 0;
+    }
 
-footer {
-  background:#007F3E;
-  color:#fff;
-  padding:2rem 0;
-}
-footer a{color:#F4B223;text-decoration:none;}
-footer a:hover{text-decoration:underline;}
+    .navbar-brand {
+      font-weight: 700;
+      color: white !important;
+      font-size: 1.6rem;
+      transition: var(--transicion);
+    }
 
-/* Modal imagen */
-.modal-content{background:transparent;border:none;}
-.modal-body{padding:0;}
-.modal-body img{width:100%;height:auto;object-fit:contain;}
+    .navbar-brand:hover {
+      transform: scale(1.02);
+    }
 
-/* Loader */
-#loader {
-  display:none;
-  width:2rem;
-  height:2rem;
-  border:3px solid #f4b223;
-  border-top-color:transparent;
-  border-radius:50%;
-  animation:spin 0.7s linear infinite;
-  margin:1rem auto;
-}
-@keyframes spin {100%{transform:rotate(360deg);}}
-</style>
+    .navbar-brand i {
+      color: var(--dorado);
+      margin-right: 8px;
+      filter: drop-shadow(0 0 3px rgba(218, 165, 32, 0.4));
+    }
+
+    .navbar .nav-link {
+      color: rgba(255, 255, 255, 0.92) !important;
+      font-weight: 500;
+      transition: var(--transicion);
+      margin: 0 0.3rem;
+      border-radius: 8px;
+      padding: 0.5rem 0.8rem !important;
+    }
+
+    .navbar .nav-link:hover {
+      color: var(--dorado) !important;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Botón modo oscuro suave */
+    #btnDark {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+      transition: var(--transicion);
+      color: white;
+    }
+
+    #btnDark:hover {
+      background: var(--dorado);
+      color: var(--primario) !important;
+      transform: translateY(-1px);
+      border-color: var(--dorado);
+    }
+
+    .navbar-toggler {
+      border: none;
+      border-radius: 8px;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+    }
+
+    /* Dropdowns suaves */
+    .dropdown-menu {
+      background: var(--blanco);
+      border: none;
+      border-radius: 12px;
+      box-shadow: var(--sombra);
+      padding: 0.8rem;
+      animation: fadeInUp 0.3s ease;
+    }
+
+    .dropdown-item {
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      font-weight: 500;
+      transition: var(--transicion);
+      margin: 0.2rem 0;
+      color: var(--texto);
+    }
+
+    .dropdown-item:hover {
+      background: linear-gradient(135deg, var(--verde-claro), var(--gris-claro));
+      color: var(--primario);
+      transform: translateX(2px);
+    }
+
+    .dropdown-item i {
+      width: 18px;
+      margin-right: 8px;
+      color: var(--primario);
+    }
+
+    /* Buscador elegante */
+    .search-container {
+      position: relative;
+      min-width: 280px;
+    }
+
+    #buscador {
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      border-radius: 25px;
+      padding: 0.6rem 1rem 0.6rem 2.8rem;
+      background: rgba(255, 255, 255, 0.95);
+      transition: var(--transicion);
+      font-weight: 500;
+      width: 100%;
+      color: var(--texto);
+    }
+
+    #buscador:focus {
+      border-color: var(--dorado);
+      box-shadow: 0 0 0 0.15rem rgba(218, 165, 32, 0.25);
+      background: var(--blanco);
+    }
+
+    #buscador::placeholder {
+      color: #7a8b9a;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #7a8b9a;
+      z-index: 2;
+    }
+
+    #buscador:focus + .search-icon {
+      color: var(--dorado);
+    }
+
+    /* Título principal elegante */
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 2rem 0;
+      background: linear-gradient(135deg, var(--primario), var(--secundario));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Loader suave */
+    #loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30vh;
+      flex-direction: column;
+    }
+
+    .loader-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--gris-claro);
+      border-top: 3px solid var(--dorado);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .loader-text {
+      margin-top: 1rem;
+      color: var(--primario);
+      font-weight: 500;
+    }
+
+    /* Cards de productos elegantes */
+    .producto .card {
+      border: none;
+      border-radius: 16px;
+      background: var(--blanco);
+      box-shadow: var(--sombra);
+      transition: var(--transicion);
+      overflow: hidden;
+      height: 100%;
+      position: relative;
+    }
+
+    .producto .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--sombra-hover);
+    }
+
+    .producto .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primario), var(--dorado));
+      transform: scaleX(0);
+      transition: var(--transicion);
+      z-index: 1;
+    }
+
+    .producto .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* IMÁGENES RESPONSIVAS MEJORADAS */
+    .producto img {
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      cursor: pointer;
+      transition: var(--transicion);
+      width: 100%;
+      height: auto;
+      min-height: 250px;
+    }
+
+    .producto .card:hover img {
+      transform: scale(1.02);
+    }
+
+    /* Responsive para imágenes */
+    @media (max-width: 576px) {
+      .producto img {
+        min-height: 200px;
+        aspect-ratio: 1/1;
+      }
+    }
+
+    @media (min-width: 577px) and (max-width: 768px) {
+      .producto img {
+        min-height: 220px;
+        aspect-ratio: 1/1;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 992px) {
+      .producto img {
+        min-height: 240px;
+        aspect-ratio: 1/1;
+      }
+    }
+
+    @media (min-width: 993px) {
+      .producto img {
+        min-height: 260px;
+        aspect-ratio: 1/1;
+      }
+    }
+
+    .card-title {
+      font-weight: 600;
+      color: var(--primario);
+      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+      min-height: 2.4rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-bottom: 1.2rem;
+      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* PRECIO CON BANDERA DE BOLIVIA */
+    .precio {
+      color: var(--dorado);
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      background: linear-gradient(135deg, var(--verde-claro), var(--gris-claro));
+      padding: 0.5rem;
+      border-radius: 10px;
+    }
+
+    /* Código del producto centrado */
+    .codigo-producto {
+      background: linear-gradient(135deg, var(--gris-claro), #f1f8f5);
+      color: var(--texto);
+      padding: 0.3rem 0.6rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* BOTONES ESTILO JOYERÍA CON COLORES DE SALUD */
+    .btn-group {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: auto;
+    }
+
+    .btn {
+      border-radius: 20px;
+      font-weight: 500;
+      padding: 8px 16px;
+      transition: var(--transicion);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primario), var(--secundario));
+      border: none;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3);
+      background: linear-gradient(135deg, var(--secundario), var(--primario));
+      color: white;
+    }
+
+    .btn-success {
+      background: linear-gradient(135deg, #25d366, #20ba5a);
+      border: none;
+      color: white;
+    }
+
+    .btn-success:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+      color: white;
+    }
+
+    /* Modal más largo y mejorado */
+    .modal-content {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .modal-header {
+      border-bottom: 1px solid var(--gris-claro);
+      padding: 1rem 1.5rem;
+      background: var(--verde-claro);
+    }
+
+    .modal-body {
+      padding: 2rem 1.5rem;
+    }
+
+    .modal-dialog {
+      max-width: 600px;
+    }
+
+    /* Imagen más grande en modal */
+    #modalImagen {
+      width: 100%;
+      height: auto;
+      max-height: 350px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      aspect-ratio: 1/1;
+    }
+
+    #modalNombre {
+      color: var(--primario);
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    #modalCodigo {
+      background: var(--gris-claro);
+      padding: 0.4rem 1rem;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      color: var(--texto);
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    #modalPrecio {
+      color: var(--dorado);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      background: var(--verde-claro);
+      padding: 0.8rem;
+      border-radius: 12px;
+    }
+
+    #modalDescripcion {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      color: #64748b;
+      font-size: 1rem;
+    }
+
+    /* Footer suave */
+    footer {
+      background: linear-gradient(135deg, var(--primario), var(--secundario));
+      color: white;
+      margin-top: 3rem;
+      padding: 2.5rem 0 1.5rem;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+    }
+
+    footer h4, footer h5 {
+      color: var(--dorado);
+      font-weight: 600;
+    }
+
+    footer a {
+      color: var(--dorado) !important;
+      text-decoration: none;
+      transition: var(--transicion);
+    }
+
+    footer a:hover {
+      color: var(--dorado-claro) !important;
+      text-shadow: 0 0 5px rgba(218, 165, 32, 0.4);
+    }
+
+    /* Mensaje vacío */
+    #mensaje-vacio {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    #mensaje-vacio i {
+      font-size: 3.5rem;
+      color: var(--gris-claro);
+      margin-bottom: 1rem;
+    }
+
+    /* Dark mode mejorado */
+    body.dark {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #e2e8f0;
+    }
+
+    .navbar.dark-mode {
+      background: linear-gradient(135deg, #1e293b, #334155) !important;
+    }
+
+    body.dark .card {
+      background: #1e293b;
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    body.dark .card-title {
+      color: var(--dorado) !important;
+    }
+
+    body.dark .card-text {
+      color: #cbd5e1 !important;
+    }
+
+    body.dark .dropdown-menu {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+    }
+
+    body.dark .dropdown-item {
+      color: #e2e8f0;
+    }
+
+    body.dark .dropdown-item:hover {
+      background: rgba(218, 165, 32, 0.15);
+      color: var(--dorado);
+    }
+
+    body.dark #buscador {
+      background: #334155;
+      color: #e2e8f0;
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    body.dark #buscador:focus {
+      background: #475569;
+      border-color: var(--dorado);
+    }
+
+    body.dark .modal-content {
+      background: #1e293b;
+      color: #e2e8f0;
+    }
+
+    body.dark .modal-header {
+      background: #334155;
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    body.dark .codigo-producto,
+    body.dark #modalCodigo {
+      background: #334155;
+      color: #e2e8f0;
+    }
+
+    body.dark .precio,
+    body.dark #modalPrecio {
+      background: rgba(218, 165, 32, 0.1);
+      color: var(--dorado);
+    }
+
+    body.dark #modalNombre {
+      color: var(--dorado) !important;
+    }
+
+    body.dark #modalDescripcion {
+      color: #cbd5e1 !important;
+    }
+
+    /* Categoría badge */
+    .categoria-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: linear-gradient(135deg, var(--dorado), var(--dorado-claro));
+      color: var(--primario);
+      padding: 0.3rem 0.6rem;
+      border-radius: 15px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(218, 165, 32, 0.3);
+    }
+
+    /* Animaciones */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
+    }
+
+    /* Responsive mejorado */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .btn-group {
+        gap: 0.3rem;
+      }
+      
+      .btn {
+        font-size: 0.85rem;
+        padding: 6px 14px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.4rem;
+      }
+      
+      .modal-body {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .search-container {
+        min-width: 220px;
+        order: -1;
+        margin-right: 10px;
+      }
+
+      .modal-dialog {
+        max-width: 95%;
+        margin: 0.5rem;
+      }
+
+      #modalImagen {
+        max-height: 280px;
+      }
+
+      .precio {
+        font-size: 1.2rem;
+      }
+
+      .card-body {
+        padding: 1.2rem;
+      }
+
+      #modalPrecio {
+        font-size: 1.2rem;
+      }
+
+      #modalNombre {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .btn {
+        font-size: 0.8rem;
+        padding: 5px 12px;
+      }
+
+      .card-body {
+        padding: 1rem;
+      }
+
+      .precio {
+        font-size: 1.1rem;
+      }
+
+      .modal-body {
+        padding: 1.2rem 1rem;
+      }
+
+      #modalImagen {
+        max-height: 250px;
+      }
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Vista de columnas */
+    .row.vista-4 {
+      --bs-gutter-x: 1rem;
+    }
+
+    .row.vista-3 {
+      --bs-gutter-x: 1.2rem;
+    }
+
+    .row.vista-2 {
+      --bs-gutter-x: 1.5rem;
+    }
+
+    /* Performance optimizations */
+    .producto img {
+      will-change: transform;
+    }
+
+    .card {
+      will-change: transform;
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-tiends sticky-top">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">TIENS Bolivia</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="categoriaDropdown" role="button" data-bs-toggle="dropdown">Categoría</a>
-          <ul class="dropdown-menu" aria-labelledby="categoriaDropdown">
-            <li><a class="dropdown-item filtro-btn" data-cat="Todas" href="#">Todas</a></li>
-            <li><a class="dropdown-item filtro-btn" data-cat="Suplementos" href="#">Suplementos</a></li>
-            <li><a class="dropdown-item filtro-btn" data-cat="Equipos para la Salud" href="#">Equipos para la Salud</a></li>
-            <li><a class="dropdown-item filtro-btn" data-cat="Linea de Belleza" href="#">Linea de Belleza</a></li>
-            <li><a class="dropdown-item filtro-btn" data-cat="Cuidado Personal" href="#">Cuidado Personal</a></li>
-            <li><a class="dropdown-item filtro-btn" data-cat="Promociones" href="#">Promociones</a></li>
-            <li><a class="dropdown-item filtro-btn" data-cat="Marketing" href="#">Marketing</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="d-flex ms-auto" role="search">
-        <div class="input-group input-group-sm">
-            <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
-            <input id="buscador" class="form-control" type="search" placeholder="Buscar producto o código">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="bi bi-heart-pulse"></i> TIENS Bolivia</a>
+      
+      <!-- Botón dark mode y hamburguesa -->
+      <div class="d-flex align-items-center">
+        <button id="btnDark" class="btn btn-sm me-2" title="Cambiar tema">
+          <i class="bi bi-moon me-1"></i><span class="d-none d-sm-inline">Oscuro</span>
+        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Categorías -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              <i class="bi bi-grid-3x3-gap me-1"></i>Categorías
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item filtro-categoria" data-cat="Todas">
+                <i class="bi bi-collection"></i>Todas
+              </a></li>
+              <li><a class="dropdown-item filtro-categoria" data-cat="Suplementos">
+                <i class="bi bi-capsule"></i>Suplementos
+              </a></li>
+              <li><a class="dropdown-item filtro-categoria" data-cat="Equipos para la Salud">
+                <i class="bi bi-gear-wide-connected"></i>Equipos para la Salud
+              </a></li>
+              <li><a class="dropdown-item filtro-categoria" data-cat="Linea de Belleza">
+                <i class="bi bi-magic"></i>Línea de Belleza
+              </a></li>
+              <li><a class="dropdown-item filtro-categoria" data-cat="Cuidado Personal">
+                <i class="bi bi-person-heart"></i>Cuidado Personal
+              </a></li>
+              <li><a class="dropdown-item filtro-categoria" data-cat="Promociones">
+                <i class="bi bi-tag"></i>Promociones
+              </a></li>
+            </ul>
+          </li>
+          
+          <!-- Vistas -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              <i class="bi bi-layout-three-columns me-1"></i>Vista
+            </a>
+            <ul class="dropdown-menu">
+              <li class="d-none d-lg-block"><a class="dropdown-item vista" data-cols="4">
+                <i class="bi bi-grid-3x3"></i>4 columnas
+              </a></li>
+              <li class="d-none d-lg-block"><a class="dropdown-item vista" data-cols="3">
+                <i class="bi bi-grid-3x2"></i>3 columnas
+              </a></li>
+              <li class="d-lg-none"><a class="dropdown-item vista" data-cols="2">
+                <i class="bi bi-grid"></i>2 columnas
+              </a></li>
+              <li class="d-lg-none"><a class="dropdown-item vista" data-cols="1">
+                <i class="bi bi-list"></i>1 columna
+              </a></li>
+            </ul>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto"><i class="bi bi-telephone me-1"></i>Contacto</a>
+          </li>
+        </ul>
+        
+        <!-- Buscador -->
+        <div class="search-container">
+          <input id="buscador" class="form-control" type="search" placeholder="Buscar producto o código..." autocomplete="off">
+          <i class="bi bi-search search-icon"></i>
         </div>
-      </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <div class="container my-4">
+    <h2 class="hero-title">🌿 Catálogo TIENS Bolivia</h2>
+    
+    <!-- Loader -->
+    <div id="loader">
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Cargando productos...</div>
+    </div>
+    
+    <!-- Grid de productos -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4" id="contenedor-productos" style="display:none;"></div>
+    
+    <!-- Mensaje cuando no hay productos -->
+    <div id="mensaje-vacio" style="display:none;">
+      <i class="bi bi-search"></i>
+      <h4 class="text-muted">No encontramos ese producto</h4>
+      <p class="text-muted">Pronto tendremos más productos disponibles 🌿</p>
     </div>
   </div>
-</nav>
 
-<!-- Catálogo -->
-<section id="catalogo" class="container my-5">
-  <h2 class="text-center text-success mb-4">Catálogo de Productos</h2>
-  <div id="loader"></div>
-  <div class="row" id="contenedor-productos"></div>
-  <p id="mensaje-no-producto" class="text-center text-muted mt-3" style="display:none;">El producto que busca aún no está disponible.</p>
-</section>
+  <!-- Footer -->
+  <footer id="contacto">
+    <div class="container text-center">
+      <h4 class="mb-3"><i class="bi bi-people-fill me-2"></i>Quiénes Somos</h4>
+      <p class="mb-4">TIENS Bolivia ofrece productos de salud y bienestar con calidad internacional. Más de 25 años de experiencia mundial respaldando tu bienestar.</p>
+      
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <h5><i class="bi bi-telephone-fill me-2"></i>Contacto</h5>
+          <p class="mb-1">
+            <i class="bi bi-envelope me-1"></i><a href="mailto:info@tiensbolivia.com">info@tiensbolivia.com</a>
+          </p>
+          <p><i class="bi bi-phone me-1"></i><a href="tel:+59163488086">+591 63488086</a></p>
+        </div>
+        <div class="col-md-6 mb-3">
+          <h5><i class="bi bi-share me-2"></i>Síguenos</h5>
+          <div class="social-links">
+            <a href="#" title="Facebook"><i class="bi bi-facebook me-2"></i></a>
+            <a href="#" title="Instagram"><i class="bi bi-instagram me-2"></i></a>
+            <a href="https://wa.me/59163488086" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <hr style="border-color: rgba(218, 165, 32, 0.3); margin: 2rem 0 1rem;">
+      <p class="small mb-0">&copy; 2025 TIENS Bolivia. Todos los derechos reservados. | Santa Cruz, Bolivia</p>
+    </div>
+  </footer>
 
-<!-- Modal para zoom de imagen -->
-<div class="modal fade" id="modalImagen" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
-    <div class="modal-content">
-      <div class="modal-body">
-        <img id="imagenZoom" src="" class="img-fluid rounded" alt="Vista de producto">
+  <!-- Modal Producto Mejorado -->
+  <div class="modal fade" id="modalProducto" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detalles del Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="modalImagen" src="" class="img-fluid" alt="">
+          <h5 id="modalNombre"></h5>
+          <div id="modalCodigo"></div>
+          <p id="modalDescripcion" class="text-muted"></p>
+          <div id="modalPrecio">🇧🇴 <span></span></div>
+          <div class="btn-group">
+            <a id="modalWhatsApp" href="#" target="_blank" class="btn btn-success">
+              <i class="bi bi-whatsapp"></i> Pedir por WhatsApp
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Footer -->
-<footer id="contacto">
-  <div class="container text-center">
-    <h4 class="mb-3">Quiénes Somos</h4>
-    <p>TIENS Bolivia ofrece suplementos de calidad, respaldo internacional y compromiso con tu salud.</p>
-    <h5 class="mt-4">Contacto</h5>
-    <p>Email: <a href="mailto:info@tiensbolivia.com">info@tiensbolivia.com</a> | Tel: +591 63488086</p>
-    <p>
-      <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
-      <a href="#"><i class="bi bi-whatsapp"></i></a>
-    </p>
-    <p class="small mt-4">© 2025 TIENS Bolivia. Todos los derechos reservados.</p>
-  </div>
-</footer>
-<script>
-const numeroWhatsApp = '59163488086';
-let productosGlobal = [];
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-// Cargar productos
-const contenedor = document.getElementById('contenedor-productos');
-const loader = document.getElementById('loader');
-const mensajeNoProducto = document.getElementById('mensaje-no-producto');
+  <script>
+    const numeroWhatsApp = '59163488086';
+    let productos = [];
+    let columnas = 3;
 
-function renderProductos(lista){
-  contenedor.innerHTML='';
-  if(lista.length===0){
-    mensajeNoProducto.style.display='block';
-    return;
-  } else {
-    mensajeNoProducto.style.display='none';
-  }
+    // Dark mode toggle
+    const btnDark = document.getElementById('btnDark');
+    const isDarkStored = localStorage.getItem('darkMode') === 'true';
+    
+    if (isDarkStored) {
+      document.body.classList.add('dark');
+      document.querySelector('.navbar').classList.add('dark-mode');
+      btnDark.innerHTML = '<i class="bi bi-sun me-1"></i><span class="d-none d-sm-inline">Claro</span>';
+    }
+    
+    btnDark.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark');
+      document.querySelector('.navbar').classList.toggle('dark-mode');
+      
+      localStorage.setItem('darkMode', isDark);
+      
+      if (isDark) {
+        btnDark.innerHTML = '<i class="bi bi-sun me-1"></i><span class="d-none d-sm-inline">Claro</span>';
+      } else {
+        btnDark.innerHTML = '<i class="bi bi-moon me-1"></i><span class="d-none d-sm-inline">Oscuro</span>';
+      }
+    });
 
-  lista.forEach(p=>{
-    // Mensaje WhatsApp más natural y visual
-    const mensajeWhatsApp = `Hola 👋,%0A
-Estoy interesado en este producto de *TIENS Bolivia*:%0A
-*Nombre:* ${p.nombre}%0A
-*Código:* ${p.codigo}%0A
-*Precio:* ${p.precio}%0A
-Imagen: ${p.imagen}%0A
-Por favor, contáctenme para más información.`;
+    // Cargar productos (usa tu archivo productos.json o los ejemplos)
+    fetch('productos.json')
+      .then(res => {
+        if (!res.ok) throw new Error('Usando productos de ejemplo');
+        return res.json();
+      })
+      .then(data => {
+        productos = data;
+        cargarProductos();
+      })
+      .catch(error => {
+        console.log('Cargando productos de ejemplo:', error);
+        productos = productosEjemplo;
+        cargarProductos();
+      });
 
-    const col=document.createElement('div');
-    col.className='col-12 col-sm-6 col-lg-4 mb-4';
-    col.innerHTML=`
-      <div class="card h-100">
-        <img src="${p.imagen}" class="card-img-top" alt="${p.nombre}"
-             data-bs-toggle="modal" data-bs-target="#modalImagen" data-img="${p.imagen}">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title text-success">${p.nombre}</h5>
-          <p class="card-text small flex-grow-1">${p.descripcion}</p>
-          <p class="price mb-2">Precio: ${p.precio}</p>
-          <a href="producto.html?codigo=${p.codigo}" class="btn btn-outline-success mb-2">
-            <i class="bi bi-eye"></i> Ver producto
-          </a>
-          <a href="https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}" target="_blank" class="btn btn-whatsapp">
-            <i class="bi bi-whatsapp"></i> Pedir por WhatsApp
-          </a>
-        </div>
-      </div>`;
-    contenedor.appendChild(col);
-  });
-}
+    function cargarProductos() {
+      setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('contenedor-productos').style.display = 'flex';
+        mostrarProductos(productos);
+      }, 800);
+    }
 
-// Fetch productos
-fetch('productos.json')
-  .then(r => r.json())
-  .then(data => {
-    productosGlobal = data;
-    renderProductos(data);
-  });
+    function mostrarProductos(lista) {
+      const contenedor = document.getElementById('contenedor-productos');
+      contenedor.innerHTML = "";
+      
+      if(lista.length === 0) {
+        document.getElementById('mensaje-vacio').style.display = 'block';
+        return;
+      } else {
+        document.getElementById('mensaje-vacio').style.display = 'none';
+      }
 
-// Buscador con loader
-const buscador=document.getElementById('buscador');
-buscador.addEventListener('input', ()=>{
-  loader.style.display='block';
-  clearTimeout(window.timer);
-  window.timer=setTimeout(()=>{
-    loader.style.display='none';
-    const term=buscador.value.trim().toLowerCase();
-    const filtrados = productosGlobal.filter(p =>
-      p.nombre.toLowerCase().includes(term) ||
-      p.codigo.toLowerCase().includes(term) ||
-      p.categoria.toLowerCase().includes(term)
-    );
-    renderProductos(filtrados);
-  },400);
-});
+      lista.forEach((producto, index) => {
+        // Mensaje WhatsApp profesional
+        const mensajeWhatsApp = `*SOLICITUD DE PRODUCTO - TIENS BOLIVIA* 🌿%0A%0A📋 *INFORMACIÓN DEL PRODUCTO:*%0A• Nombre: ${producto.nombre}%0A• Código: ${producto.codigo || 'N/A'}%0A• Precio: ${producto.precio} ${producto.moneda || 'Bs'}%0A• Categoría: ${producto.categoria || 'Producto TIENS'}%0A%0A🛍️ *CONSULTAS:*%0A• Disponibilidad del producto%0A• Información detallada%0A• Formas de pago disponibles%0A• Tiempo de entrega%0A%0A📍 *UBICACIÓN:* Santa Cruz, Bolivia%0A%0A¡Muchas gracias! Espero su pronta respuesta. 😊`;
 
-// Filtros por dropdown
-document.querySelectorAll('.filtro-btn').forEach(btn=>{
-  btn.addEventListener('click', e=>{
-    e.preventDefault();
-    const cat=btn.getAttribute('data-cat');
-    if(cat==='Todas') renderProductos(productosGlobal);
-    else renderProductos(productosGlobal.filter(p=>p.categoria===cat));
-  });
-});
+        const div = document.createElement('div');
+        div.className = `col mb-4 producto fade-in`;
+        div.style.animationDelay = `${index * 0.05}s`;
+        div.innerHTML = `
+          <div class="card h-100">
+            <div class="categoria-badge">${producto.categoria || 'TIENS'}</div>
+            <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}" 
+                 data-bs-toggle="modal" data-bs-target="#modalProducto"
+                 data-id="${producto.id}"
+                 data-nombre="${producto.nombre}"
+                 data-codigo="${producto.codigo || 'N/A'}"
+                 data-descripcion="${producto.descripcion || 'Producto de calidad TIENS'}"
+                 data-precio="${producto.precio}"
+                 data-moneda="${producto.moneda || 'Bs'}"
+                 data-categoria="${producto.categoria || 'TIENS'}"
+                 data-imagen="${producto.imagen}"
+                 loading="lazy">
+            <div class="card-body">
+              <div class="codigo-producto">Código: ${producto.codigo || 'N/A'}</div>
+              <h5 class="card-title">${producto.nombre}</h5>
+              <p class="card-text">${producto.descripcion || 'Producto de calidad TIENS para tu bienestar'}</p>
+              <div class="precio">🇧🇴 ${producto.precio || 'Consultar'} ${producto.moneda || 'Bs'}</div>
+              <div class="btn-group">
+                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                   data-id="${producto.id}"
+                   data-nombre="${producto.nombre}"
+                   data-codigo="${producto.codigo || 'N/A'}"
+                   data-descripcion="${producto.descripcion || 'Producto de calidad TIENS'}"
+                   data-precio="${producto.precio}"
+                   data-moneda="${producto.moneda || 'Bs'}"
+                   data-categoria="${producto.categoria || 'TIENS'}"
+                   data-imagen="${producto.imagen}">
+                  <i class="bi bi-eye"></i> Ver
+                </a>
+                <a href="https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}" 
+                   target="_blank" class="btn btn-success">
+                  <i class="bi bi-whatsapp"></i> Pedir
+                </a>
+              </div>
+            </div>
+          </div>`;
+        contenedor.appendChild(div);
+      });
 
-// Modal imagen HD
-const modalImagen = document.getElementById('modalImagen');
-modalImagen.addEventListener('show.bs.modal', e=>{
-  const img = e.relatedTarget.getAttribute('data-img');
-  document.getElementById('imagenZoom').src = img;
-});
-</script>
+      // Eventos para modal
+      document.querySelectorAll('[data-bs-toggle="modal"]').forEach(element => {
+        element.addEventListener('click', () => abrirModal(element));
+      });
+    }
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    // Modal mejorado
+    function abrirModal(element) {
+      const mensajeWhatsApp = `*SOLICITUD DE PRODUCTO - TIENS BOLIVIA* 🌿%0A%0A📋 *INFORMACIÓN DEL PRODUCTO:*%0A• Nombre: ${element.dataset.nombre}%0A• Código: ${element.dataset.codigo}%0A• Precio: ${element.dataset.precio} ${element.dataset.moneda}%0A• Categoría: ${element.dataset.categoria}%0A%0A🛍️ *CONSULTAS:*%0A• Disponibilidad del producto%0A• Información detallada%0A• Formas de pago disponibles%0A• Tiempo de entrega%0A%0A📍 *UBICACIÓN:* Santa Cruz, Bolivia%0A%0A¡Muchas gracias! Espero su pronta respuesta. 😊`;
+      
+      document.getElementById('modalImagen').src = element.dataset.imagen;
+      document.getElementById('modalNombre').textContent = element.dataset.nombre;
+      document.getElementById('modalCodigo').textContent = `Código: ${element.dataset.codigo}`;
+      document.getElementById('modalDescripcion').textContent = element.dataset.descripcion;
+      document.querySelector('#modalPrecio span').textContent = `${element.dataset.precio} ${element.dataset.moneda}`;
+      document.getElementById('modalWhatsApp').href = `https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}`;
+    }
+
+    // Búsqueda optimizada
+    let searchTimeout;
+    document.getElementById('buscador').addEventListener('input', e => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        const term = e.target.value.toLowerCase().trim();
+        const filtrados = productos.filter(p => 
+          p.nombre.toLowerCase().includes(term) ||
+          (p.codigo && p.codigo.toLowerCase().includes(term)) ||
+          (p.categoria && p.categoria.toLowerCase().includes(term)) ||
+          (p.descripcion && p.descripcion.toLowerCase().includes(term))
+        );
+        mostrarProductos(filtrados);
+      }, 250);
+    });
+
+    // Filtros de categorías
+    document.querySelectorAll('.filtro-categoria').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const cat = link.dataset.cat;
+        const filtrados = cat === 'Todas' 
+          ? productos 
+          : productos.filter(p => p.categoria === cat);
+        mostrarProductos(filtrados);
+        
+        // Cerrar dropdown en móvil
+        const navbarCollapse = document.getElementById('navbarNav');
+        if (navbarCollapse.classList.contains('show')) {
+          bootstrap.Collapse.getInstance(navbarCollapse).hide();
+        }
+      });
+    });
+
+    // Sistema de vistas (columnas)
+    document.querySelectorAll('.vista').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        columnas = parseInt(link.dataset.cols);
+        const contenedor = document.getElementById('contenedor-productos');
+        
+        // Aplicar vista según dispositivo
+        if (window.innerWidth < 992) { // móvil/tablet
+          if (columnas > 2) columnas = 2;
+          contenedor.className = `row row-cols-1 row-cols-sm-${columnas} g-4 vista-${columnas}`;
+        } else { // desktop
+          contenedor.className = `row row-cols-1 row-cols-sm-2 row-cols-lg-${columnas} g-4 vista-${columnas}`;
+        }
+        
+        // Cerrar dropdown
+        const navbarCollapse = document.getElementById('navbarNav');
+        if (navbarCollapse.classList.contains('show')) {
+          bootstrap.Collapse.getInstance(navbarCollapse).hide();
+        }
+      });
+    });
+
+    // Manejo de errores de imagen
+    document.addEventListener('error', e => {
+      if (e.target.tagName === 'IMG') {
+        e.target.src = 'https://via.placeholder.com/300x300/2E8B57/ffffff?text=TIENS+Bolivia';
+      }
+    }, true);
+
+    // Smooth scroll para navegación
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
