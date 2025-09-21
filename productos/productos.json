@@ -1,13 +1,14 @@
 [
   {
-    "codigo": "A01",
+    "id": 1,
+    "codigo": "AN-PL-001",
     "nombre": "Calcio Nutritivo en Polvo",
     "descripcion": "Suplemento alimenticio que fortalece huesos, dientes y mejora el metabolismo.",
-    "precio": "300 Bs",
+    "precio": "300",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A01_bdsrbc.webp",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "https://tuservidor.com/pdf/A01.pdf",
+    "pdf": "https://drive.google.com/file/d/1r9s7szOZiguxw6qhc5P5dSD3wD-2SrCi/view?usp=sharing",
     "beneficios": [
       "Fortalece huesos y dientes",
       "Mejora el metabolismo",
@@ -16,10 +17,11 @@
     "video": "https://www.youtube.com/watch?v=VIDEO_A01"
   },
   {
+    "id": 2,
     "codigo": "A02",
     "nombre": "Viokal Plus",
     "descripcion": "Mayor concentración de zinc, ideal para piel, cabello y uñas.",
-    "precio": "300 Bs",
+    "precio": "300",
     "imagen": "https://www.tienslar.com/storage/productos/September2023/wglqPchnC7UZZudc4tB1.webp",
     "categoria": "Suplementos",
     "combo": false,
@@ -32,11 +34,12 @@
     "video": "https://www.youtube.com/watch?v=VIDEO_A02"
   },
   {
+    "id": 3,
     "codigo": "A03",
     "nombre": "Viokal Diet",
     "descripcion": "Ayuda en el control de peso y regula niveles de glucosa.",
-    "precio": "275 Bs",
-    "imagen": "https://via.placeholder.com/800x600?text=Viokal+Diet",
+    "precio": "275",
+    "imagen": "AN-PL-001.png",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://tuservidor.com/pdf/A03.pdf",
@@ -47,11 +50,12 @@
     ]
   },
   {
+    "id": 4,
     "codigo": "B01",
     "nombre": "Suplemento de Zinc",
     "descripcion": "60 cápsulas para función inmune, piel y cabello.",
-    "precio": "180 Bs",
-    "imagen": "https://via.placeholder.com/800x600?text=Zinc",
+    "precio": "180",
+    "imagen": "calcio.png",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://tuservidor.com/pdf/B01.pdf",
@@ -62,10 +66,11 @@
     ]
   },
   {
+    "id": 5,
     "codigo": "B02",
     "nombre": "Spirulina Cápsulas",
     "descripcion": "Superalimento con proteínas, minerales y antioxidantes.",
-    "precio": "220 Bs",
+    "precio": "220",
     "imagen": "https://via.placeholder.com/800x600?text=Spirulina",
     "categoria": "Suplementos",
     "combo": false,
@@ -77,10 +82,11 @@
     ]
   },
   {
+    "id": 6,
     "codigo": "C01",
     "nombre": "Té Tianshi Antilipídico",
     "descripcion": "Té natural que ayuda a reducir lípidos y desintoxicar el organismo.",
-    "precio": "150 Bs",
+    "precio": "150",
     "imagen": "https://via.placeholder.com/800x600?text=Te+Antilipidico",
     "categoria": "Suplementos",
     "combo": false,
