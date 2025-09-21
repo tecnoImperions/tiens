@@ -865,12 +865,12 @@
     </div>
   </footer>
 
-  <!-- Modal Producto Mejorado -->
+  <!-- Modal Producto Mejorado (Solo para imágenes) -->
   <div class="modal fade" id="modalProducto" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Detalles del Producto</h5>
+          <h5 class="modal-title">Vista Previa del Producto</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body text-center">
@@ -897,6 +897,8 @@
     let productos = [];
     let columnas = 3;
 
+
+
     // Dark mode toggle
     const btnDark = document.getElementById('btnDark');
     const isDarkStored = localStorage.getItem('darkMode') === 'true';
@@ -920,7 +922,7 @@
       }
     });
 
-    // Cargar productos (usa tu archivo productos.json o los ejemplos)
+    // Cargar productos
     fetch('productos.json')
       .then(res => {
         if (!res.ok) throw new Error('Usando productos de ejemplo');
@@ -982,15 +984,7 @@
               <p class="card-text">${producto.descripcion || 'Producto de calidad TIENS para tu bienestar'}</p>
               <div class="precio">🇧🇴 ${producto.precio || 'Consultar'} ${producto.moneda || 'Bs'}</div>
               <div class="btn-group">
-                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProducto"
-                   data-id="${producto.id}"
-                   data-nombre="${producto.nombre}"
-                   data-codigo="${producto.codigo || 'N/A'}"
-                   data-descripcion="${producto.descripcion || 'Producto de calidad TIENS'}"
-                   data-precio="${producto.precio}"
-                   data-moneda="${producto.moneda || 'Bs'}"
-                   data-categoria="${producto.categoria || 'TIENS'}"
-                   data-imagen="${producto.imagen}">
+                <a href="producto.html?id=${producto.id}" class="btn btn-primary">
                   <i class="bi bi-eye"></i> Ver
                 </a>
                 <a href="https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}" 
@@ -1003,13 +997,13 @@
         contenedor.appendChild(div);
       });
 
-      // Eventos para modal
+      // Eventos para modal (solo para imágenes)
       document.querySelectorAll('[data-bs-toggle="modal"]').forEach(element => {
         element.addEventListener('click', () => abrirModal(element));
       });
     }
 
-    // Modal mejorado
+    // Modal mejorado (solo para vista previa de imágenes)
     function abrirModal(element) {
       const mensajeWhatsApp = `*SOLICITUD DE PRODUCTO - TIENS BOLIVIA* 🌿%0A%0A📋 *INFORMACIÓN DEL PRODUCTO:*%0A• Nombre: ${element.dataset.nombre}%0A• Código: ${element.dataset.codigo}%0A• Precio: ${element.dataset.precio} ${element.dataset.moneda}%0A• Categoría: ${element.dataset.categoria}%0A%0A🛍️ *CONSULTAS:*%0A• Disponibilidad del producto%0A• Información detallada%0A• Formas de pago disponibles%0A• Tiempo de entrega%0A%0A📍 *UBICACIÓN:* Santa Cruz, Bolivia%0A%0A¡Muchas gracias! Espero su pronta respuesta. 😊`;
       
