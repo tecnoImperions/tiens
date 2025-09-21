@@ -1,96 +1,864 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Detalle Producto</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-<style>
-body{background:#f8f9fa;font-family:Segoe UI,Roboto,Arial,sans-serif;}
-.navbar-tiends{background:#007F3E;}
-.navbar-brand{color:#F4B223!important;font-weight:700;}
-.back-btn{color:#F4B223;text-decoration:none;font-size:1.5rem;display:inline-flex;align-items:center;gap:.3rem;transition:color .2s;}
-.back-btn:hover{color:#ffc107;}
-.btn-product{
-  padding:.5rem 1rem;
-  font-weight:600;
-  border-radius:.3rem;
-  box-shadow:0 4px 8px rgba(0,0,0,.1);
-  transition:transform .1s, box-shadow .1s;
-}
-.btn-product:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,.15);}
-.btn-green{background:#007F3E;color:#fff;border:none;}
-.btn-green:hover{background:#005f2d;color:#fff;}
-.btn-yellow-outline{border:2px solid #F4B223;color:#F4B223;}
-.btn-yellow-outline:hover{background:#F4B223;color:#007F3E;}
-.price{font-size:1.4rem;font-weight:700;color:#F4B223;}
-.img-product{display:block;margin-left:auto;margin-right:auto;}
-</style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#2E8B57" id="theme-color"/>
+  <title>Producto - TIENS Bolivia</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --primario: #2E8B57;
+      --secundario: #20B2AA;
+      --dorado: #DAA520;
+      --fondo: #f8f9fa;
+      --texto: #2c3e50;
+      --blanco: #ffffff;
+      --gris-claro: #e9ecef;
+      --verde-claro: #f0f9f6;
+      --sombra: 0 2px 10px rgba(46, 139, 87, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar simple */
+    .navbar {
+      background: linear-gradient(135deg, var(--primario), var(--secundario)) !important;
+      box-shadow: var(--sombra);
+      padding: 0.8rem 0;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: white !important;
+      font-size: 1.4rem;
+    }
+
+    .navbar-brand i {
+      color: var(--dorado);
+      margin-right: 8px;
+    }
+
+    .back-btn {
+      color: rgba(255, 255, 255, 0.9) !important;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: white !important;
+    }
+
+    #btnDark {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 6px;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+      color: white;
+      transition: all 0.2s ease;
+    }
+
+    #btnDark:hover {
+      background: var(--dorado);
+      color: var(--primario) !important;
+    }
+
+    /* Breadcrumb simple */
+    .breadcrumb {
+      background: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+
+    .breadcrumb-item a {
+      color: var(--primario);
+      text-decoration: none;
+    }
+
+    .breadcrumb-item a:hover {
+      color: var(--dorado);
+    }
+
+    .breadcrumb-item.active {
+      color: var(--texto);
+    }
+
+    /* Container del producto */
+    .producto-container {
+      background: var(--blanco);
+      border-radius: 12px;
+      box-shadow: var(--sombra);
+      padding: 2rem;
+      margin: 1rem 0;
+    }
+
+    /* Imagen del producto */
+    .producto-img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: var(--sombra);
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.2s ease;
+    }
+
+    .producto-img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Información del producto */
+    .producto-titulo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primario);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .categoria-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--dorado);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .producto-codigo {
+      background: var(--gris-claro);
+      color: var(--primario);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .precio {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--dorado);
+      font-weight: 700;
+      font-size: 2.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .precio .flag {
+      font-size: 1.5rem;
+    }
+
+    .descripcion {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--texto);
+      margin: 1.5rem 0;
+    }
+
+    .descripcion-simple {
+      margin: 1.5rem 0;
+    }
+
+    .descripcion-simple h6 {
+      color: var(--primario);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .descripcion-simple p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--texto);
+      margin: 0;
+    }
+
+    /* Beneficios simples */
+    .beneficios-simple {
+      margin: 1.5rem 0;
+    }
+
+    .beneficios-simple h6 {
+      color: var(--primario);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .beneficios-simple ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .beneficios-simple li {
+      display: flex;
+      align-items: flex-start;
+      padding: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+
+    .beneficios-simple li i {
+      color: var(--primario);
+      margin-right: 0.5rem;
+      margin-top: 0.1rem;
+      flex-shrink: 0;
+    }
+
+    /* Botones profesionales */
+    .btn {
+      border-radius: 8px;
+      font-weight: 600;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      border: none;
+    }
+
+    .btn-success {
+      background: linear-gradient(135deg, #25d366, #20ba5a);
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: linear-gradient(135deg, #20ba5a, #25d366);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-primary {
+      border: 2px solid var(--dorado);
+      color: var(--dorado);
+      background: transparent;
+    }
+
+    .btn-outline-primary:hover {
+      background: var(--dorado);
+      color: white;
+      border-color: var(--dorado);
+    }
+
+    .btn-outline-secondary {
+      border: 2px solid var(--gris-claro);
+      color: var(--primario);
+      background: transparent;
+    }
+
+    .btn-outline-secondary:hover {
+      background: var(--primario);
+      color: white;
+      border-color: var(--primario);
+    }
+
+    .btn-primary {
+      background: var(--primario);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--secundario);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    /* Información adicional */
+    .info-adicional {
+      background: var(--verde-claro);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .info-adicional h6 {
+      color: var(--primario);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      padding: 0.4rem 0;
+      font-size: 0.9rem;
+    }
+
+    .info-item i {
+      color: var(--dorado);
+      width: 16px;
+      margin-right: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* Loader */
+    #loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
+      flex-direction: column;
+    }
+
+    .loader-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--gris-claro);
+      border-top: 3px solid var(--dorado);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    .loader-text {
+      margin-top: 1rem;
+      color: var(--primario);
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, var(--primario), var(--secundario));
+      color: white;
+      margin-top: auto;
+      padding: 1.5rem 0;
+    }
+
+    footer a {
+      color: var(--dorado) !important;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Modal */
+    .modal-content {
+      border: none;
+      border-radius: 12px;
+    }
+
+    #modalImagenSrc {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Error state */
+    .error-container {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--blanco);
+      border-radius: 12px;
+      box-shadow: var(--sombra);
+    }
+
+    .error-container i {
+      font-size: 3rem;
+      color: var(--gris-claro);
+      margin-bottom: 1rem;
+    }
+
+    .error-container h3 {
+      color: var(--primario);
+      margin-bottom: 1rem;
+    }
+
+    /* Dark mode */
+    body.dark {
+      background: #1a1a2e;
+      color: #e2e8f0;
+    }
+
+    .navbar.dark-mode {
+      background: linear-gradient(135deg, #1e293b, #334155) !important;
+    }
+
+    body.dark .producto-container {
+      background: #1e293b;
+      color: #e2e8f0;
+    }
+
+    body.dark .info-adicional {
+      background: rgba(46, 139, 87, 0.1);
+    }
+
+    body.dark .descripcion,
+    body.dark .beneficios-simple h6,
+    body.dark .info-adicional h6 {
+      color: #e2e8f0;
+    }
+
+    body.dark .breadcrumb-item.active {
+      color: #e2e8f0;
+    }
+
+    body.dark .error-container {
+      background: #1e293b;
+      color: #e2e8f0;
+    }
+
+    body.dark .modal-content {
+      background: #1e293b;
+    }
+
+    /* Animaciones */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .producto-titulo {
+        font-size: 1.5rem;
+      }
+      
+      .precio {
+        font-size: 1.8rem;
+        padding: 0.6rem 1rem;
+      }
+      
+      .producto-container {
+        padding: 1.5rem;
+      }
+      
+      .info-adicional {
+        padding: 1.2rem;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .producto-titulo {
+        font-size: 1.3rem;
+      }
+
+      .precio {
+        font-size: 1.6rem;
+      }
+
+      .producto-container {
+        padding: 1rem;
+      }
+
+      .descripcion {
+        padding-left: 0.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Navbar: TIENS Bolivia izquierda, Volver derecha -->
-<nav class="navbar navbar-tiends sticky-top">
-  <div class="container d-flex justify-content-between align-items-center">
-    <span class="navbar-brand fw-bold">TIENS Bolivia</span>
-    <a href="index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Volver</a>
+  <!-- Navbar -->
+  <nav class="navbar sticky-top">
+    <div class="container d-flex justify-content-between align-items-center">
+      <span class="navbar-brand">
+        <i class="bi bi-heart-pulse"></i>
+        TIENS Bolivia
+      </span>
+      
+      <div class="d-flex align-items-center gap-2">
+        <button id="btnDark" class="btn btn-sm">
+          <i class="bi bi-moon me-1"></i><span class="d-none d-sm-inline">Oscuro</span>
+        </button>
+        <a href="index.html" class="back-btn">
+          <i class="bi bi-arrow-left"></i>
+          <span class="d-none d-sm-inline">Volver</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="container my-4 flex-grow-1">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">
+            <i class="bi bi-house-door me-1"></i>Catálogo
+          </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Producto</li>
+      </ol>
+    </nav>
+
+    <!-- Loader -->
+    <div id="loader">
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Cargando producto...</div>
+    </div>
+
+    <!-- Contenido del producto -->
+    <div id="contenido" style="display:none;"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p class="mb-1">
+        <strong>TIENS Bolivia</strong> - Productos de salud y bienestar
+      </p>
+      <p class="mb-0 small">
+        <i class="bi bi-geo-alt me-1"></i>Santa Cruz, Bolivia |
+        <i class="bi bi-telephone me-1"></i><a href="tel:+59163488086">+591 63488086</a> |
+        <i class="bi bi-whatsapp me-1"></i><a href="https://wa.me/59163488086">WhatsApp</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Modal para imagen -->
+  <div class="modal fade" id="modalImagen" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" style="z-index: 10;"></button>
+          <img id="modalImagenSrc" src="" alt="">
+        </div>
+      </div>
+    </div>
   </div>
-</nav>
 
-<div class="container my-5" id="detalle"></div>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-const params = new URLSearchParams(location.search);
-const code = params.get('codigo');
-const detalle = document.getElementById('detalle');
+  <script>
+    let productoActual = null;
+    const numeroWhatsApp = '59163488086';
 
-fetch('productos.json')
-  .then(r => r.json())
-  .then(lista => {
-    const p = lista.find(x => x.codigo === code);
-    if (!p) {
-      detalle.innerHTML = "<p>Producto no encontrado</p>";
-      return;
+    // Dark mode
+    const btnDark = document.getElementById('btnDark');
+    const isDarkStored = localStorage.getItem('darkMode') === 'true';
+    
+    if (isDarkStored) {
+      document.body.classList.add('dark');
+      document.querySelector('.navbar').classList.add('dark-mode');
+      btnDark.innerHTML = '<i class="bi bi-sun me-1"></i><span class="d-none d-sm-inline">Claro</span>';
+    }
+    
+    btnDark.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark');
+      document.querySelector('.navbar').classList.toggle('dark-mode');
+      
+      localStorage.setItem('darkMode', isDark);
+      
+      if (isDark) {
+        btnDark.innerHTML = '<i class="bi bi-sun me-1"></i><span class="d-none d-sm-inline">Claro</span>';
+      } else {
+        btnDark.innerHTML = '<i class="bi bi-moon me-1"></i><span class="d-none d-sm-inline">Oscuro</span>';
+      }
+    });
+
+    // Función para abrir modal de imagen
+    function abrirModalImagen(src, alt) {
+      const modalImg = document.getElementById('modalImagenSrc');
+      const modal = document.getElementById('modalImagen');
+      
+      if (modalImg && modal) {
+        modalImg.src = src;
+        modalImg.alt = alt;
+        const bootstrapModal = new bootstrap.Modal(modal);
+        bootstrapModal.show();
+      }
     }
 
-    document.title = p.nombre + " - TIENS Bolivia";
+    // Función para crear mensaje de WhatsApp
+    function crearMensajeWhatsApp(producto) {
+      return `*SOLICITUD DE PRODUCTO - TIENS BOLIVIA*%0A%0A📋 *PRODUCTO:*%0A• ${encodeURIComponent(producto.nombre)}%0A• Código: ${encodeURIComponent(producto.codigo)}%0A• Precio: ${encodeURIComponent(producto.precio)} Bs%0A%0A🛍️ *CONSULTA:*%0A• Disponibilidad%0A• Información adicional%0A• Formas de pago%0A%0A📍 Santa Cruz, Bolivia%0A%0AGracias!`;
+    }
 
-    // Mensaje WhatsApp más amigable
-    const mensajeWhatsApp = `Hola 👋,%0A
-Estoy interesado en este producto de *TIENS Bolivia*:%0A
-*Nombre:* ${p.nombre}%0A
-*Código:* ${p.codigo}%0A
-*Precio:* ${p.precio}%0A
-Imagen: ${p.imagen}%0A
-Por favor, contáctenme para más información.`;
+    // Función principal para mostrar producto
+    function mostrarProducto(producto) {
+      productoActual = producto;
+      
+      document.title = `${producto.nombre} - TIENS Bolivia`;
+      
+      const breadcrumb = document.querySelector('.breadcrumb');
+      breadcrumb.innerHTML = `
+        <li class="breadcrumb-item">
+          <a href="index.html">
+            <i class="bi bi-house-door me-1"></i>Catálogo
+          </a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="index.html">${producto.categoria}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">${producto.nombre}</li>
+      `;
 
-    detalle.innerHTML = `
-      <div class="row g-4 align-items-center justify-content-center">
-        <div class="col-12 col-md-6 text-center">
-          <img src="${p.imagen}" class="img-fluid rounded shadow img-product" alt="${p.nombre}">
-        </div>
-        <div class="col-12 col-md-6 d-flex flex-column">
-          <h2 class="text-success">${p.nombre}</h2>
-          <p class="price mb-2">Precio: ${p.precio}</p>
-          <p>${p.descripcion}</p>
-          <h5 class="mt-4 text-success">Beneficios:</h5>
-          <ul>${p.beneficios.map(b => `<li>${b}</li>`).join('')}</ul>
-          <div class="mt-4 d-flex flex-wrap gap-2">
-            <a href="${p.pdf}" target="_blank" class="btn btn-product btn-yellow-outline">
-              <i class="bi bi-file-earmark-pdf"></i> PDF
-            </a>
-            <a href="https://wa.me/59163488086?text=${mensajeWhatsApp}" target="_blank" class="btn btn-product btn-green">
-              <i class="bi bi-whatsapp"></i> WhatsApp
-            </a>
-            ${p.video ? `<a href="${p.video}" target="_blank" class="btn btn-product btn-yellow-outline">
-              <i class="bi bi-play-circle"></i> Video</a>` : ''}
+      const mensajeWhatsApp = crearMensajeWhatsApp(producto);
+
+      const html = `
+        <div class="producto-container">
+          <div class="row g-4">
+            <div class="col-12 col-lg-6">
+              <div class="text-center">
+                <img src="${producto.imagen}" 
+                     alt="${producto.nombre}" 
+                     class="producto-img"
+                     id="imagenProducto"
+                     loading="lazy">
+              </div>
+            </div>
+            
+            <div class="col-12 col-lg-6">
+              <div class="categoria-badge">
+                <i class="bi bi-capsule"></i>
+                ${producto.categoria}
+              </div>
+              
+              <h1 class="producto-titulo">${producto.nombre}</h1>
+              
+              <div class="producto-codigo">
+                <i class="bi bi-hash me-1"></i>${producto.codigo}
+              </div>
+              
+              <div class="precio">
+                <span class="flag">🇧🇴</span>
+                <span>${producto.precio} Bs</span>
+              </div>
+              
+              <div class="descripcion-simple">
+                <h6>
+                  <i class="bi bi-info-circle"></i>
+                  Descripción
+                </h6>
+                <p>${producto.descripcion}</p>
+              </div>
+              
+              ${producto.beneficios && producto.beneficios.length > 0 ? `
+              <div class="beneficios-simple">
+                <h6>
+                  <i class="bi bi-check-circle"></i>
+                  Beneficios
+                </h6>
+                <ul>
+                  ${producto.beneficios.map(beneficio => `<li><i class="bi bi-check"></i>${beneficio}</li>`).join('')}
+                </ul>
+              </div>` : ''}
+              
+              <div class="d-grid gap-2 mt-4">
+                <a href="https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}" 
+                   target="_blank" 
+                   class="btn btn-success">
+                  <i class="bi bi-whatsapp me-2"></i>Pedir por WhatsApp
+                </a>
+                
+                <div class="row g-2">
+                  <div class="col">
+                    <a href="index.html" class="btn btn-outline-secondary w-100">
+                      <i class="bi bi-arrow-left me-1"></i>Catálogo
+                    </a>
+                  </div>
+                  <div class="col">
+                    <button type="button" 
+                            class="btn btn-outline-primary w-100"
+                            id="btnAmpliar">
+                      <i class="bi bi-zoom-in me-1"></i>Ampliar
+                    </button>
+                  </div>
+                </div>
+                
+                ${producto.pdf ? `
+                <div class="row g-2 mt-2">
+                  <div class="col">
+                    <a href="${producto.pdf}" target="_blank" class="btn btn-outline-primary w-100">
+                      <i class="bi bi-file-pdf me-1"></i>Información PDF
+                    </a>
+                  </div>
+                  ${producto.video ? `
+                  <div class="col">
+                    <a href="${producto.video}" target="_blank" class="btn btn-outline-primary w-100">
+                      <i class="bi bi-play-circle me-1"></i>Video
+                    </a>
+                  </div>` : ''}
+                </div>` : ''}
+              </div>
+            </div>
           </div>
         </div>
-      </div>`;
-  });
-</script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="info-adicional">
+          <h6><i class="bi bi-info-circle"></i>Información del Producto</h6>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="info-item">
+                <i class="bi bi-tag"></i>
+                <div><strong>Código:</strong> ${producto.codigo}</div>
+              </div>
+              <div class="info-item">
+                <i class="bi bi-capsule"></i>
+                <div><strong>Categoría:</strong> ${producto.categoria}</div>
+              </div>
+              <div class="info-item">
+                <i class="bi bi-currency-dollar"></i>
+                <div><strong>Precio:</strong> ${producto.precio} Bs</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-item">
+                <i class="bi bi-geo-alt"></i>
+                <div><strong>Ubicación:</strong> Santa Cruz, Bolivia</div>
+              </div>
+              <div class="info-item">
+                <i class="bi bi-shield-check"></i>
+                <div><strong>Calidad:</strong> Certificado TIENS</div>
+              </div>
+              <div class="info-item">
+                <i class="bi bi-truck"></i>
+                <div><strong>Entrega:</strong> Disponible</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <a href="index.html" class="btn btn-primary">
+            <i class="bi bi-arrow-left me-2"></i>Volver al Catálogo
+          </a>
+        </div>
+      `;
+      
+      document.getElementById('contenido').innerHTML = html;
+      
+      // Eventos
+      setTimeout(() => {
+        const imagenProducto = document.getElementById('imagenProducto');
+        if (imagenProducto) {
+          imagenProducto.addEventListener('click', () => {
+            abrirModalImagen(producto.imagen, producto.nombre);
+          });
+        }
+        
+        const btnAmpliar = document.getElementById('btnAmpliar');
+        if (btnAmpliar) {
+          btnAmpliar.addEventListener('click', () => {
+            abrirModalImagen(producto.imagen, producto.nombre);
+          });
+        }
+      }, 100);
+    }
+
+    // Inicializar
+    const params = new URLSearchParams(location.search);
+    const id = Number(params.get('id') || 0);
+
+    if (!id) {
+      setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('contenido').style.display = 'block';
+        document.getElementById('contenido').innerHTML = `
+          <div class="error-container">
+            <i class="bi bi-exclamation-triangle"></i>
+            <h3>Producto no especificado</h3>
+            <p class="text-muted">No se proporcionó un ID válido.</p>
+            <a href="index.html" class="btn btn-primary">
+              <i class="bi bi-arrow-left me-2"></i>Volver al Catálogo
+            </a>
+          </div>
+        `;
+      }, 500);
+    } else {
+      fetch('productos.json')
+        .then(response => response.json())
+        .then(productos => {
+          const producto = productos.find(p => p.id === id);
+          
+          setTimeout(() => {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('contenido').style.display = 'block';
+            
+            if (!producto) {
+              document.getElementById('contenido').innerHTML = `
+                <div class="error-container">
+                  <i class="bi bi-search"></i>
+                  <h3>Producto no encontrado</h3>
+                  <p class="text-muted">El producto con ID ${id} no existe.</p>
+                  <a href="index.html" class="btn btn-primary">
+                    <i class="bi bi-arrow-left me-2"></i>Volver al Catálogo
+                  </a>
+                </div>
+              `;
+            } else {
+              mostrarProducto(producto);
+            }
+          }, 600);
+        })
+        .catch(error => {
+          setTimeout(() => {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('contenido').style.display = 'block';
+            document.getElementById('contenido').innerHTML = `
+              <div class="error-container">
+                <i class="bi bi-wifi-off"></i>
+                <h3>Error de conexión</h3>
+                <p class="text-muted">No se pudo cargar el producto.</p>
+                <button onclick="location.reload()" class="btn btn-primary me-2">
+                  <i class="bi bi-arrow-clockwise me-2"></i>Reintentar
+                </button>
+                <a href="index.html" class="btn btn-outline-secondary">
+                  <i class="bi bi-arrow-left me-2"></i>Catálogo
+                </a>
+              </div>
+            `;
+          }, 500);
+        });
+    }
+
+    // Manejo de errores de imagen
+    document.addEventListener('error', e => {
+      if (e.target.tagName === 'IMG') {
+        e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"%3E%3Crect width="300" height="300" fill="%23f0f9f6"/%3E%3Ctext x="50%" y="45%" dominant-baseline="central" text-anchor="middle" fill="%232E8B57" font-family="Inter, sans-serif" font-size="16"%3ETIENS Bolivia%3C/text%3E%3Ctext x="50%" y="60%" dominant-baseline="central" text-anchor="middle" fill="%23adb5bd" font-family="Inter, sans-serif" font-size="12"%3EImagen no disponible%3C/text%3E%3C/svg%3E';
+      }
+    }, true);
+  </script>
 </body>
 </html>
