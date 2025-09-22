@@ -195,7 +195,7 @@
     "nombre": "Suplemento de Zinc",
     "descripcion": "Mejora defensas, apoya piel, cabello y salud hormonal.",
     "precio": "135,20",
-    "imagen": "",
+    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758575746/A13_omvbut.png",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1xIfEwy_3iFDJhDSnU9IXXy_eyEpQvmpC/view?usp=drive_link",
@@ -441,6 +441,7 @@
 
 
 ]
+
 
 
 
