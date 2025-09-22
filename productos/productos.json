@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "codigo": "AN-PL-001",
+    "codigo": "A01",
     "nombre": "Calcio Nutritivo en Polvo",
     "descripcion": "Suplemento alimenticio que fortalece huesos, dientes y mejora el metabolismo.",
-    "precio": "300",
+    "precio": "196,30",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A01_bdsrbc.webp",
     "categoria": "Suplementos",
     "combo": false,
@@ -21,35 +21,40 @@
   {
     "id": 2,
     "codigo": "A02",
-    "nombre": "Viokal Plus",
-    "descripcion": "Mayor concentración de zinc, ideal para piel, cabello y uñas.",
-    "precio": "300",
-    "imagen": "https://www.tienslar.com/storage/productos/September2023/wglqPchnC7UZZudc4tB1.webp",
+    "nombre": "Calcio Dietético en Polvo",
+    "descripcion": "Nuestra fórmula avanzada, con calcio, vitamina D y calabaza en polvo, fortalece huesos y dientes, apoya la función nerviosa y muscular, y ayuda a regular el azúcar en sangre.",
+    "precio": "258,05",
+    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A02_hdsrbc.webp",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "https://tuservidor.com/pdf/A02.pdf",
+    "pdf": "https://drive.google.com/file/d/1r9s7szOZiguxw6qhc5P5dSD3wD-2SrCi/view?usp=sharing",
     "beneficios": [
-      "Aporta zinc de alta biodisponibilidad",
-      "Fortalece uñas y cabello",
-      "Apoya la salud de la piel"
+      "Ayuda a regular el azúcar en sangre",
+      "Fortalece huesos y dientes",
+      "Apoya la función nerviosa y muscular",
+      "Refuerza el sistema inmunológico",
+      "Favorece la digestión por su fibra"
     ],
     "video": "https://www.youtube.com/watch?v=VIDEO_A02"
   },
   {
     "id": 3,
-    "codigo": "A03",
-    "nombre": "Viokal Diet",
-    "descripcion": "Ayuda en el control de peso y regula niveles de glucosa.",
-    "precio": "275",
-    "imagen": "AN-PL-001.png",
+    "codigo": "AN-PL-003",
+    "nombre": "Calcio para Niños",
+    "descripcion": "Fórmula avanzada con calcio, vitamina D y nutrientes esenciales que apoyan el crecimiento infantil, fortalecen huesos y dientes y refuerzan el sistema inmunológico.",
+    "precio": "280",
+    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A03_ndsrbc.webp",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "https://tuservidor.com/pdf/A03.pdf",
+    "pdf": "https://drive.google.com/file/d/1r9s7szOZiguxw6qhc5P5dSD3wD-2SrCi/view?usp=sharing",
     "beneficios": [
-      "Controla el apetito",
-      "Apoya el equilibrio de glucosa",
-      "Promueve bienestar general"
-    ]
+      "Favorece el desarrollo de huesos y dientes",
+      "Contribuye al crecimiento infantil",
+      "Apoya el sistema nervioso y la función cerebral",
+      "Refuerza el sistema inmunológico",
+      "Apoya una nutrición equilibrada"
+    ],
+    "video": "https://www.youtube.com/watch?v=VIDEO_A03"
   },
   {
     "id": 4,
@@ -100,4 +105,5 @@
     ]
   }
 ]
+
 
