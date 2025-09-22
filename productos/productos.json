@@ -198,7 +198,7 @@
     "imagen": "",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "",
+    "pdf": "https://drive.google.com/file/d/1xIfEwy_3iFDJhDSnU9IXXy_eyEpQvmpC/view?usp=drive_link",
     "beneficios": [
       "Mejora funciones cognitivas",
       "Estimula apetito y controla ansiedad",
@@ -217,7 +217,7 @@
     "imagen": "",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "",
+    "pdf": "https://drive.google.com/file/d/1KCp1DX-A2_oSLat7_lHdbaZRVLMZKmTz/view?usp=drive_link",
     "beneficios": [
       "Previene úlceras y gastritis",
       "Protege de gastroenteritis",
@@ -236,7 +236,7 @@
     "imagen": "",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "",
+    "pdf": "https://drive.google.com/file/d/1_rvPLCMSJIWIp8OSYoWXXBvoNCxKYESD/view?usp=drive_link",
     "beneficios": [
       "Acelera el metabolismo",
       "Ayuda a perder peso",
@@ -255,7 +255,7 @@
     "imagen": "",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "",
+    "pdf": "https://drive.google.com/file/d/1CKMWKeIXXGsuP7tP-at-Rb8piZhVXN1D/view?usp=drive_link",
     "beneficios": [
       "Mejora memoria y función cerebral",
       "Protege neuronas",
@@ -274,7 +274,7 @@
     "imagen": "",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "",
+    "pdf": "https://drive.google.com/file/d/1xSotf36xhkFnlB2t5SvzCVZb3q4Mvo0-/view?usp=drive_link",
     "beneficios": [
       "Estimula formación y reparación del cartílago",
       "Reduce dolor y rigidez por osteoartritis",
@@ -293,7 +293,7 @@
     "imagen": "",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "",
+    "pdf": "https://drive.google.com/file/d/16fQS_D18LY4fRkHjR7bvMtHDD00SrZnr/view?usp=drive_link",
     "beneficios": [
       "Protege células del daño oxidativo",
       "Contribuye a la salud cardiovascular",
@@ -312,7 +312,7 @@
     "imagen": "",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "",
+    "pdf": "https://drive.google.com/file/d/1Hyuun-awjvoIGmHppIcheEeei5A6DF6b/view?usp=drive_link",
     "beneficios": [
       "Mejora tránsito intestinal",
       "Alivia el estreñimiento",
@@ -331,7 +331,7 @@
     "imagen": "",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "",
+    "pdf": "https://drive.google.com/file/d/1ZQRUK40_NwXzuFrpYT4cF0Qs5UDs9RvC/view?usp=drive_link",
     "beneficios": [
       "Estimula concentración y reduce fatiga",
       "Mejora el estado de ánimo",
@@ -350,7 +350,7 @@
     "imagen": "",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "",
+    "pdf": "https://drive.google.com/file/d/1A6s8mUxrtkz4F3Fg8XPr595zRMgeg7N-/view?usp=drive_link",
     "beneficios": [
       "Mejora el tránsito intestinal",
       "Refuerza la flora intestinal",
@@ -369,7 +369,7 @@
     "imagen": "",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "",
+    "pdf": "https://drive.google.com/file/d/1iWgdhnqwvOUnJN61jmJiazPMbCCmxqxb/view?usp=drive_link",
     "beneficios": [
       "Alimenta bacterias saludables del intestino",
       "Mejora la digestión",
@@ -388,7 +388,7 @@
     "imagen": "",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "",
+    "pdf": "https://drive.google.com/file/d/1xe0MLhIN_8pKZ1yIy-5DzDbd05CLdjzp/view?usp=drive_link",
     "beneficios": [
       "Aumenta la inmunidad",
       "Reduce fatiga y agotamiento",
@@ -407,7 +407,7 @@
     "imagen": "",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "",
+    "pdf": "https://drive.google.com/file/d/1zpxTnNHa3kuiOA4YtY5V152m1Uv4_zxn/view?usp=drive_link",
     "beneficios": [
       "Estimula la producción de colágeno para piel joven",
       "Fortalece huesos, músculos y articulaciones",
@@ -426,7 +426,7 @@
     "imagen": "",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "",
+    "pdf": "https://drive.google.com/file/d/1F-koSR_DqWa1oieO-F8z_iREPaedalk7/view?usp=drive_link",
     "beneficios": [
       "Ayuda en formación de células y tejidos",
       "Fortalece cabello y uñas",
@@ -441,5 +441,6 @@
 
 
 ]
+
 
 
