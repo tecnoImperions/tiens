@@ -3,7 +3,7 @@
     "id": 1,
     "codigo": "A01",
     "nombre": "Calcio Nutritivo en Polvo",
-    "descripcion": "Suplemento alimenticio que fortalece huesos, dientes y mejora el metabolismo.",
+    "descripcion": "Fortalece huesos, dientes y mejora el metabolismo.",
     "precio": "196,30",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A01_bdsrbc.webp",
     "categoria": "Suplementos",
@@ -11,10 +11,10 @@
     "pdf": "https://drive.google.com/file/d/1r9s7szOZiguxw6qhc5P5dSD3wD-2SrCi/view?usp=sharing",
     "beneficios": [
       "Fortalece huesos y dientes",
-      "Ayuda a prevenir la osteoporosis",
-      "Apoya la función muscular y cardíaca",
-      "Contribuye a la transmisión nerviosa",
-      "Mejora la absorción con Vitamina D"
+      "Previene osteoporosis",
+      "Apoya músculos y corazón",
+      "Mejora funciones nerviosas",
+      "Absorción con Vitamina D"
     ],
     "video": "https://www.youtube.com/watch?v=VIDEO_A01"
   },
@@ -22,18 +22,18 @@
     "id": 2,
     "codigo": "A02",
     "nombre": "Calcio Dietético en Polvo",
-    "descripcion": "Fortalece huesos y dientes, apoya músculos y nervios, y ayuda a regular el azúcar en sangre.",
-    "precio": "350",
+    "descripcion": "Cuida huesos, músculos y regula el azúcar.",
+    "precio": "258,05",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A02_hdsrbc.webp",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1r9s7szOZiguxw6qhc5P5dSD3wD-2SrCi/view?usp=sharing",
     "beneficios": [
-      "Ayuda a regular el azúcar en sangre",
-      "Fortalece huesos y dientes",
-      "Apoya la función nerviosa y muscular",
-      "Refuerza el sistema inmunológico",
-      "Favorece la digestión por su fibra"
+      "Regula el azúcar",
+      "Fortalece huesos",
+      "Apoya nervios y músculos",
+      "Refuerza defensas",
+      "Mejora la digestión"
     ],
     "video": "https://www.youtube.com/watch?v=VIDEO_A02"
   },
@@ -41,18 +41,18 @@
     "id": 3,
     "codigo": "A03",
     "nombre": "Calcio para Niños",
-    "descripcion": "Apoya el crecimiento infantil, fortalece huesos y dientes y refuerza defensas con un sabor delicioso.",
+    "descripcion": "Ayuda al crecimiento y refuerza defensas.",
     "precio": "196,30",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A03_ndsrbc.webp",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1r9s7szOZiguxw6qhc5P5dSD3wD-2SrCi/view?usp=sharing",
     "beneficios": [
-      "Favorece el desarrollo de huesos y dientes",
-      "Contribuye al crecimiento infantil",
-      "Apoya el sistema nervioso y la función cerebral",
-      "Refuerza el sistema inmunológico",
-      "Apoya una nutrición equilibrada"
+      "Fortalece huesos y dientes",
+      "Apoya el crecimiento",
+      "Mejora funciones cerebrales",
+      "Refuerza defensas",
+      "Nutrición completa"
     ],
     "video": "https://www.youtube.com/watch?v=VIDEO_A03"
   },
@@ -60,18 +60,18 @@
     "id": 4,
     "codigo": "A05",
     "nombre": "Té Tianshi",
-    "descripcion": "Mejora la digestión, ayuda a controlar el peso y favorece la salud general con su mezcla de hierbas naturales.",
+    "descripcion": "Mejora la digestión y ayuda a controlar el peso.",
     "precio": "196,30",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A04_tdsrbc.webp",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1r9s7szOZiguxw6qhc5P5dSD3wD-2SrCi/view?usp=sharing",
     "beneficios": [
-      "Favorece la digestión y el metabolismo",
-      "Ayuda a reducir colesterol y triglicéridos",
-      "Contribuye a la desintoxicación hepática",
-      "Apoya la circulación y previene problemas venosos",
-      "Tiene efecto relajante y ayuda a manejar el estrés"
+      "Ayuda a la digestión",
+      "Baja colesterol",
+      "Limpia el hígado",
+      "Mejora la circulación",
+      "Relaja el cuerpo"
     ],
     "video": "https://www.youtube.com/watch?v=VIDEO_A04"
   },
@@ -79,39 +79,95 @@
     "id": 5,
     "codigo": "A06",
     "nombre": "Cápsula de Cordyceps",
-    "descripcion": "Potencia la energía y vitalidad, refuerza defensas y apoya la salud renal, hepática y respiratoria.",
+    "descripcion": "Mejora la energía, defensas y salud general.",
     "precio": "417,95",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A06_cdsrbc.webp",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1r9s7szOZiguxw6qhc5P5dSD3wD-2SrCi/view?usp=sharing",
     "beneficios": [
-      "Apoya la función respiratoria en casos leves de asma y bronquitis",
-      "Favorece la función renal y hepática",
-      "Refuerza el sistema inmunológico",
-      "Mejora la energía y la vitalidad",
-      "Contribuye al equilibrio hormonal y resistencia física"
+      "Mejora respiración",
+      "Apoya riñones e hígado",
+      "Refuerza defensas",
+      "Da energía y vitalidad",
+      "Equilibra hormonas"
     ],
     "video": "https://www.youtube.com/watch?v=VIDEO_A06"
   },
   {
     "id": 6,
-    "codigo": "C01",
-    "nombre": "Té Tianshi Antilipídico",
-    "descripcion": "Té natural que ayuda a reducir lípidos y desintoxicar el organismo.",
-    "precio": "150",
-    "imagen": "https://via.placeholder.com/800x600?text=Te+Antilipidico",
+    "codigo": "A07",
+    "nombre": "Cápsula de Chitosa",
+    "descripcion": "Ayuda a bajar de peso y mejora la digestión.",
+    "precio": "423,80",
+    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A07_chsrbc.webp",
     "categoria": "Suplementos",
     "combo": false,
-    "pdf": "https://tuservidor.com/pdf/C01.pdf",
+    "pdf": "https://drive.google.com/file/d/1r9s7szOZiguxw6qhc5P5dSD3wD-2SrCi/view?usp=sharing",
     "beneficios": [
-      "Apoya la reducción de lípidos",
-      "Favorece la desintoxicación",
-      "Contribuye al bienestar digestivo"
-    ]
+      "Captura la grasa",
+      "Baja el colesterol",
+      "Cuida el estómago",
+      "Mejora la digestión",
+      "Evita el estreñimiento"
+    ],
+    "video": "https://www.youtube.com/watch?v=VIDEO_A07"
+  },
+  {
+    "id": 7,
+    "codigo": "A08",
+    "nombre": "Cápsulas de Espirulina",
+    "descripcion": "Proteína vegetal que mejora defensas y ayuda contra la anemia.",
+    "precio": "288,60",
+    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A08_spsrbc.webp",
+    "categoria": "Suplementos",
+    "combo": false,
+    "pdf": "https://drive.google.com/file/d/1r9s7szOZiguxw6qhc5P5dSD3wD-2SrCi/view?usp=sharing",
+    "beneficios": [
+      "Aporta proteínas y hierro",
+      "Previene la anemia",
+      "Refuerza defensas",
+      "Apoya nutrición y crecimiento",
+      "Tiene antioxidantes"
+    ],
+    "video": "https://www.youtube.com/watch?v=VIDEO_A08"
+  },
+  {
+    "id": 8,
+    "codigo": "A09",
+    "nombre": "Cápsulas Revitalizantes",
+    "descripcion": "Cuida el corazón, protege tus células y retrasa el envejecimiento.",
+    "precio": "466,70",
+    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A09_rvsrbc.webp",
+    "categoria": "Suplementos",
+    "combo": false,
+    "pdf": "https://drive.google.com/file/d/1r9s7szOZiguxw6qhc5P5dSD3wD-2SrCi/view?usp=sharing",
+    "beneficios": [
+      "Mejora la salud del corazón",
+      "Baja colesterol y triglicéridos",
+      "Es antioxidante y antiinflamatorio",
+      "Refuerza defensas",
+      "Previene el envejecimiento"
+    ],
+    "video": "https://www.youtube.com/watch?v=VIDEO_A09"
+  },
+  {
+    "id": 9,
+    "codigo": "A10",
+    "nombre": "Cápsula de Jiaogulan Plus",
+    "descripcion": "Antioxidante natural que previene el envejecimiento y apoya tu energía y salud interna.",
+    "precio": "374,40",
+    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A09_rvsrbc.webp",
+    "categoria": "Suplementos",
+    "combo": false,
+    "pdf": "https://drive.google.com/file/d/1r9s7szOZiguxw6qhc5P5dSD3wD-2SrCi/view?usp=sharing",
+    "beneficios": [
+      "Reduce el colesterol",
+      "Controla el azúcar en sangre",
+      "Protege el corazón",
+      "Refuerza defensas",
+      "Combate el envejecimiento"
+    ],
+    "video": "https://www.youtube.com/watch?v=VIDEO_A10"
   }
 ]
-
-
-
-
