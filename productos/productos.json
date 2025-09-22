@@ -138,7 +138,7 @@
     "nombre": "Cápsulas Revitalizantes",
     "descripcion": "Cuida el corazón, protege tus células y retrasa el envejecimiento.",
     "precio": "466,70",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758572043/A09_weojzl.png",
+    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758574116/A09_lerawx.png",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1h387TXUhuc9Gn7macwpfzBzohgFAk6a6/view?usp=drive_link",
@@ -176,7 +176,7 @@
     "nombre": "Tocolecic Cápsulas",
     "descripcion": "Mejora la energía, protege el corazón y cuida la piel.",
     "precio": "356,20",
-    "imagen": "",
+    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758574180/A11_m9txub.png",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1cItEgpUwxbXILYI_2Z5SMTS7w5MT1Rsa/view?usp=drive_link",
@@ -441,6 +441,7 @@
 
 
 ]
+
 
 
 
