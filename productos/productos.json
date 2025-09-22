@@ -138,7 +138,7 @@
     "nombre": "Cápsulas Revitalizantes",
     "descripcion": "Cuida el corazón, protege tus células y retrasa el envejecimiento.",
     "precio": "466,70",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758570666/A09_n44hvs.png",
+    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758572043/A09_weojzl.png",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1h387TXUhuc9Gn7macwpfzBzohgFAk6a6/view?usp=drive_link",
@@ -157,7 +157,7 @@
     "nombre": "Cápsula de Jiaogulan Plus",
     "descripcion": "Antioxidante natural que previene el envejecimiento y apoya tu energía y salud interna.",
     "precio": "374,40",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758392167/A09_rvsrbc.webp",
+    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758572043/A10_b2klq1.png",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1Pu9QpyVRIHXcz968w5t88d9BhfyEYbHP/view?usp=drive_link",
@@ -441,6 +441,7 @@
 
 
 ]
+
 
 
 
