@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="https://res.cloudinary.com/dv6d41ect/image/upload/v1758394790/Tiens-old-Logo_y8y5sc.png"/>
+      <square150x150logo src="https://res.cloudinary.com/dv6d41ect/image/upload/v1758394790/Tiens-old-Logo_y8y5sc.png"/>
+      <square310x310logo src="https://res.cloudinary.com/dv6d41ect/image/upload/v1758394790/Tiens-old-Logo_y8y5sc.png"/>
+      <wide310x150logo src="https://res.cloudinary.com/dv6d41ect/image/upload/v1758394790/Tiens-old-Logo_y8y5sc.png"/>
+      <TileColor>#2E8B57</TileColor>
+    </tile>
+  </msapplication>
+</browserconfig>

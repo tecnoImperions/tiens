@@ -1,0 +1,25 @@
+{
+  "name": "TIENS Bolivia - Productos de Salud",
+  "short_name": "TIENS Bolivia",
+  "description": "Catálogo oficial de productos TIENS en Bolivia. Suplementos, equipos de salud, productos de belleza y cuidado personal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fffe",
+  "theme_color": "#2E8B57",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758394790/Tiens-old-Logo_y8y5sc.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758394790/Tiens-old-Logo_y8y5sc.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+}
