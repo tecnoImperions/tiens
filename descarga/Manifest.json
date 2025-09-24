@@ -9,14 +9,15 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758394790/Tiens-old-Logo_y8y5sc.png",
+      "src": "https://assets.berty.tech/files/favicon_berty--android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758394790/Tiens-old-Logo_y8y5sc.png",
+      "src": "https://assets.berty.tech/files/favicon_berty--android-chrome-192x192.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable any"
     }
   ],
   "lang": "es"
