@@ -15,15 +15,15 @@
 
   <style>
     :root {
-      --primario: #2E8B57;      /* Verde mar más suave */
-      --secundario: #20B2AA;    /* Verde azulado claro */
-      --dorado: #DAA520;        /* Dorado más suave */
-      --dorado-claro: #F0E68C;  /* Dorado muy claro */
-      --fondo: #f8fffe;         /* Fondo muy claro con toque verde */
-      --texto: #2c3e50;         /* Azul grisáceo suave */
+      --primario: #2E8B57;
+      --secundario: #20B2AA;
+      --dorado: #DAA520;
+      --dorado-claro: #F0E68C;
+      --fondo: #f8fffe;
+      --texto: #2c3e50;
       --blanco: #ffffff;
-      --gris-claro: #e8f5f3;    /* Gris con toque verde */
-      --verde-claro: #f0f9f6;   /* Verde muy claro */
+      --gris-claro: #e8f5f3;
+      --verde-claro: #f0f9f6;
       --sombra: 0 2px 15px rgba(46, 139, 87, 0.08);
       --sombra-hover: 0 8px 25px rgba(46, 139, 87, 0.12);
       --transicion: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -40,22 +40,26 @@
       line-height: 1.6;
       font-weight: 400;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* Navbar suave y elegante */
+    /* ======================
+       NAVBAR RESPONSIVO
+       ====================== */
     .navbar {
       background: linear-gradient(135deg, var(--primario) 0%, var(--secundario) 100%) !important;
       box-shadow: var(--sombra);
       backdrop-filter: blur(15px);
       transition: var(--transicion);
-      padding: 0.8rem 0;
+      padding: 0.75rem 0;
     }
 
     .navbar-brand {
       font-weight: 700;
       color: white !important;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       transition: var(--transicion);
+      white-space: nowrap;
     }
 
     .navbar-brand:hover {
@@ -68,13 +72,21 @@
       filter: drop-shadow(0 0 3px rgba(218, 165, 32, 0.4));
     }
 
+    /* Navbar en móvil */
+    .navbar-nav {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
     .navbar .nav-link {
       color: rgba(255, 255, 255, 0.92) !important;
       font-weight: 500;
       transition: var(--transicion);
-      margin: 0 0.3rem;
+      margin: 0.2rem 0;
       border-radius: 8px;
-      padding: 0.5rem 0.8rem !important;
+      padding: 0.6rem 1rem !important;
     }
 
     .navbar .nav-link:hover {
@@ -82,89 +94,102 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
-    /* Botón modo oscuro suave */
-    #btnDark {
+    .navbar-toggler {
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      padding: 0.3rem 0.5rem;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.25);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+    }
+
+    /* Controles superiores */
+    .navbar-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: nowrap;
+    }
+
+    #btnDark,
+    .cart-btn {
       background: rgba(255, 255, 255, 0.15);
       border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 20px;
-      padding: 0.4rem 0.8rem;
+      border-radius: 10px;
+      padding: 0.4rem 0.7rem;
       font-size: 0.85rem;
       transition: var(--transicion);
       color: white;
+      position: relative;
+      white-space: nowrap;
+      min-width: 44px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    #btnDark:hover {
+    #btnDark:hover,
+    .cart-btn:hover {
       background: var(--dorado);
       color: var(--primario) !important;
       transform: translateY(-1px);
       border-color: var(--dorado);
     }
 
-    .navbar-toggler {
-      border: none;
-      border-radius: 8px;
+    .cart-btn i {
+      animation: bounce 2s infinite;
     }
 
-    .navbar-toggler:focus {
-      box-shadow: none;
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #dc3545;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 2px 8px rgba(220, 53, 69, 0.4);
+      z-index: 10;
     }
 
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
-    }
-
-    /* Dropdowns suaves */
-    .dropdown-menu {
-      background: var(--blanco);
-      border: none;
-      border-radius: 12px;
-      box-shadow: var(--sombra);
-      padding: 0.8rem;
-      animation: fadeInUp 0.3s ease;
-    }
-
-    .dropdown-item {
-      border-radius: 8px;
-      padding: 0.6rem 0.8rem;
-      font-weight: 500;
-      transition: var(--transicion);
-      margin: 0.2rem 0;
-      color: var(--texto);
-    }
-
-    .dropdown-item:hover {
-      background: linear-gradient(135deg, var(--verde-claro), var(--gris-claro));
-      color: var(--primario);
-      transform: translateX(2px);
-    }
-
-    .dropdown-item i {
-      width: 18px;
-      margin-right: 8px;
-      color: var(--primario);
-    }
-
-    /* Buscador elegante */
+    /* Buscador responsivo */
     .search-container {
       position: relative;
-      min-width: 280px;
+      width: 100%;
+      max-width: 300px;
+      margin-top: 0.5rem;
     }
 
     #buscador {
       border: 2px solid rgba(255, 255, 255, 0.25);
       border-radius: 25px;
-      padding: 0.6rem 1rem 0.6rem 2.8rem;
+      padding: 0.65rem 1rem 0.65rem 2.8rem;
       background: rgba(255, 255, 255, 0.95);
       transition: var(--transicion);
       font-weight: 500;
       width: 100%;
       color: var(--texto);
+      font-size: 0.95rem;
     }
 
     #buscador:focus {
       border-color: var(--dorado);
       box-shadow: 0 0 0 0.15rem rgba(218, 165, 32, 0.25);
       background: var(--blanco);
+      outline: none;
     }
 
     #buscador::placeholder {
@@ -178,15 +203,53 @@
       transform: translateY(-50%);
       color: #7a8b9a;
       z-index: 2;
+      font-size: 1rem;
     }
 
     #buscador:focus + .search-icon {
       color: var(--dorado);
     }
 
-    /* Título principal elegante */
+    /* Dropdowns */
+    .dropdown-menu {
+      background: var(--blanco);
+      border: none;
+      border-radius: 12px;
+      box-shadow: var(--sombra);
+      padding: 0.8rem;
+      animation: fadeInUp 0.3s ease;
+      min-width: 200px;
+    }
+
+    .dropdown-item {
+      border-radius: 8px;
+      padding: 0.7rem 1rem;
+      font-weight: 500;
+      transition: var(--transicion);
+      margin: 0.2rem 0;
+      color: var(--texto);
+      display: flex;
+      align-items: center;
+    }
+
+    .dropdown-item:hover {
+      background: linear-gradient(135deg, var(--verde-claro), var(--gris-claro));
+      color: var(--primario);
+      transform: translateX(2px);
+    }
+
+    .dropdown-item i {
+      width: 20px;
+      margin-right: 10px;
+      color: var(--primario);
+      font-size: 0.95rem;
+    }
+
+    /* ======================
+       CONTENIDO PRINCIPAL
+       ====================== */
     .hero-title {
-      font-size: 2.2rem;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
       font-weight: 700;
       text-align: center;
       margin: 2rem 0;
@@ -194,9 +257,10 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      line-height: 1.2;
     }
 
-    /* Loader suave */
+    /* Loader */
     #loader {
       display: flex;
       justify-content: center;
@@ -220,7 +284,9 @@
       font-weight: 500;
     }
 
-    /* Cards de productos elegantes */
+    /* ======================
+       CARDS DE PRODUCTOS
+       ====================== */
     .producto .card {
       border: none;
       border-radius: 16px;
@@ -232,144 +298,152 @@
       position: relative;
     }
 
-    .producto .card:hover {
-      transform: translateY(-3px);
+    .produto .card:hover {
+      transform: translateY(-4px);
       box-shadow: var(--sombra-hover);
     }
 
-    .producto .card::before {
+    .produto .card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 2px;
+      height: 3px;
       background: linear-gradient(90deg, var(--primario), var(--dorado));
       transform: scaleX(0);
       transition: var(--transicion);
       z-index: 1;
     }
 
-    .producto .card:hover::before {
+    .produto .card:hover::before {
       transform: scaleX(1);
     }
 
-    /* IMÁGENES RESPONSIVAS MEJORADAS */
-    .producto img {
-      aspect-ratio: 1/1;
+    /* Contenedor de imagen responsivo */
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+
+    .produto img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       cursor: pointer;
       transition: var(--transicion);
-      width: 100%;
-      height: auto;
-      min-height: 250px;
     }
 
-    .producto .card:hover img {
-      transform: scale(1.02);
+    .produto .card:hover img {
+      transform: scale(1.05);
     }
 
-    /* Responsive para imágenes */
-    @media (max-width: 576px) {
-      .producto img {
-        min-height: 200px;
-        aspect-ratio: 1/1;
-      }
+    /* Badges y etiquetas */
+    .categoria-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: linear-gradient(135deg, var(--dorado), var(--dorado-claro));
+      color: var(--primario);
+      padding: 0.3rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(218, 165, 32, 0.3);
+      max-width: calc(100% - 80px);
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
     }
 
-    @media (min-width: 577px) and (max-width: 768px) {
-      .producto img {
-        min-height: 220px;
-        aspect-ratio: 1/1;
-      }
+    .codigo-producto {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(46, 139, 87, 0.9);
+      color: white;
+      padding: 0.3rem 0.6rem;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
-    @media (min-width: 769px) and (max-width: 992px) {
-      .producto img {
-        min-height: 240px;
-        aspect-ratio: 1/1;
-      }
-    }
-
-    @media (min-width: 993px) {
-      .producto img {
-        min-height: 260px;
-        aspect-ratio: 1/1;
-      }
-    }
-
+    /* Contenido de las cards */
     .card-title {
       font-weight: 600;
       color: var(--primario);
       margin-bottom: 0.8rem;
-      font-size: 1.05rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
       min-height: 2.4rem;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-align: center;
+      line-height: 1.3;
     }
 
     .card-text {
-      font-size: 0.9rem;
+      font-size: clamp(0.85rem, 2vw, 0.9rem);
       color: #64748b;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
       flex-grow: 1;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-align: center;
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
-    /* PRECIO CON BANDERA DE BOLIVIA */
     .precio {
       color: var(--dorado);
       font-weight: 700;
-      font-size: 1.4rem;
-      margin-bottom: 1.2rem;
+      font-size: clamp(1.2rem, 3vw, 1.4rem);
+      margin-bottom: 1rem;
       text-align: center;
       background: linear-gradient(135deg, var(--verde-claro), var(--gris-claro));
-      padding: 0.5rem;
+      padding: 0.6rem;
       border-radius: 10px;
     }
 
-    /* Código del producto centrado */
-    .codigo-producto {
-      background: linear-gradient(135deg, var(--gris-claro), #f1f8f5);
-      color: var(--texto);
-      padding: 0.3rem 0.6rem;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      display: inline-block;
-      margin-bottom: 0.6rem;
-    }
-
     .card-body {
-      padding: 1.5rem;
+      padding: clamp(1rem, 3vw, 1.5rem);
       text-align: center;
       display: flex;
       flex-direction: column;
     }
 
-    /* BOTONES ESTILO JOYERÍA CON COLORES DE SALUD */
+    /* Botones responsivos */
     .btn-group {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.4rem;
       justify-content: center;
       margin-top: auto;
+      flex-wrap: wrap;
     }
 
     .btn {
-      border-radius: 20px;
+      border-radius: 18px;
       font-weight: 500;
-      padding: 8px 16px;
+      padding: 0.5rem 0.8rem;
       transition: var(--transicion);
-      font-size: 0.9rem;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
       text-decoration: none;
+      flex: 1;
+      min-width: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    .btn i {
+      font-size: 0.9em;
     }
 
     .btn-primary {
@@ -380,7 +454,7 @@
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3);
+      box-shadow: 0 4px 12px rgba(46, 139, 87, 0.3);
       background: linear-gradient(135deg, var(--secundario), var(--primario));
       color: white;
     }
@@ -393,78 +467,353 @@
 
     .btn-success:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
       color: white;
     }
 
-    /* Modal más largo y mejorado */
+    .btn-cart {
+      background: linear-gradient(135deg, var(--dorado), var(--dorado-claro));
+      border: none;
+      color: var(--primario);
+      font-weight: 600;
+    }
+
+    .btn-cart:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(218, 165, 32, 0.3);
+      color: var(--primario);
+    }
+
+    /* ======================
+       MODAL RESPONSIVO
+       ====================== */
+    .modal-dialog {
+      max-width: min(700px, 95vw);
+      margin: 1rem auto;
+    }
+
     .modal-content {
       border: none;
       border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     }
 
     .modal-header {
       border-bottom: 1px solid var(--gris-claro);
-      padding: 1rem 1.5rem;
-      background: var(--verde-claro);
+      padding: 1.2rem 1.5rem;
+      background: linear-gradient(135deg, var(--primario), var(--secundario));
+      color: white;
+      border-radius: 15px 15px 0 0;
+    }
+
+    .modal-header .modal-title {
+      color: white;
+      font-weight: 600;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+    }
+
+    .modal-header .btn-close {
+      filter: brightness(0) invert(1);
     }
 
     .modal-body {
-      padding: 2rem 1.5rem;
+      padding: clamp(1rem, 3vw, 1.5rem);
     }
 
-    .modal-dialog {
-      max-width: 600px;
-    }
-
-    /* Imagen más grande en modal */
     #modalImagen {
       width: 100%;
       height: auto;
-      max-height: 350px;
+      min-height: 400px;
+      max-height: 500px;
       object-fit: cover;
       border-radius: 12px;
-      margin-bottom: 1.5rem;
-      aspect-ratio: 1/1;
+      margin-bottom: 1rem;
     }
 
     #modalNombre {
       color: var(--primario);
       font-weight: 600;
-      font-size: 1.3rem;
+      font-size: clamp(1.1rem, 3vw, 1.3rem);
       margin-bottom: 0.8rem;
+      line-height: 1.3;
+      text-align: center;
     }
 
     #modalCodigo {
-      background: var(--gris-claro);
-      padding: 0.4rem 1rem;
-      border-radius: 15px;
-      font-size: 0.9rem;
-      color: var(--texto);
-      display: inline-block;
-      margin-bottom: 1rem;
+      background: var(--primario) !important;
+      color: white !important;
+      padding: 0.3rem 0.6rem !important;
+      border-radius: 6px !important;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      display: inline-block !important;
     }
 
     #modalPrecio {
       color: var(--dorado);
-      font-size: 1.4rem;
+      font-size: clamp(1.1rem, 3vw, 1.3rem);
       font-weight: 700;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      background: var(--verde-claro);
-      padding: 0.8rem;
-      border-radius: 12px;
+      margin-bottom: 0;
+      text-align: right;
+      background: none;
+      padding: 0;
+      border-radius: 0;
     }
 
     #modalDescripcion {
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
       color: #64748b;
-      font-size: 1rem;
+      font-size: clamp(0.9rem, 2.2vw, 0.95rem);
+      text-align: center;
     }
 
-    /* Footer suave */
+    .modal-btn-group {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .modal-btn {
+      flex: 1;
+      min-width: 120px;
+      max-width: 160px;
+      padding: 0.8rem;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: var(--transicion);
+      border: none;
+      font-size: 0.9rem;
+    }
+
+    /* ======================
+       CARRITO SIDEBAR
+       ====================== */
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: min(380px, 100vw);
+      height: 100vh;
+      background: var(--blanco);
+      box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+      z-index: 1050;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-sidebar.active {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 1.2rem;
+      border-bottom: 2px solid var(--gris-claro);
+      background: linear-gradient(135deg, var(--primario), var(--secundario));
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .cart-header h5 {
+      margin: 0;
+      color: white;
+      font-weight: 600;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+    }
+
+    .cart-close {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: var(--transicion);
+    }
+
+    .cart-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .cart-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.5rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem;
+      border-bottom: 1px solid var(--gris-claro);
+      transition: var(--transicion);
+      border-radius: 8px;
+      margin-bottom: 0.3rem;
+      gap: 0.5rem;
+    }
+
+    .cart-item:hover {
+      background: var(--verde-claro);
+    }
+
+    .cart-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .cart-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+      color: var(--primario);
+      font-size: 0.85rem;
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .cart-item-code {
+      font-size: 0.7rem;
+      color: #64748b;
+      margin-bottom: 0.2rem;
+    }
+
+    .cart-item-price {
+      color: var(--dorado);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      flex-shrink: 0;
+    }
+
+    .quantity-btn {
+      background: var(--gris-claro);
+      border: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transicion);
+      color: var(--texto);
+    }
+
+    .quantity-btn:hover {
+      background: var(--primario);
+      color: white;
+    }
+
+    .quantity {
+      font-weight: 600;
+      min-width: 24px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .remove-item {
+      background: #dc3545;
+      color: white;
+      border: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin-left: 0.3rem;
+      font-size: 0.75rem;
+      transition: var(--transicion);
+    }
+
+    .remove-item:hover {
+      background: #c82333;
+    }
+
+    .cart-footer {
+      padding: 1rem;
+      border-top: 2px solid var(--gris-claro);
+      background: var(--verde-claro);
+      flex-shrink: 0;
+    }
+
+    .cart-total {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 700;
+      color: var(--primario);
+      margin-bottom: 0.8rem;
+      text-align: center;
+      padding: 0.7rem;
+      background: var(--blanco);
+      border-radius: 8px;
+      border: 2px solid var(--dorado);
+    }
+
+    .cart-empty {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #64748b;
+    }
+
+    .cart-empty i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--gris-claro);
+    }
+
+    .cart-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1040;
+      display: none;
+    }
+
+    .cart-overlay.active {
+      display: block;
+    }
+
+    /* ======================
+       FOOTER
+       ====================== */
     footer {
       background: linear-gradient(135deg, var(--primario), var(--secundario));
       color: white;
@@ -486,6 +835,12 @@
     footer h4, footer h5 {
       color: var(--dorado);
       font-weight: 600;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+    }
+
+    footer p {
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      line-height: 1.5;
     }
 
     footer a {
@@ -499,6 +854,20 @@
       text-shadow: 0 0 5px rgba(218, 165, 32, 0.4);
     }
 
+    .social-links {
+      font-size: 1.2rem;
+    }
+
+    .social-links a {
+      margin: 0 0.3rem;
+      display: inline-block;
+      transition: var(--transicion);
+    }
+
+    .social-links a:hover {
+      transform: translateY(-2px);
+    }
+
     /* Mensaje vacío */
     #mensaje-vacio {
       padding: 3rem 2rem;
@@ -506,12 +875,22 @@
     }
 
     #mensaje-vacio i {
-      font-size: 3.5rem;
+      font-size: clamp(2.5rem, 8vw, 4rem);
       color: var(--gris-claro);
       margin-bottom: 1rem;
     }
 
-    /* Dark mode mejorado */
+    #mensaje-vacio h4 {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+    }
+
+    #mensaje-vacio p {
+      font-size: clamp(0.9rem, 2.2vw, 1rem);
+    }
+
+    /* ======================
+       MODO OSCURO
+       ====================== */
     body.dark {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
       color: #e2e8f0;
@@ -525,7 +904,7 @@
       background: #1e293b;
       color: #e2e8f0;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
 
     body.dark .card-title {
@@ -568,11 +947,10 @@
     }
 
     body.dark .modal-header {
-      background: #334155;
+      background: linear-gradient(135deg, #1e293b, #334155);
       border-color: rgba(255, 255, 255, 0.08);
     }
 
-    body.dark .codigo-producto,
     body.dark #modalCodigo {
       background: #334155;
       color: #e2e8f0;
@@ -592,22 +970,42 @@
       color: #cbd5e1 !important;
     }
 
-    /* Categoría badge */
-    .categoria-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: linear-gradient(135deg, var(--dorado), var(--dorado-claro));
-      color: var(--primario);
-      padding: 0.3rem 0.6rem;
-      border-radius: 15px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      z-index: 2;
-      box-shadow: 0 2px 8px rgba(218, 165, 32, 0.3);
+    body.dark .cart-sidebar {
+      background: #1e293b;
+      color: #e2e8f0;
     }
 
-    /* Animaciones */
+    body.dark .cart-header {
+      background: linear-gradient(135deg, #1e293b, #334155);
+    }
+
+    body.dark .cart-footer {
+      background: #334155;
+    }
+
+    body.dark .cart-total {
+      background: #475569;
+      color: var(--dorado);
+      border-color: var(--dorado);
+    }
+
+    body.dark .cart-item:hover {
+      background: #334155;
+    }
+
+    body.dark .quantity-btn {
+      background: #475569;
+      color: #e2e8f0;
+    }
+
+    body.dark .quantity-btn:hover {
+      background: var(--dorado);
+      color: var(--primario);
+    }
+
+    /* ======================
+       ANIMACIONES
+       ====================== */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -623,87 +1021,278 @@
       to { transform: rotate(360deg); }
     }
 
+    @keyframes bounce {
+      0%, 20%, 53%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40%, 43% {
+        transform: translateY(-4px);
+      }
+      70% {
+        transform: translateY(-2px);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
     .fade-in {
       animation: fadeInUp 0.5s ease forwards;
       opacity: 0;
     }
 
-    /* Responsive mejorado */
-    @media (max-width: 768px) {
-      .hero-title {
-        font-size: 1.8rem;
+    /* ======================
+       MEDIA QUERIES RESPONSIVAS
+       ====================== */
+    
+    /* Móviles pequeños */
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 0.5rem 0;
       }
-      
-      .btn-group {
+
+      .navbar-brand {
+        font-size: 1.3rem;
+      }
+
+      .navbar-controls {
         gap: 0.3rem;
       }
-      
-      .btn {
-        font-size: 0.85rem;
-        padding: 6px 14px;
+
+      #btnDark,
+      .cart-btn {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.8rem;
+        min-width: 40px;
+        height: 32px;
       }
-      
-      .navbar-brand {
-        font-size: 1.4rem;
-      }
-      
-      .modal-body {
-        padding: 1.5rem 1.2rem;
+
+      #btnDark span,
+      .cart-btn span {
+        display: none !important;
       }
 
       .search-container {
-        min-width: 220px;
-        order: -1;
-        margin-right: 10px;
+        max-width: 100%;
+        margin-top: 0.75rem;
       }
 
-      .modal-dialog {
-        max-width: 95%;
-        margin: 0.5rem;
+      #buscador {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem 0.6rem 2.5rem;
       }
 
-      #modalImagen {
-        max-height: 280px;
+      .hero-title {
+        margin: 1.5rem 0;
       }
 
-      .precio {
-        font-size: 1.2rem;
+      .btn-group {
+        gap: 0.3rem;
       }
 
-      .card-body {
-        padding: 1.2rem;
-      }
-
-      #modalPrecio {
-        font-size: 1.2rem;
-      }
-
-      #modalNombre {
-        font-size: 1.1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
       .btn {
-        font-size: 0.8rem;
-        padding: 5px 12px;
+        font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
+        min-width: 60px;
       }
 
       .card-body {
         padding: 1rem;
       }
 
-      .precio {
-        font-size: 1.1rem;
+      .modal-dialog {
+        margin: 0.5rem;
       }
 
       .modal-body {
-        padding: 1.2rem 1rem;
+        padding: 1rem;
       }
 
       #modalImagen {
-        max-height: 250px;
+        max-height: 350px;
       }
+
+      .modal-btn-group {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .modal-btn {
+        max-width: none;
+      }
+
+      .cart-sidebar {
+        width: 100%;
+      }
+
+      .cart-item {
+        padding: 0.6rem;
+      }
+
+      .cart-item-controls {
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+      }
+
+      footer {
+        padding: 2rem 0 1.2rem;
+      }
+
+      /* MEJORAR contador del carrito en móvil */
+      .cart-count {
+        width: 18px !important;
+        height: 18px !important;
+        font-size: 0.65rem !important;
+        top: -6px !important;
+        right: -6px !important;
+        font-weight: 800 !important;
+        border: 1px solid white !important;
+      }
+
+      /* Footer del carrito sticky en móvil */
+      .cart-footer {
+        display: block !important;
+        position: sticky;
+        bottom: 0;
+        background: var(--verde-claro) !important;
+        padding: 1rem !important;
+        border-top: 2px solid var(--dorado);
+        z-index: 10;
+      }
+
+      .cart-total {
+        margin-bottom: 0.8rem !important;
+        font-size: 1.1rem !important;
+        padding: 0.8rem !important;
+      }
+
+      #checkoutBtn {
+        font-size: 1rem !important;
+        padding: 0.8rem 1rem !important;
+        font-weight: 700 !important;
+        min-height: 50px;
+      }
+
+      /* Toast centrado */
+      .alert.position-fixed {
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+        max-width: 90vw !important;
+        text-align: center !important;
+      }
+    }
+
+    /* Móviles medianos */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .navbar-brand {
+        font-size: 1.4rem;
+      }
+
+      .search-container {
+        max-width: 250px;
+      }
+
+      .btn {
+        font-size: 0.8rem;
+        padding: 0.45rem 0.7rem;
+        min-width: 65px;
+      }
+
+      .cart-sidebar {
+        width: 320px;
+      }
+    }
+
+    /* Tablets */
+    @media (min-width: 769px) and (max-width: 992px) {
+      .search-container {
+        max-width: 280px;
+      }
+
+      .btn-group {
+        gap: 0.5rem;
+      }
+    }
+
+    /* Desktop pequeño */
+    @media (min-width: 993px) and (max-width: 1200px) {
+      .container {
+        max-width: 960px;
+      }
+    }
+
+    /* Desktop grande */
+    @media (min-width: 1201px) {
+      .container {
+        max-width: 1140px;
+      }
+
+      .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+      }
+    }
+
+    /* Ajustes específicos para el navbar en móvil */
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        margin-top: 0.5rem;
+      }
+
+      .navbar-nav {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 0.5rem;
+      }
+
+      .search-container {
+        order: 1;
+        margin-top: 0.75rem;
+      }
+    }
+
+    /* Mejoras para pantallas muy pequeñas */
+    @media (max-width: 360px) {
+      .btn-group {
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+
+      .btn {
+        width: 100%;
+        min-width: auto;
+      }
+
+      .categoria-badge {
+        right: 5px;
+        top: 5px;
+        padding: 0.2rem 0.4rem;
+        font-size: 0.6rem;
+      }
+
+      .codigo-producto {
+        left: 5px;
+        bottom: 5px;
+        padding: 0.2rem 0.4rem;
+        font-size: 0.6rem;
+      }
+    }
+
+    /* Optimizaciones para rendimiento */
+    .produto img,
+    .card,
+    .btn {
+      will-change: transform;
     }
 
     /* Smooth scrolling */
@@ -711,26 +1300,33 @@
       scroll-behavior: smooth;
     }
 
-    /* Vista de columnas */
-    .row.vista-4 {
-      --bs-gutter-x: 1rem;
+    /* Mejoras de accesibilidad */
+    .btn:focus,
+    .cart-btn:focus,
+    #btnDark:focus {
+      outline: 2px solid var(--dorado);
+      outline-offset: 2px;
     }
 
-    .row.vista-3 {
-      --bs-gutter-x: 1.2rem;
+    .dropdown-item:focus {
+      outline: 2px solid var(--primario);
+      outline-offset: -2px;
     }
 
-    .row.vista-2 {
-      --bs-gutter-x: 1.5rem;
-    }
+    /* Optimización para touch devices */
+    @media (hover: none) and (pointer: coarse) {
+      .btn,
+      .dropdown-item,
+      .quantity-btn,
+      .remove-item {
+        min-height: 44px;
+      }
 
-    /* Performance optimizations */
-    .producto img {
-      will-change: transform;
-    }
-
-    .card {
-      will-change: transform;
+      .cart-btn,
+      #btnDark {
+        min-height: 44px;
+        min-width: 44px;
+      }
     }
   </style>
 </head>
@@ -739,12 +1335,20 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="#"><i class="bi bi-heart-pulse"></i> TIENS Bolivia</a>
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-heart-pulse"></i> TIENS Bolivia
+      </a>
       
-      <!-- Botón dark mode y hamburguesa -->
-      <div class="d-flex align-items-center">
-        <button id="btnDark" class="btn btn-sm me-2" title="Cambiar tema">
-          <i class="bi bi-moon me-1"></i><span class="d-none d-sm-inline">Oscuro</span>
+      <!-- Controles superiores -->
+      <div class="navbar-controls">
+        <button id="btnDark" class="btn btn-sm" title="Cambiar tema">
+          <i class="bi bi-moon me-1"></i>
+          <span class="d-none d-sm-inline">Oscuro</span>
+        </button>
+        <button id="cartBtn" class="btn cart-btn" title="Carrito de compras">
+          <i class="bi bi-cart3 me-1"></i>
+          <span class="d-none d-sm-inline">Carrito</span>
+          <span id="cartCount" class="cart-count" style="display: none;">0</span>
         </button>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
@@ -756,7 +1360,7 @@
           <!-- Categorías -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-              <i class="bi bi-grid-3x3-gap me-1"></i>Categorías
+              <i class="bi bi-grid-3x3-gap me-2"></i>Categorías
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item filtro-categoria" data-cat="Todas">
@@ -783,7 +1387,7 @@
           <!-- Vistas -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-              <i class="bi bi-layout-three-columns me-1"></i>Vista
+              <i class="bi bi-layout-three-columns me-2"></i>Vista
             </a>
             <ul class="dropdown-menu">
               <li class="d-none d-lg-block"><a class="dropdown-item vista" data-cols="4">
@@ -802,7 +1406,9 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="#contacto"><i class="bi bi-telephone me-1"></i>Contacto</a>
+            <a class="nav-link" href="#contacto">
+              <i class="bi bi-telephone me-2"></i>Contacto
+            </a>
           </li>
         </ul>
         
@@ -814,6 +1420,30 @@
       </div>
     </div>
   </nav>
+
+  <!-- Carrito Sidebar -->
+  <div id="cartOverlay" class="cart-overlay"></div>
+  <div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h5><i class="bi bi-cart3 me-2"></i>Mi Carrito</h5>
+      <button id="cartClose" class="cart-close">&times;</button>
+    </div>
+    <div class="cart-body" id="cartItems">
+      <div class="cart-empty">
+        <i class="bi bi-cart-x"></i>
+        <h5>Carrito vacío</h5>
+        <p>Agrega productos para comenzar tu pedido</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+      <div class="cart-total">
+        Total: <span id="cartTotal">0 Bs</span>
+      </div>
+      <button id="checkoutBtn" class="btn btn-success w-100">
+        <i class="bi bi-whatsapp me-2"></i>Enviar Pedido
+      </button>
+    </div>
+  </div>
 
   <!-- Contenido principal -->
   <div class="container my-4">
@@ -839,23 +1469,35 @@
   <!-- Footer -->
   <footer id="contacto">
     <div class="container text-center">
-      <h4 class="mb-3"><i class="bi bi-people-fill me-2"></i>Quiénes Somos</h4>
+      <h4 class="mb-3">
+        <i class="bi bi-people-fill me-2"></i>Quiénes Somos
+      </h4>
       <p class="mb-4">TIENS Bolivia ofrece productos de salud y bienestar con calidad internacional. Más de 25 años de experiencia mundial respaldando tu bienestar.</p>
       
       <div class="row">
         <div class="col-md-6 mb-3">
           <h5><i class="bi bi-telephone-fill me-2"></i>Contacto</h5>
-          <p class="mb-1">
-            <i class="bi bi-envelope me-1"></i><a href="mailto:info@tiensbolivia.com">info@tiensbolivia.com</a>
+          <p class="mb-2">
+            <i class="bi bi-envelope me-2"></i>
+            <a href="mailto:info@tiensbolivia.com">info@tiensbolivia.com</a>
           </p>
-          <p><i class="bi bi-phone me-1"></i><a href="tel:+59163488086">+591 63488086</a></p>
+          <p>
+            <i class="bi bi-phone me-2"></i>
+            <a href="tel:+59163488086">+591 63488086</a>
+          </p>
         </div>
         <div class="col-md-6 mb-3">
           <h5><i class="bi bi-share me-2"></i>Síguenos</h5>
           <div class="social-links">
-            <a href="#" title="Facebook"><i class="bi bi-facebook me-2"></i></a>
-            <a href="#" title="Instagram"><i class="bi bi-instagram me-2"></i></a>
-            <a href="https://wa.me/59163488086" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="#" title="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#" title="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://wa.me/59163488086" title="WhatsApp">
+              <i class="bi bi-whatsapp"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -865,24 +1507,35 @@
     </div>
   </footer>
 
-  <!-- Modal Producto Mejorado (Solo para imágenes) -->
+  <!-- Modal Producto -->
   <div class="modal fade" id="modalProducto" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Vista Previa del Producto</h5>
+          <h5 class="modal-title">
+            <i class="bi bi-zoom-in me-2"></i>Vista Previa del Producto
+          </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body text-center">
           <img id="modalImagen" src="" class="img-fluid" alt="">
-          <h5 id="modalNombre"></h5>
-          <div id="modalCodigo"></div>
-          <p id="modalDescripcion" class="text-muted"></p>
-          <div id="modalPrecio">🇧🇴 <span></span></div>
-          <div class="btn-group">
-            <a id="modalWhatsApp" href="#" target="_blank" class="btn btn-success">
-              <i class="bi bi-whatsapp"></i> Pedir por WhatsApp
-            </a>
+          <div class="row mb-3">
+            <div class="col-8">
+              <h5 id="modalNombre" class="text-start mb-2"></h5>
+              <p id="modalDescripcion" class="text-muted text-start mb-0"></p>
+            </div>
+            <div class="col-4 text-end">
+              <span id="modalCodigo" class="badge bg-success mb-2"></span>
+              <div id="modalPrecio" class="fw-bold">🇧🇴 <span></span></div>
+            </div>
+          </div>
+          <div class="modal-btn-group">
+            <button id="modalAddCart" class="btn modal-btn btn-cart">
+              <i class="bi bi-cart-plus"></i> Agregar
+            </button>
+            <button id="modalWhatsApp" class="btn modal-btn btn-success">
+              <i class="bi bi-whatsapp"></i> Pedir
+            </button>
           </div>
         </div>
       </div>
@@ -896,8 +1549,280 @@
     const numeroWhatsApp = '59163488086';
     let productos = [];
     let columnas = 3;
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
+    // Productos de ejemplo
+    const productosEjemplo = [
+      {
+        id: 1,
+        nombre: "Zinc Capsules - Fortalecimiento Inmune",
+        codigo: "TN001",
+        precio: 180,
+        moneda: "Bs",
+        categoria: "Suplementos",
+        descripcion: "Suplemento de zinc para fortalecer el sistema inmunológico y mejorar la salud general.",
+        imagen: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&w=400&q=80"
+      },
+      {
+        id: 2,
+        nombre: "Cordyceps Coffee - Energía Natural",
+        codigo: "TN002",
+        precio: 220,
+        moneda: "Bs",
+        categoria: "Suplementos",
+        descripcion: "Café con cordyceps para aumentar la energía y vitalidad de forma natural.",
+        imagen: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&w=400&q=80"
+      },
+      {
+        id: 3,
+        nombre: "Tianshi Calcium - Calcio Premium",
+        codigo: "TN003",
+        precio: 160,
+        moneda: "Bs",
+        categoria: "Suplementos",
+        descripcion: "Suplemento de calcio de alta absorción para fortalecer huesos y dientes.",
+        imagen: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-4.0.3&w=400&q=80"
+      },
+      {
+        id: 4,
+        nombre: "Acupoint Massage - Masajeador Terapéutico",
+        codigo: "TN004",
+        precio: 450,
+        moneda: "Bs",
+        categoria: "Equipos para la Salud",
+        descripcion: "Masajeador de acupuntura para aliviar tensiones y mejorar la circulación.",
+        imagen: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&w=400&q=80"
+      },
+      {
+        id: 5,
+        nombre: "Rejuvenating Cream - Crema Anti-Edad",
+        codigo: "TN005",
+        precio: 280,
+        moneda: "Bs",
+        categoria: "Linea de Belleza",
+        descripcion: "Crema rejuvenecedora con ingredientes naturales para una piel más joven.",
+        imagen: "https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&w=400&q=80"
+      },
+      {
+        id: 6,
+        nombre: "Herbal Shampoo - Champú Natural",
+        codigo: "TN006",
+        precio: 120,
+        moneda: "Bs",
+        categoria: "Cuidado Personal",
+        descripcion: "Champú con extractos herbales para cabello sano y brillante.",
+        imagen: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&w=400&q=80"
+      }
+    ];
 
+    // Funciones de utilidad
+    function parsePrice(priceStr) {
+      if (typeof priceStr === 'number') return priceStr;
+      if (typeof priceStr === 'string') {
+        return parseFloat(priceStr.replace(',', '.').replace(/[^\d.]/g, ''));
+      }
+      return 0;
+    }
+
+    function formatPrice(price) {
+      const numPrice = parsePrice(price);
+      return numPrice % 1 === 0 ? numPrice.toString() : numPrice.toFixed(2);
+    }
+
+    // Función para limpiar el carrito
+    function clearCart() {
+      carrito = [];
+      localStorage.removeItem('carrito');
+      updateCartUI();
+      renderCartItems();
+    }
+
+    // Funciones del carrito
+    function updateCartUI() {
+      const cartCount = document.getElementById('cartCount');
+      
+      if (carrito.length > 0) {
+        cartCount.style.display = 'flex';
+        cartCount.textContent = carrito.reduce((sum, item) => sum + item.quantity, 0);
+      } else {
+        cartCount.style.display = 'none';
+      }
+    }
+
+    function addToCart(producto) {
+      const existingItem = carrito.find(item => item.id === producto.id);
+      
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        carrito.push({
+          ...producto,
+          quantity: 1
+        });
+      }
+      
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      updateCartUI();
+      renderCartItems();
+      showToast(`${producto.nombre} agregado al carrito`, 'success');
+    }
+
+    function removeFromCart(productId) {
+      carrito = carrito.filter(item => item.id !== productId);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      updateCartUI();
+      renderCartItems();
+    }
+
+    function updateQuantity(productId, change) {
+      const item = carrito.find(item => item.id === productId);
+      if (item) {
+        item.quantity += change;
+        if (item.quantity <= 0) {
+          removeFromCart(productId);
+        } else {
+          localStorage.setItem('carrito', JSON.stringify(carrito));
+          updateCartUI();
+          renderCartItems();
+        }
+      }
+    }
+
+    function renderCartItems() {
+      const cartItems = document.getElementById('cartItems');
+      const cartFooter = document.getElementById('cartFooter');
+      const cartTotal = document.getElementById('cartTotal');
+      
+      if (carrito.length === 0) {
+        cartItems.innerHTML = `
+          <div class="cart-empty">
+            <i class="bi bi-cart-x"></i>
+            <h5>Carrito vacío</h5>
+            <p>Agrega productos para comenzar tu pedido</p>
+          </div>`;
+        cartFooter.style.display = 'none';
+        return;
+      }
+      
+      cartFooter.style.display = 'block';
+      
+      let total = 0;
+      cartItems.innerHTML = carrito.map(item => {
+        const itemPrice = parsePrice(item.precio);
+        const subtotal = itemPrice * item.quantity;
+        total += subtotal;
+        return `
+          <div class="cart-item">
+            <img src="${item.imagen}" alt="${item.nombre}" onerror="this.src='https://via.placeholder.com/50x50/2E8B57/ffffff?text=TN'">
+            <div class="cart-item-info">
+              <div class="cart-item-name">${item.nombre}</div>
+              <div class="cart-item-code">Código: ${item.codigo}</div>
+              <div class="cart-item-price">${formatPrice(item.precio)} Bs</div>
+            </div>
+            <div class="cart-item-controls">
+              <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+              <span class="quantity">${item.quantity}</span>
+              <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+              <button class="remove-item" onclick="removeFromCart(${item.id})">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+          </div>`;
+      }).join('');
+      
+      cartTotal.textContent = `${formatPrice(total)} Bs`;
+    }
+
+    function generateWhatsAppMessage() {
+      if (carrito.length === 0) return '';
+      
+      let message = `*PEDIDO TIENS BOLIVIA* 🌿%0A%0A*PRODUCTOS:*%0A`;
+      
+      let total = 0;
+      carrito.forEach((item, index) => {
+        const itemPrice = parsePrice(item.precio);
+        const subtotal = itemPrice * item.quantity;
+        total += subtotal;
+        message += `${index + 1}. ${item.nombre}%0A`;
+        message += `   Código: ${item.codigo}%0A`;
+        message += `   Cantidad: ${item.quantity} | Precio: ${formatPrice(item.precio)} Bs%0A`;
+        message += `   Subtotal: ${formatPrice(subtotal)} Bs%0A%0A`;
+      });
+      
+      message += `*TOTAL: ${formatPrice(total)} Bs*%0A%0A`;
+      message += `Necesito información sobre:%0A`;
+      message += `• Disponibilidad%0A`;
+      message += `• Formas de pago%0A`;
+      message += `• Tiempo de entrega%0A%0A`;
+      message += `Gracias! 😊`;
+      
+      return message;
+    }
+
+    function generateSingleProductMessage(producto) {
+      let message = `*CONSULTA PRODUCTO TIENS* 🌿%0A%0A*PRODUCTO:*%0A`;
+      message += `${producto.nombre}%0A`;
+      message += `Código: ${producto.codigo}%0A`;
+      message += `Precio: ${formatPrice(producto.precio)} Bs%0A%0A`;
+      message += `Necesito información sobre:%0A`;
+      message += `• Disponibilidad%0A`;
+      message += `• Detalles del producto%0A`;
+      message += `• Formas de pago%0A%0A`;
+      message += `Gracias! 😊`;
+      
+      return message;
+    }
+
+    function showToast(message, type = 'info') {
+      const toast = document.createElement('div');
+      toast.className = `alert alert-${type === 'success' ? 'success' : 'info'} position-fixed`;
+      toast.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 280px; opacity: 0.95; animation: fadeInUp 0.3s ease;';
+      toast.innerHTML = `
+        <i class="bi bi-check-circle me-2"></i>${message}
+        <button type="button" class="btn-close ms-2" onclick="this.parentElement.remove()"></button>
+      `;
+      document.body.appendChild(toast);
+      
+      setTimeout(() => {
+        if (toast.parentElement) {
+          toast.style.animation = 'fadeInUp 0.3s ease reverse';
+          setTimeout(() => toast.remove(), 300);
+        }
+      }, 3000);
+    }
+
+    // Event listeners para carrito
+    document.getElementById('cartBtn').addEventListener('click', () => {
+      document.getElementById('cartSidebar').classList.add('active');
+      document.getElementById('cartOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    document.getElementById('cartClose').addEventListener('click', () => {
+      document.getElementById('cartSidebar').classList.remove('active');
+      document.getElementById('cartOverlay').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    document.getElementById('cartOverlay').addEventListener('click', () => {
+      document.getElementById('cartSidebar').classList.remove('active');
+      document.getElementById('cartOverlay').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+      const message = generateWhatsAppMessage();
+      if (message) {
+        window.open(`https://wa.me/${numeroWhatsApp}?text=${message}`, '_blank');
+        // Limpiar carrito después de enviar pedido
+        clearCart();
+        // Cerrar sidebar
+        document.getElementById('cartSidebar').classList.remove('active');
+        document.getElementById('cartOverlay').classList.remove('active');
+        document.body.style.overflow = 'auto';
+        showToast('Pedido enviado! El carrito se ha limpiado.', 'success');
+      }
+    });
 
     // Dark mode toggle
     const btnDark = document.getElementById('btnDark');
@@ -943,6 +1868,8 @@
         document.getElementById('loader').style.display = 'none';
         document.getElementById('contenedor-productos').style.display = 'flex';
         mostrarProductos(productos);
+        updateCartUI();
+        renderCartItems();
       }, 800);
     }
 
@@ -958,37 +1885,50 @@
       }
 
       lista.forEach((producto, index) => {
-        // Mensaje WhatsApp profesional
-        const mensajeWhatsApp = `*SOLICITUD DE PRODUCTO - TIENS BOLIVIA* 🌿%0A%0A📋 *INFORMACIÓN DEL PRODUCTO:*%0A• Nombre: ${producto.nombre}%0A• Código: ${producto.codigo || 'N/A'}%0A• Precio: ${producto.precio} ${producto.moneda || 'Bs'}%0A• Categoría: ${producto.categoria || 'Producto TIENS'}%0A%0A🛍️ *CONSULTAS:*%0A• Disponibilidad del producto%0A• Información detallada%0A• Formas de pago disponibles%0A• Tiempo de entrega%0A%0A📍 *UBICACIÓN:* Santa Cruz, Bolivia%0A%0A¡Muchas gracias! Espero su pronta respuesta. 😊`;
+        const mensajeWhatsApp = `*PEDIDO TIENS BOLIVIA* 🌿%0A%0A*PRODUCTO:*%0A${producto.nombre}%0ACódigo: ${producto.codigo}%0APrecio: ${formatPrice(producto.precio)} Bs%0A%0ANecesito información sobre:%0A• Disponibilidad%0A• Formas de pago%0A• Tiempo de entrega%0A%0AGracias! 😊`;
 
         const div = document.createElement('div');
-        div.className = `col mb-4 producto fade-in`;
+        div.className = `col mb-4 produto fade-in`;
         div.style.animationDelay = `${index * 0.05}s`;
         div.innerHTML = `
           <div class="card h-100">
-            <div class="categoria-badge">${producto.categoria || 'TIENS'}</div>
-            <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}" 
-                 data-bs-toggle="modal" data-bs-target="#modalProducto"
-                 data-id="${producto.id}"
-                 data-nombre="${producto.nombre}"
-                 data-codigo="${producto.codigo || 'N/A'}"
-                 data-descripcion="${producto.descripcion || 'Producto de calidad TIENS'}"
-                 data-precio="${producto.precio}"
-                 data-moneda="${producto.moneda || 'Bs'}"
-                 data-categoria="${producto.categoria || 'TIENS'}"
-                 data-imagen="${producto.imagen}"
-                 loading="lazy">
+            <div class="image-container">
+              <div class="categoria-badge">${producto.categoria || 'TIENS'}</div>
+              <div class="codigo-producto">${producto.codigo || 'N/A'}</div>
+              <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}" 
+                   data-bs-toggle="modal" data-bs-target="#modalProducto"
+                   data-id="${producto.id}"
+                   data-nombre="${producto.nombre}"
+                   data-codigo="${producto.codigo || 'N/A'}"
+                   data-descripcion="${producto.descripcion || 'Producto de calidad TIENS'}"
+                   data-precio="${producto.precio}"
+                   data-moneda="Bs"
+                   data-categoria="${producto.categoria || 'TIENS'}"
+                   data-imagen="${producto.imagen}"
+                   loading="lazy"
+                   onerror="this.src='https://via.placeholder.com/400x500/2E8B57/ffffff?text=TIENS+Bolivia'">
+            </div>
             <div class="card-body">
-              <div class="codigo-producto">Código: ${producto.codigo || 'N/A'}</div>
               <h5 class="card-title">${producto.nombre}</h5>
               <p class="card-text">${producto.descripcion || 'Producto de calidad TIENS para tu bienestar'}</p>
-              <div class="precio">🇧🇴 ${producto.precio || 'Consultar'} ${producto.moneda || 'Bs'}</div>
+              <div class="precio">🇧🇴 ${formatPrice(producto.precio)} Bs</div>
               <div class="btn-group">
-                <a href="producto.html?id=${producto.id}" class="btn btn-primary">
+                <button onclick="abrirModalDesdeCard(this)" class="btn btn-primary btn-sm"
+                        data-id="${producto.id}"
+                        data-nombre="${producto.nombre}"
+                        data-codigo="${producto.codigo || 'N/A'}"
+                        data-descripcion="${producto.descripcion || 'Producto de calidad TIENS'}"
+                        data-precio="${producto.precio}"
+                        data-moneda="Bs"
+                        data-categoria="${producto.categoria || 'TIENS'}"
+                        data-imagen="${producto.imagen}">
                   <i class="bi bi-eye"></i> Ver
-                </a>
+                </button>
+                <button onclick="addToCart(${JSON.stringify(producto).replace(/"/g, '&quot;')})" class="btn btn-cart btn-sm">
+                  <i class="bi bi-cart-plus"></i> Carrito
+                </button>
                 <a href="https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}" 
-                   target="_blank" class="btn btn-success">
+                   target="_blank" class="btn btn-success btn-sm">
                   <i class="bi bi-whatsapp"></i> Pedir
                 </a>
               </div>
@@ -997,25 +1937,70 @@
         contenedor.appendChild(div);
       });
 
-      // Eventos para modal (solo para imágenes)
+      // Eventos para modal desde imagen
       document.querySelectorAll('[data-bs-toggle="modal"]').forEach(element => {
         element.addEventListener('click', () => abrirModal(element));
       });
     }
 
-    // Modal mejorado (solo para vista previa de imágenes)
+    // Modal mejorado
     function abrirModal(element) {
-      const mensajeWhatsApp = `*SOLICITUD DE PRODUCTO - TIENS BOLIVIA* 🌿%0A%0A📋 *INFORMACIÓN DEL PRODUCTO:*%0A• Nombre: ${element.dataset.nombre}%0A• Código: ${element.dataset.codigo}%0A• Precio: ${element.dataset.precio} ${element.dataset.moneda}%0A• Categoría: ${element.dataset.categoria}%0A%0A🛍️ *CONSULTAS:*%0A• Disponibilidad del producto%0A• Información detallada%0A• Formas de pago disponibles%0A• Tiempo de entrega%0A%0A📍 *UBICACIÓN:* Santa Cruz, Bolivia%0A%0A¡Muchas gracias! Espero su pronta respuesta. 😊`;
+      const producto = {
+        id: parseInt(element.dataset.id),
+        nombre: element.dataset.nombre,
+        codigo: element.dataset.codigo,
+        precio: element.dataset.precio,
+        moneda: element.dataset.moneda,
+        categoria: element.dataset.categoria,
+        descripcion: element.dataset.descripcion,
+        imagen: element.dataset.imagen
+      };
+
+      // Actualizar elementos del modal
+      document.getElementById('modalImagen').src = producto.imagen;
+      document.getElementById('modalNombre').textContent = producto.nombre;
+      document.getElementById('modalCodigo').textContent = producto.codigo;
+      document.getElementById('modalDescripcion').textContent = producto.descripcion;
+      document.querySelector('#modalPrecio span').textContent = `${formatPrice(producto.precio)} Bs`;
       
-      document.getElementById('modalImagen').src = element.dataset.imagen;
-      document.getElementById('modalNombre').textContent = element.dataset.nombre;
-      document.getElementById('modalCodigo').textContent = `Código: ${element.dataset.codigo}`;
-      document.getElementById('modalDescripcion').textContent = element.dataset.descripcion;
-      document.querySelector('#modalPrecio span').textContent = `${element.dataset.precio} ${element.dataset.moneda}`;
-      document.getElementById('modalWhatsApp').href = `https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}`;
+      // Configurar botón agregar al carrito
+      document.getElementById('modalAddCart').onclick = () => {
+        addToCart(producto);
+        bootstrap.Modal.getInstance(document.getElementById('modalProducto')).hide();
+      };
+
+      // Configurar botón de WhatsApp del modal
+      document.getElementById('modalWhatsApp').onclick = () => {
+        const mensaje = generateSingleProductMessage(producto);
+        window.open(`https://wa.me/${numeroWhatsApp}?text=${mensaje}`, '_blank');
+      };
     }
 
-    // Búsqueda optimizada
+    // Función para abrir modal desde botón Ver
+    function abrirModalDesdeCard(button) {
+      const producto = {
+        id: parseInt(button.dataset.id),
+        nombre: button.dataset.nombre,
+        codigo: button.dataset.codigo,
+        precio: button.dataset.precio,
+        moneda: button.dataset.moneda,
+        categoria: button.dataset.categoria,
+        descripcion: button.dataset.descripcion,
+        imagen: button.dataset.imagen
+      };
+
+      // Abrir modal con los datos del producto
+      abrirModal(button);
+      
+      // Mostrar modal
+      const modal = new bootstrap.Modal(document.getElementById('modalProducto'));
+      modal.show();
+    }
+
+    // Hacer la función global
+    window.abrirModalDesdeCard = abrirModalDesdeCard;
+
+    // Búsqueda
     let searchTimeout;
     document.getElementById('buscador').addEventListener('input', e => {
       clearTimeout(searchTimeout);
@@ -1028,7 +2013,7 @@
           (p.descripcion && p.descripcion.toLowerCase().includes(term))
         );
         mostrarProductos(filtrados);
-      }, 250);
+      }, 300);
     });
 
     // Filtros de categorías
@@ -1041,7 +2026,7 @@
           : productos.filter(p => p.categoria === cat);
         mostrarProductos(filtrados);
         
-        // Cerrar dropdown en móvil
+        // Cerrar navbar en móvil
         const navbarCollapse = document.getElementById('navbarNav');
         if (navbarCollapse.classList.contains('show')) {
           bootstrap.Collapse.getInstance(navbarCollapse).hide();
@@ -1049,22 +2034,22 @@
       });
     });
 
-    // Sistema de vistas (columnas)
+    // Sistema de vistas
     document.querySelectorAll('.vista').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
         columnas = parseInt(link.dataset.cols);
         const contenedor = document.getElementById('contenedor-productos');
         
-        // Aplicar vista según dispositivo
-        if (window.innerWidth < 992) { // móvil/tablet
+        // Aplicar vista según tamaño de pantalla
+        if (window.innerWidth < 992) {
           if (columnas > 2) columnas = 2;
           contenedor.className = `row row-cols-1 row-cols-sm-${columnas} g-4 vista-${columnas}`;
-        } else { // desktop
+        } else {
           contenedor.className = `row row-cols-1 row-cols-sm-2 row-cols-lg-${columnas} g-4 vista-${columnas}`;
         }
         
-        // Cerrar dropdown
+        // Cerrar navbar en móvil
         const navbarCollapse = document.getElementById('navbarNav');
         if (navbarCollapse.classList.contains('show')) {
           bootstrap.Collapse.getInstance(navbarCollapse).hide();
@@ -1072,14 +2057,7 @@
       });
     });
 
-    // Manejo de errores de imagen
-    document.addEventListener('error', e => {
-      if (e.target.tagName === 'IMG') {
-        e.target.src = 'https://via.placeholder.com/300x300/2E8B57/ffffff?text=TIENS+Bolivia';
-      }
-    }, true);
-
-    // Smooth scroll para navegación
+    // Smooth scroll para enlaces internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -1092,9 +2070,73 @@
             behavior: 'smooth',
             block: 'start'
           });
+          
+          // Cerrar navbar si está abierto
+          const navbarCollapse = document.getElementById('navbarNav');
+          if (navbarCollapse.classList.contains('show')) {
+            bootstrap.Collapse.getInstance(navbarCollapse).hide();
+          }
         }
       });
     });
+
+    // Optimización responsive en tiempo real
+    function adjustResponsiveLayout() {
+      const contenedor = document.getElementById('contenedor-productos');
+      if (contenedor && window.innerWidth < 992 && columnas > 2) {
+        contenedor.className = `row row-cols-1 row-cols-sm-2 g-4 vista-2`;
+      }
+    }
+
+    // Listener para cambios de tamaño de ventana
+    window.addEventListener('resize', debounce(adjustResponsiveLayout, 250));
+
+    // Función debounce para optimizar performance
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    // Inicialización cuando la página esté lista
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartUI();
+      renderCartItems();
+      
+      // Mejorar experiencia en dispositivos táctiles
+      if ('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
+      }
+    });
+
+    // Prevención de zoom accidental en iOS
+    document.addEventListener('gesturestart', function (e) {
+      e.preventDefault();
+    });
+
+    // Optimización para mejor UX
+    window.addEventListener('load', () => {
+      // Precargar imágenes importantes
+      const importantImages = [
+        'https://via.placeholder.com/400x500/2E8B57/ffffff?text=TIENS+Bolivia'
+      ];
+      
+      importantImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+    });
+
+    // Hacer funciones globales disponibles
+    window.updateQuantity = updateQuantity;
+    window.removeFromCart = removeFromCart;
+    window.addToCart = addToCart;
   </script>
 </body>
 </html>
