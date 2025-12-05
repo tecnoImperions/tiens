@@ -4,7 +4,7 @@
     "codigo": "A01",
     "nombre": "Calcio Nutritivo en Polvo",
     "descripcion": "Fortalece huesos, dientes y mejora el metabolismo.",
-    "precio": "196,30",
+    "precio": "210,00",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840051/A01_zf5hc8.png",
     "categoria": "Suplementos",
     "combo": false,
@@ -441,6 +441,7 @@
 
 
 ]
+
 
 
 
