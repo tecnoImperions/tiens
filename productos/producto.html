@@ -12,10 +12,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"/>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-      <!-- Favicon + Iconos -->
+  <!-- Favicon + Iconos -->
   <link rel="icon" href="https://assets.berty.tech/files/favicon_berty--android-chrome-192x192.png" type="image/png">
   <link rel="apple-touch-icon" href="https://assets.berty.tech/files/favicon_berty--android-chrome-192x192.png" />
-
 
   <style>
     /* Colores más profesionales para salud */
@@ -103,29 +102,6 @@
     }
 
     .back-btn:hover {
-      background: var(--dorado);
-      color: var(--primario) !important;
-      transform: translateY(-1px);
-      border-color: var(--dorado);
-    }
-
-    #btnDark {
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 10px;
-      padding: 0.4rem 0.7rem;
-      font-size: 0.85rem;
-      color: white;
-      transition: var(--transicion);
-      min-width: 44px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.3rem;
-    }
-
-    #btnDark:hover {
       background: var(--dorado);
       color: var(--primario) !important;
       transform: translateY(-1px);
@@ -319,7 +295,6 @@
       padding: 1rem;
       border-radius: 12px;
       margin: 1.5rem 0;
-      border: 2px solid var(--dorado);
     }
 
     @media (min-width: 992px) {
@@ -336,6 +311,152 @@
 
     .precio .flag {
       font-size: clamp(1.2rem, 3vw, 1.5rem);
+    }
+
+    /* AUDIO PLAYER STYLES */
+    .audio-player-container {
+      background: linear-gradient(135deg, var(--verde-claro), rgba(218, 165, 32, 0.1));
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: var(--sombra);
+    }
+
+    .audio-player-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+      color: var(--primario);
+      font-weight: 600;
+      font-size: 1rem;
+      justify-content: center;
+    }
+
+    @media (min-width: 992px) {
+      .audio-player-header {
+        justify-content: flex-start;
+      }
+    }
+
+    .audio-player-header i {
+      color: var(--dorado);
+      font-size: 1.2rem;
+    }
+
+    .audio-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .play-btn {
+      background: linear-gradient(135deg, var(--primario), var(--secundario));
+      border: none;
+      color: white;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transicion);
+      box-shadow: 0 2px 8px rgba(46, 139, 87, 0.3);
+      flex-shrink: 0;
+    }
+
+    .play-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(46, 139, 87, 0.4);
+    }
+
+    .play-btn i {
+      font-size: 1.3rem;
+    }
+
+    .audio-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .audio-progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(46, 139, 87, 0.2);
+      border-radius: 3px;
+      overflow: hidden;
+      cursor: pointer;
+      margin-bottom: 0.3rem;
+    }
+
+    .audio-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primario), var(--dorado));
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    .audio-time {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .volume-btn {
+      background: none;
+      border: none;
+      color: var(--primario);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.3rem;
+      display: flex;
+      align-items: center;
+      transition: var(--transicion);
+    }
+
+    .volume-btn:hover {
+      color: var(--dorado);
+    }
+
+    .volume-slider {
+      width: 80px;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(46, 139, 87, 0.2);
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--dorado);
+      cursor: pointer;
+    }
+
+    .volume-slider::-moz-range-thumb {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--dorado);
+      cursor: pointer;
+      border: none;
+    }
+
+    @media (max-width: 576px) {
+      .volume-control {
+        display: none;
+      }
     }
 
     .descripcion-simple {
@@ -497,6 +618,295 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(218, 165, 32, 0.3);
       color: var(--primario);
+    }
+
+    .btn-share {
+      background: linear-gradient(135deg, var(--primario), var(--secundario));
+      border: none;
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(46, 139, 87, 0.3);
+    }
+
+    .btn-share:hover {
+      background: linear-gradient(135deg, var(--secundario), var(--primario));
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(46, 139, 87, 0.4);
+      color: white;
+    }
+
+    /* Share Modal */
+    .share-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(46, 139, 87, 0.3);
+      backdrop-filter: blur(5px);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s ease;
+      padding: 1rem;
+    }
+
+    .share-modal.active {
+      display: flex;
+    }
+
+    .share-modal-content {
+      background: var(--blanco);
+      border-radius: 20px;
+      padding: clamp(1.5rem, 4vw, 2rem);
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 10px 40px rgba(46, 139, 87, 0.2);
+      animation: slideUp 0.3s ease;
+      border: 2px solid var(--primario);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .share-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--gris-claro);
+    }
+
+    .share-modal-header h5 {
+      color: var(--primario);
+      font-weight: 700;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: clamp(1.1rem, 3vw, 1.3rem);
+    }
+
+    .share-modal-header i {
+      color: var(--primario);
+      font-size: 1.3em;
+    }
+
+    .share-close-btn {
+      background: var(--gris-claro);
+      border: none;
+      font-size: 1.3rem;
+      color: var(--primario);
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: var(--transicion);
+      flex-shrink: 0;
+    }
+
+    .share-close-btn:hover {
+      background: var(--primario);
+      color: white;
+      transform: rotate(90deg);
+    }
+
+    .share-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 400px) {
+      .share-options {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .share-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      padding: clamp(0.8rem, 3vw, 1.2rem);
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--verde-claro), var(--gris-claro));
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: var(--transicion);
+      text-decoration: none;
+      color: var(--texto);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .share-option::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, var(--primario), var(--secundario));
+      opacity: 0;
+      transition: var(--transicion);
+      z-index: 0;
+    }
+
+    .share-option:hover::before {
+      opacity: 0.1;
+    }
+
+    .share-option:hover {
+      border-color: var(--primario);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(46, 139, 87, 0.2);
+    }
+
+    .share-option i {
+      font-size: clamp(1.8rem, 5vw, 2.2rem);
+      position: relative;
+      z-index: 1;
+      transition: var(--transicion);
+    }
+
+    .share-option:hover i {
+      transform: scale(1.15);
+    }
+
+    .share-option.whatsapp i {
+      color: #25d366;
+    }
+
+    .share-option.facebook i {
+      color: #1877f2;
+    }
+
+    .share-option.twitter i {
+      color: #000000;
+    }
+
+    .share-option.telegram i {
+      color: #0088cc;
+    }
+
+    .share-option span {
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
+      color: var(--primario);
+    }
+
+    .copy-link-container {
+      background: linear-gradient(135deg, var(--verde-claro), rgba(46, 139, 87, 0.1));
+      border-radius: 12px;
+      padding: clamp(1rem, 3vw, 1.2rem);
+      border: 2px solid var(--primario);
+    }
+
+    .copy-link-label {
+      font-size: clamp(0.85rem, 2vw, 0.95rem);
+      color: var(--primario);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .copy-link-label i {
+      color: var(--secundario);
+      font-size: 1.2em;
+    }
+
+    .copy-link-input-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 480px) {
+      .copy-link-input-group {
+        flex-direction: column;
+      }
+    }
+
+    .copy-link-input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.7rem;
+      border: 2px solid var(--primario);
+      border-radius: 10px;
+      font-size: clamp(0.75rem, 2vw, 0.85rem);
+      background: var(--blanco);
+      color: var(--texto);
+      font-weight: 500;
+    }
+
+    @media (max-width: 480px) {
+      .copy-link-input {
+        width: 100%;
+      }
+    }
+
+    .copy-link-btn {
+      padding: 0.7rem 1.2rem;
+      background: linear-gradient(135deg, var(--primario), var(--secundario));
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transicion);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      box-shadow: 0 2px 8px rgba(46, 139, 87, 0.3);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 480px) {
+      .copy-link-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.8rem;
+      }
+    }
+
+    .copy-link-btn:hover {
+      background: linear-gradient(135deg, var(--secundario), var(--primario));
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(46, 139, 87, 0.4);
+    }
+
+    .copy-link-btn.copied {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+    }
+
+    .copy-link-btn i {
+      font-size: 1.1em;
     }
 
     /* Información adicional mejorada */
@@ -869,103 +1279,6 @@
       display: block;
     }
 
-    /* Dark mode mejorado */
-    body.dark {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-      color: #e2e8f0;
-    }
-
-    .navbar.dark-mode {
-      background: linear-gradient(135deg, #1e293b, #334155) !important;
-    }
-
-    body.dark .producto-container {
-      background: #1e293b;
-      color: #e2e8f0;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    body.dark .breadcrumb {
-      background: rgba(30, 41, 59, 0.8);
-      color: #e2e8f0;
-    }
-
-    body.dark .breadcrumb-item a {
-      color: var(--dorado);
-    }
-
-    body.dark .breadcrumb-item.active {
-      color: #e2e8f0;
-    }
-
-    body.dark .info-adicional {
-      background: rgba(30, 41, 59, 0.8);
-      color: #e2e8f0;
-    }
-
-    body.dark .descripcion-simple,
-    body.dark .beneficios-simple h6,
-    body.dark .info-adicional h6 {
-      color: #e2e8f0;
-    }
-
-    body.dark .descripcion-simple h6,
-    body.dark .beneficios-simple h6,
-    body.dark .info-adicional h6 {
-      color: var(--dorado) !important;
-    }
-
-    body.dark .error-container {
-      background: #1e293b;
-      color: #e2e8f0;
-    }
-
-    body.dark .modal-content {
-      background: #1e293b;
-    }
-
-    body.dark .precio {
-      background: rgba(46, 139, 87, 0.1);
-    }
-
-    body.dark .producto-codigo {
-      background: #334155;
-      color: var(--dorado);
-    }
-
-    body.dark .cart-sidebar {
-      background: #1e293b;
-      color: #e2e8f0;
-    }
-
-    body.dark .cart-header {
-      background: linear-gradient(135deg, #1e293b, #334155);
-    }
-
-    body.dark .cart-footer {
-      background: #334155;
-    }
-
-    body.dark .cart-total {
-      background: #475569;
-      color: var(--dorado);
-      border-color: var(--dorado);
-    }
-
-    body.dark .cart-item:hover {
-      background: #334155;
-    }
-
-    body.dark .quantity-btn {
-      background: #475569;
-      color: #e2e8f0;
-    }
-
-    body.dark .quantity-btn:hover {
-      background: var(--dorado);
-      color: var(--primario);
-    }
-
     /* Animaciones */
     @keyframes spin {
       to { transform: rotate(360deg); }
@@ -1014,13 +1327,11 @@
         gap: 0.3rem;
       }
       
-      #btnDark span,
       .back-btn span,
       .cart-btn span {
         display: none !important;
       }
       
-      #btnDark,
       .back-btn,
       .cart-btn {
         min-width: 40px;
@@ -1074,7 +1385,6 @@
       }
 
       .cart-btn,
-      #btnDark,
       .back-btn {
         min-height: 44px;
         min-width: 44px;
@@ -1117,9 +1427,6 @@
       </a>
       
       <div class="navbar-controls">
-        <button id="btnDark" class="btn btn-sm">
-          <i class="bi bi-moon me-1"></i><span class="d-none d-sm-inline">Oscuro</span>
-        </button>
         <button id="cartBtn" class="btn cart-btn" title="Carrito de compras">
           <i class="bi bi-cart3 me-1"></i>
           <span class="d-none d-sm-inline">Carrito</span>
@@ -1171,6 +1478,48 @@
     </div>
   </footer>
 
+  <!-- Modal para compartir -->
+  <div id="shareModal" class="share-modal">
+    <div class="share-modal-content">
+      <div class="share-modal-header">
+        <h5><i class="bi bi-share-fill"></i>Compartir Producto</h5>
+        <button class="share-close-btn" onclick="closeShareModal()">&times;</button>
+      </div>
+      
+      <div class="share-options">
+        <a href="#" id="shareWhatsApp" class="share-option whatsapp" target="_blank">
+          <i class="bi bi-whatsapp"></i>
+          <span>WhatsApp</span>
+        </a>
+        <a href="#" id="shareFacebook" class="share-option facebook" target="_blank">
+          <i class="bi bi-facebook"></i>
+          <span>Facebook</span>
+        </a>
+        <a href="#" id="shareTwitter" class="share-option twitter" target="_blank">
+          <i class="bi bi-twitter-x"></i>
+          <span>Twitter</span>
+        </a>
+        <a href="#" id="shareTelegram" class="share-option telegram" target="_blank">
+          <i class="bi bi-telegram"></i>
+          <span>Telegram</span>
+        </a>
+      </div>
+
+      <div class="copy-link-container">
+        <label class="copy-link-label">
+          <i class="bi bi-link-45deg me-1"></i>O copia el enlace
+        </label>
+        <div class="copy-link-input-group">
+          <input type="text" id="shareLink" class="copy-link-input" readonly>
+          <button class="copy-link-btn" onclick="copyToClipboard()">
+            <i class="bi bi-clipboard"></i>
+            <span id="copyBtnText">Copiar</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Modal para imagen -->
   <div class="modal fade" id="modalImagen" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -1190,8 +1539,11 @@
     let productoActual = null;
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const numeroWhatsApp = '59163488086';
+    let audioPlayer = null;
+    let isPlaying = false;
+    let currentAudioId = null;
 
-    // Funciones de utilidad (sincronizadas con index.html)
+    // Funciones de utilidad
     function parsePrice(priceStr) {
       if (typeof priceStr === 'number') return priceStr;
       if (typeof priceStr === 'string') {
@@ -1205,7 +1557,174 @@
       return numPrice % 1 === 0 ? numPrice.toString() : numPrice.toFixed(2);
     }
 
-    // Funciones del carrito (sincronizadas con index.html)
+    // Función para reproducir desde el botón
+    window.toggleAudioFromButton = function() {
+      if (currentAudioId) {
+        const audio = document.getElementById(currentAudioId);
+        const playBtn = document.getElementById('playBtn_' + currentAudioId);
+        const playIcon = document.getElementById('playIcon_' + currentAudioId);
+        
+        if (audio.paused) {
+          audio.play();
+          playIcon.className = 'bi bi-pause-fill';
+        } else {
+          audio.pause();
+          playIcon.className = 'bi bi-play-fill';
+        }
+        
+        // Scroll suave al reproductor
+        const audioPlayer = document.querySelector('.audio-player-container');
+        if (audioPlayer) {
+          audioPlayer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    };
+
+    // Funciones de utilidad
+    function parsePrice(priceStr) {
+      if (typeof priceStr === 'number') return priceStr;
+      if (typeof priceStr === 'string') {
+        return parseFloat(priceStr.replace(',', '.').replace(/[^\d.]/g, ''));
+      }
+      return 0;
+    }
+
+    function formatPrice(price) {
+      const numPrice = parsePrice(price);
+      return numPrice % 1 === 0 ? numPrice.toString() : numPrice.toFixed(2);
+    }
+
+    // Funciones de Audio Player
+    function initAudioPlayer(audioUrl) {
+      if (!audioUrl) return '';
+
+      const audioId = 'audioPlayer_' + Date.now();
+      currentAudioId = audioId;
+      
+      return `
+        <div class="audio-player-container">
+          <div class="audio-player-header">
+            <i class="bi bi-volume-up-fill"></i>
+            <span>Escucha la descripción del producto</span>
+          </div>
+          <div class="audio-controls">
+            <button class="play-btn" id="playBtn_${audioId}" onclick="toggleAudio('${audioId}', '${audioUrl}')">
+              <i class="bi bi-play-fill" id="playIcon_${audioId}"></i>
+            </button>
+            <div class="audio-info">
+              <div class="audio-progress-bar" id="progressBar_${audioId}" onclick="seekAudio(event, '${audioId}')">
+                <div class="audio-progress-fill" id="progressFill_${audioId}"></div>
+              </div>
+              <div class="audio-time">
+                <span id="currentTime_${audioId}">0:00</span>
+                <span id="duration_${audioId}">0:00</span>
+              </div>
+            </div>
+            <div class="volume-control">
+              <button class="volume-btn" onclick="toggleMute('${audioId}')">
+                <i class="bi bi-volume-up-fill" id="volumeIcon_${audioId}"></i>
+              </button>
+              <input type="range" class="volume-slider" id="volumeSlider_${audioId}" min="0" max="100" value="100" 
+                     oninput="changeVolume('${audioId}', this.value)">
+            </div>
+          </div>
+          <audio id="${audioId}" preload="metadata">
+            <source src="${audioUrl}" type="audio/mpeg">
+          </audio>
+        </div>
+      `;
+    }
+
+    window.toggleAudio = function(audioId, audioUrl) {
+      const audio = document.getElementById(audioId);
+      const playIcon = document.getElementById('playIcon_' + audioId);
+      
+      if (!audio.src) {
+        audio.src = audioUrl;
+      }
+      
+      if (audio.paused) {
+        audio.play();
+        playIcon.className = 'bi bi-pause-fill';
+        setupAudioListeners(audioId);
+      } else {
+        audio.pause();
+        playIcon.className = 'bi bi-play-fill';
+      }
+    };
+
+    function setupAudioListeners(audioId) {
+      const audio = document.getElementById(audioId);
+      const progressFill = document.getElementById('progressFill_' + audioId);
+      const currentTimeEl = document.getElementById('currentTime_' + audioId);
+      const durationEl = document.getElementById('duration_' + audioId);
+      const playIcon = document.getElementById('playIcon_' + audioId);
+
+      audio.addEventListener('loadedmetadata', () => {
+        durationEl.textContent = formatTime(audio.duration);
+      });
+
+      audio.addEventListener('timeupdate', () => {
+        const progress = (audio.currentTime / audio.duration) * 100;
+        progressFill.style.width = progress + '%';
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+      });
+
+      audio.addEventListener('ended', () => {
+        playIcon.className = 'bi bi-play-fill';
+        progressFill.style.width = '0%';
+        currentTimeEl.textContent = '0:00';
+      });
+    }
+
+    window.seekAudio = function(event, audioId) {
+      const audio = document.getElementById(audioId);
+      const progressBar = document.getElementById('progressBar_' + audioId);
+      const rect = progressBar.getBoundingClientRect();
+      const percent = (event.clientX - rect.left) / rect.width;
+      audio.currentTime = percent * audio.duration;
+    };
+
+    window.changeVolume = function(audioId, value) {
+      const audio = document.getElementById(audioId);
+      const volumeIcon = document.getElementById('volumeIcon_' + audioId);
+      audio.volume = value / 100;
+      
+      if (value == 0) {
+        volumeIcon.className = 'bi bi-volume-mute-fill';
+      } else if (value < 50) {
+        volumeIcon.className = 'bi bi-volume-down-fill';
+      } else {
+        volumeIcon.className = 'bi bi-volume-up-fill';
+      }
+    };
+
+    window.toggleMute = function(audioId) {
+      const audio = document.getElementById(audioId);
+      const volumeIcon = document.getElementById('volumeIcon_' + audioId);
+      const volumeSlider = document.getElementById('volumeSlider_' + audioId);
+      
+      if (audio.volume > 0) {
+        audio.dataset.previousVolume = audio.volume;
+        audio.volume = 0;
+        volumeSlider.value = 0;
+        volumeIcon.className = 'bi bi-volume-mute-fill';
+      } else {
+        const prevVolume = audio.dataset.previousVolume || 1;
+        audio.volume = prevVolume;
+        volumeSlider.value = prevVolume * 100;
+        volumeIcon.className = 'bi bi-volume-up-fill';
+      }
+    };
+
+    function formatTime(seconds) {
+      if (isNaN(seconds)) return '0:00';
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Funciones del carrito
     function updateCartUI() {
       const cartCount = document.getElementById('cartCount');
       
@@ -1383,26 +1902,64 @@
       }
     });
 
-    // Dark mode (sincronizado con index.html)
-    const btnDark = document.getElementById('btnDark');
-    const isDarkStored = localStorage.getItem('darkMode') === 'true';
-    
-    if (isDarkStored) {
-      document.body.classList.add('dark');
-      document.querySelector('.navbar').classList.add('dark-mode');
-      btnDark.innerHTML = '<i class="bi bi-sun me-1"></i><span class="d-none d-sm-inline">Claro</span>';
-    }
-    
-    btnDark.addEventListener('click', () => {
-      const isDark = document.body.classList.toggle('dark');
-      document.querySelector('.navbar').classList.toggle('dark-mode');
+    // Funciones de compartir
+    window.openShareModal = function() {
+      const shareModal = document.getElementById('shareModal');
+      const shareLink = document.getElementById('shareLink');
+      const productUrl = window.location.href;
       
-      localStorage.setItem('darkMode', isDark);
+      shareLink.value = productUrl;
       
-      if (isDark) {
-        btnDark.innerHTML = '<i class="bi bi-sun me-1"></i><span class="d-none d-sm-inline">Claro</span>';
-      } else {
-        btnDark.innerHTML = '<i class="bi bi-moon me-1"></i><span class="d-none d-sm-inline">Oscuro</span>';
+      // Configurar enlaces de redes sociales
+      const producto = productoActual;
+      const shareText = `¡Mira este producto de TIENS Bolivia! ${producto.nombre} - ${formatPrice(producto.precio)} Bs`;
+      const encodedText = encodeURIComponent(shareText);
+      const encodedUrl = encodeURIComponent(productUrl);
+      
+      document.getElementById('shareWhatsApp').href = `https://wa.me/?text=${encodedText}%0A${encodedUrl}`;
+      document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+      document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+      document.getElementById('shareTelegram').href = `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`;
+      
+      shareModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.closeShareModal = function() {
+      const shareModal = document.getElementById('shareModal');
+      shareModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    };
+
+    window.copyToClipboard = function() {
+      const shareLink = document.getElementById('shareLink');
+      const copyBtn = document.querySelector('.copy-link-btn');
+      const copyBtnText = document.getElementById('copyBtnText');
+      
+      shareLink.select();
+      shareLink.setSelectionRange(0, 99999);
+      
+      navigator.clipboard.writeText(shareLink.value).then(() => {
+        copyBtn.classList.add('copied');
+        copyBtnText.innerHTML = '<i class="bi bi-check-lg"></i> Copiado';
+        
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          copyBtnText.innerHTML = 'Copiar';
+        }, 2000);
+        
+        showToast('¡Enlace copiado al portapapeles!', 'success');
+      }).catch(err => {
+        console.error('Error al copiar:', err);
+        showToast('Error al copiar el enlace', 'error');
+      });
+    };
+
+    // Cerrar modal al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      const shareModal = document.getElementById('shareModal');
+      if (e.target === shareModal) {
+        closeShareModal();
       }
     });
 
@@ -1470,6 +2027,8 @@
                 <span class="flag">🇧🇴</span>
                 <span class="precio-valor">${formatPrice(producto.precio)} Bs</span>
               </div>
+
+              ${producto.audio ? initAudioPlayer(producto.audio) : ''}
               
               <div class="descripcion-simple">
                 <h6>
@@ -1492,13 +2051,13 @@
               
               <div class="d-grid gap-3 mt-4">
                 <div class="row g-2">
-                  <div class="col">
+                  <div class="col-6">
                     <button onclick="addToCart(${JSON.stringify(producto).replace(/"/g, '&quot;')})" 
                             class="btn btn-cart w-100">
                       <i class="bi bi-cart-plus me-2"></i>Agregar al Carrito
                     </button>
                   </div>
-                  <div class="col">
+                  <div class="col-6">
                     <a href="https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}" 
                        target="_blank" 
                        class="btn btn-success w-100">
@@ -1508,21 +2067,23 @@
                 </div>
                 
                 <div class="row g-2">
-                  <div class="col">
+                  <div class="col-6">
                     <button type="button" 
                             class="btn btn-outline-primary w-100"
                             id="btnAmpliar">
                       <i class="bi bi-zoom-in me-1"></i>Ampliar Imagen
                     </button>
                   </div>
-                  <div class="col">
-                    <a href="index.html" class="btn btn-outline-secondary w-100">
-                      <i class="bi bi-arrow-left me-1"></i>Ver Catálogo
-                    </a>
+                  <div class="col-6">
+                    <button type="button" 
+                            class="btn btn-share w-100"
+                            onclick="openShareModal()">
+                      <i class="bi bi-share-fill me-1"></i>Compartir
+                    </button>
                   </div>
                 </div>
                 
-                ${producto.pdf || producto.video ? `
+                ${producto.pdf || producto.video || producto.audio ? `
                 <div class="row g-2 mt-1">
                   ${producto.pdf ? `
                   <div class="col">
@@ -1607,9 +2168,6 @@
     const params = new URLSearchParams(location.search);
     const id = Number(params.get('id') || 0);
 
-    // Verificar si hay producto en sessionStorage (navegación desde index)
-    const currentProduct = sessionStorage.getItem('currentProduct');
-
     if (!id) {
       // Si no hay ID válido
       setTimeout(() => {
@@ -1671,24 +2229,26 @@
           const productosEjemplo = [
             {
               id: 1,
-              nombre: "Zinc Capsules - Fortalecimiento Inmune",
-              codigo: "TN001",
-              precio: 180,
+              nombre: "Calcio Nutritivo en Polvo",
+              codigo: "A01",
+              precio: "210,00",
               categoria: "Suplementos",
-              descripcion: "Suplemento de zinc para fortalecer el sistema inmunológico y mejorar la salud general.",
-              imagen: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&w=400&q=80",
+              descripcion: "Fortalece huesos, dientes y mejora el metabolismo.",
+              imagen: "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840051/A01_zf5hc8.png",
+              audio: "https://res.cloudinary.com/dv6d41ect/video/upload/v1765067251/calcio_q6bih1.mp3",
               beneficios: [
-                "Fortalece el sistema inmunológico",
-                "Mejora la cicatrización",
-                "Apoya el crecimiento celular",
-                "Mantiene la salud de la piel"
+                "Fortalece huesos y dientes",
+                "Previene osteoporosis",
+                "Apoya músculos y corazón",
+                "Mejora funciones nerviosas",
+                "Absorción con Vitamina D"
               ]
             },
             {
               id: 2,
               nombre: "Cordyceps Coffee - Energía Natural",
               codigo: "TN002",
-              precio: 220,
+              precio: "220,00",
               categoria: "Suplementos",
               descripcion: "Café con cordyceps para aumentar la energía y vitalidad de forma natural.",
               imagen: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&w=400&q=80",
