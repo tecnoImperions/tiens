@@ -17,33 +17,14 @@
       "Mejora funciones nerviosas",
       "Absorción con Vitamina D"
     ],
-    "video": "https://res.cloudinary.com/dv6d41ect/video/upload/v1765067251/calcio_q6bih1.mp3"
-  },
-  {
-    "id": 2,
-    "codigo": "A02",
-    "nombre": "Calcio Dietético en Polvo",
-    "descripcion": "Cuida huesos, músculos y regula el azúcar.",
-    "precio": "258,05",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840051/A02_u15k2e.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/14_9o1FHESoYnfVKsfYjqqfulal3GHrEy/view?usp=drive_link",
-    "beneficios": [
-      "Regula el azúcar",
-      "Fortalece huesos",
-      "Apoya nervios y músculos",
-      "Refuerza defensas",
-      "Mejora la digestión"
-    ],
-    "video": "https://www.youtube.com/watch?v=VIDEO_A02"
+    "video": "https://youtu.be/Ep4078Cuv4g?si=SEC1VdPSiS6ouuCI"
   },
   {
     "id": 3,
     "codigo": "A03",
     "nombre": "Calcio para Niños",
     "descripcion": "Ayuda al crecimiento y refuerza defensas.",
-    "precio": "196,30",
+    "precio": "210,00",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840051/A03_huuq0n.png",
     "audio": "https://res.cloudinary.com/dv6d41ect/video/upload/v1765079654/nene_qqbq5j.mp3",
     "categoria": "Suplementos",
@@ -56,14 +37,14 @@
       "Refuerza defensas",
       "Nutrición completa"
     ],
-    "video": "https://www.youtube.com/watch?v=VIDEO_A03"
+    "video": "https://youtu.be/caZdVM2XT9A?si=vNOxzS3EGu4WEp2g"
   },
   {
     "id": 4,
     "codigo": "A05",
     "nombre": "Té Tianshi",
     "descripcion": "Mejora la digestión y ayuda a controlar el peso.",
-    "precio": "196,30",
+    "precio": "300,00",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840052/A05_eazlgz.png",
     "audio": "https://res.cloudinary.com/dv6d41ect/video/upload/v1765079654/tianshi_wxcf0a.mp3",
     "categoria": "Suplementos",
@@ -76,166 +57,14 @@
       "Mejora la circulación",
       "Relaja el cuerpo"
     ],
-    "video": "https://www.youtube.com/watch?v=VIDEO_A04"
-  },
-  {
-    "id": 5,
-    "codigo": "A06",
-    "nombre": "Cápsula de Cordyceps",
-    "descripcion": "Mejora la energía, defensas y salud general.",
-    "precio": "417,95",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840052/A06_l2g56x.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1Kn_vPimp6eKe8tnBIvdc8NaLajiTqJDk/view?usp=drive_link",
-    "beneficios": [
-      "Mejora respiración",
-      "Apoya riñones e hígado",
-      "Refuerza defensas",
-      "Da energía y vitalidad",
-      "Equilibra hormonas"
-    ],
-    "video": "https://www.youtube.com/watch?v=VIDEO_A06"
-  },
-  {
-    "id": 6,
-    "codigo": "A07",
-    "nombre": "Cápsula de Chitosa",
-    "descripcion": "Ayuda a bajar de peso y mejora la digestión.",
-    "precio": "423,80",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840053/A07_srkwzs.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1NZhPtcaT2M-Qg7_jxzRypX6iLEgg-WXf/view?usp=drive_link",
-    "beneficios": [
-      "Captura la grasa",
-      "Baja el colesterol",
-      "Cuida el estómago",
-      "Mejora la digestión",
-      "Evita el estreñimiento"
-    ],
-    "video": "https://www.youtube.com/watch?v=VIDEO_A07"
-  },
-  {
-    "id": 7,
-    "codigo": "A08",
-    "nombre": "Cápsulas de Espirulina",
-    "descripcion": "Proteína vegetal que mejora defensas y ayuda contra la anemia.",
-    "precio": "288,60",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840052/A08_jvuvpq.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1_sQlpmefrr85TIrE8NuwuWqt6-E0MyhM/view?usp=drive_link",
-    "beneficios": [
-      "Aporta proteínas y hierro",
-      "Previene la anemia",
-      "Refuerza defensas",
-      "Apoya nutrición y crecimiento",
-      "Tiene antioxidantes"
-    ],
-    "video": "https://www.youtube.com/watch?v=VIDEO_A08"
-  },
-  {
-    "id": 8,
-    "codigo": "A09",
-    "nombre": "Cápsulas Revitalizantes",
-    "descripcion": "Cuida el corazón, protege tus células y retrasa el envejecimiento.",
-    "precio": "466,70",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840053/A09_j8xd1x.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1h387TXUhuc9Gn7macwpfzBzohgFAk6a6/view?usp=drive_link",
-    "beneficios": [
-      "Mejora la salud del corazón",
-      "Baja colesterol y triglicéridos",
-      "Es antioxidante y antiinflamatorio",
-      "Refuerza defensas",
-      "Previene el envejecimiento"
-    ],
-    "video": "https://www.youtube.com/watch?v=VIDEO_A09"
-  },
-  {
-    "id": 9,
-    "codigo": "A10",
-    "nombre": "Cápsula de Jiaogulan Plus",
-    "descripcion": "Antioxidante natural que previene el envejecimiento y apoya tu energía y salud interna.",
-    "precio": "374,40",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840052/A10_ymakpy.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1Pu9QpyVRIHXcz968w5t88d9BhfyEYbHP/view?usp=drive_link",
-    "beneficios": [
-      "Reduce el colesterol",
-      "Controla el azúcar en sangre",
-      "Protege el corazón",
-      "Refuerza defensas",
-      "Combate el envejecimiento"
-    ],
-    "video": "https://www.youtube.com/watch?v=VIDEO_A10"
-  },
-  {
-    "id": 10,
-    "codigo": "A11",
-    "nombre": "Tocolecic Cápsulas",
-    "descripcion": "Mejora la energía, protege el corazón y cuida la piel.",
-    "precio": "356,20",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840053/A11_l4yfpj.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1cItEgpUwxbXILYI_2Z5SMTS7w5MT1Rsa/view?usp=drive_link",
-    "beneficios": [
-      "Cuida la salud del corazón",
-      "Reduce colesterol",
-      "Mejora la elasticidad de arterias",
-      "Protege el hígado",
-      "Fuerte antioxidante"
-    ],
-    "video": ""
-  },
-  {
-    "id": 11,
-    "codigo": "A13",
-    "nombre": "Suplemento de Zinc",
-    "descripcion": "Mejora defensas, apoya piel, cabello y salud hormonal.",
-    "precio": "135,20",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840053/A13_htq0rc.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1xIfEwy_3iFDJhDSnU9IXXy_eyEpQvmpC/view?usp=drive_link",
-    "beneficios": [
-      "Mejora funciones cognitivas",
-      "Estimula apetito y controla ansiedad",
-      "Cuida sistema nervioso",
-      "Fortalece defensas",
-      "Apoya piel, cabello y uñas"
-    ],
-    "video": ""
-  },
-  {
-    "id": 12,
-    "codigo": "A32",
-    "nombre": "Aceite de Shaji",
-    "descripcion": "Aceite natural para cuidar el corazón y las defensas.",
-    "precio": "536,20",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840053/A32_bf5luj.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1KCp1DX-A2_oSLat7_lHdbaZRVLMZKmTz/view?usp=drive_link",
-    "beneficios": [
-      "Previene úlceras y gastritis",
-      "Protege de gastroenteritis",
-      "Cuida el corazón y evita ataques",
-      "Mejora defensas",
-      "Aumenta fuerza muscular del corazón"
-    ],
-    "video": ""
+    "video": "https://youtu.be/O6NtM5iXqKs?si=CgM7as-ezg_Lw3Es"
   },
   {
     "id": 13,
     "codigo": "A39",
     "nombre": "Té Milenario",
     "descripcion": "Té para limpiar, desintoxicar y apoyar la digestión.",
-    "precio": "196,30",
+    "precio": "300,00",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840053/A39_ot9ewl.png",
     "audio": "https://res.cloudinary.com/dv6d41ect/video/upload/v1765079654/milenario_xldvxi.mp3",
     "categoria": "Suplementos",
@@ -248,90 +77,14 @@
       "Mejora digestión y limpia arterias",
       "Tonifica el bazo"
     ],
-    "video": ""
-  },
-  {
-    "id": 14,
-    "codigo": "A50",
-    "nombre": "Calcio con Lecitina",
-    "descripcion": "Suplemento para memoria, cerebro y salud cardiovascular.",
-    "precio": "122,20",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840054/A50_psegkh.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1CKMWKeIXXGsuP7tP-at-Rb8piZhVXN1D/view?usp=drive_link",
-    "beneficios": [
-      "Mejora memoria y función cerebral",
-      "Protege neuronas",
-      "Cuida hígado y corazón",
-      "Previene calambres y arritmias",
-      "Mejora rendimiento físico y mental"
-    ],
-    "video": ""
-  },
-  {
-    "id": 15,
-    "codigo": "A51",
-    "nombre": "Cápsula de Glucosamina",
-    "descripcion": "Suplemento para fortalecer articulaciones, mejora movilidad y reduce dolor.",
-    "precio": "235,30",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840054/A51_liolaf.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1xSotf36xhkFnlB2t5SvzCVZb3q4Mvo0-/view?usp=drive_link",
-    "beneficios": [
-      "Estimula formación y reparación del cartílago",
-      "Reduce dolor y rigidez por osteoartritis",
-      "Mejora movilidad articular",
-      "Alivia inflamación y dolor en huesos",
-      "Ideal para personas con problemas articulares"
-    ],
-    "video": ""
-  },
-  {
-    "id": 16,
-    "codigo": "A73",
-    "nombre": "Selenium Carrageenan",
-    "descripcion": "Fortalece sistema inmunológico y protege células con antioxidantes.",
-    "precio": "233,35",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840054/A73_cn91pe.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/16fQS_D18LY4fRkHjR7bvMtHDD00SrZnr/view?usp=drive_link",
-    "beneficios": [
-      "Protege células del daño oxidativo",
-      "Contribuye a la salud cardiovascular",
-      "Apoya elasticidad y salud de la piel",
-      "Puede mejorar el estado de ánimo",
-      "Aumenta energía y combate fatiga"
-    ],
-    "video": ""
-  },
-  {
-    "id": 17,
-    "codigo": "A74",
-    "nombre": "FOS Syrup",
-    "descripcion": "Endulzante natural con efecto prebiótico para salud digestiva.",
-    "precio": "79,30",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840054/A74_p6mfqi.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1Hyuun-awjvoIGmHppIcheEeei5A6DF6b/view?usp=drive_link",
-    "beneficios": [
-      "Mejora tránsito intestinal",
-      "Alivia el estreñimiento",
-      "Estimula bacterias benéficas",
-      "Favorece absorción de minerales",
-      "Mejora salud digestiva general"
-    ],
-    "video": ""
+    "video": "https://youtu.be/nIEop1LGs-A?si=7ZWQW7VT90IYvfOE"
   },
   {
     "id": 18,
     "codigo": "A75",
     "nombre": "CordyCafé",
     "descripcion": "Energizante natural que mejora concentración y digestión.",
-    "precio": "142,35",
+    "precio": "180,00",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840055/A75_vzmmrq.png",
     "audio": "https://res.cloudinary.com/dv6d41ect/video/upload/v1765079654/cafe_or8wt1.mp3",
     "categoria": "Suplementos",
@@ -344,71 +97,14 @@
       "Estimula metabolismo y circulación",
       "Antioxidante y energizante natural"
     ],
-    "video": ""
-  },
-  {
-    "id": 19,
-    "codigo": "A86",
-    "nombre": "Fibratiens",
-    "descripcion": "Fibra natural para mejorar la digestión y salud intestinal.",
-    "precio": "284,05",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840055/A86_t2gzxu.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1A6s8mUxrtkz4F3Fg8XPr595zRMgeg7N-/view?usp=drive_link",
-    "beneficios": [
-      "Mejora el tránsito intestinal",
-      "Refuerza la flora intestinal",
-      "Controla el colesterol",
-      "Protege el estómago",
-      "Ayuda al metabolismo"
-    ],
-    "video": ""
-  },
-  {
-    "id": 20,
-    "codigo": "A89",
-    "nombre": "Suplemento de Inulina con Fibra Prebiótica",
-    "descripcion": "Polvo con fibra prebiótica para mejorar la digestión y controlar azúcar y colesterol.",
-    "precio": "442",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840055/A89_otmwsl.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1iWgdhnqwvOUnJN61jmJiazPMbCCmxqxb/view?usp=drive_link",
-    "beneficios": [
-      "Alimenta bacterias saludables del intestino",
-      "Mejora la digestión",
-      "Controla niveles de azúcar en sangre",
-      "Ayuda a reducir colesterol",
-      "Da sensación de saciedad sin calorías"
-    ],
-    "video": ""
-  },
-  {
-    "id": 21,
-    "codigo": "A92",
-    "nombre": "Tiens Vital",
-    "descripcion": "Shot energético con vitamina C para fortalecer tu sistema inmunológico y energía.",
-    "precio": "328,90",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840055/A92_n7ksgn.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1xe0MLhIN_8pKZ1yIy-5DzDbd05CLdjzp/view?usp=drive_link",
-    "beneficios": [
-      "Aumenta la inmunidad",
-      "Reduce fatiga y agotamiento",
-      "Apoya recuperación muscular",
-      "Mejora absorción de hierro",
-      "Antioxidante eficaz y promueve síntesis de colágeno"
-    ],
-    "video": ""
+    "video": "https://youtu.be/UZPKTl8KS8E?si=jF_fGx7P_YH6Fkbi"
   },
   {
     "id": 22,
     "codigo": "A93",
     "nombre": "Colágeno Forte + Ginseng",
     "descripcion": "Suplemento para fortalecer piel, huesos y músculos, manteniéndolos saludables y jóvenes.",
-    "precio": "312",
+    "precio": "400",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840055/A93_g8qawb.png",
     "audio": "https://res.cloudinary.com/dv6d41ect/video/upload/v1765079655/colageno_q0f0pj.mp3",
     "categoria": "Suplementos",
@@ -421,28 +117,8 @@
       "Protege contra el envejecimiento solar",
       "Refuerza las defensas y mejora el rendimiento físico"
     ],
-    "video": ""
-  },
-  {
-    "id": 23,
-    "codigo": "A94",
-    "nombre": "Tiens Folic FE",
-    "descripcion": "Suplemento para salud celular, sangre y crecimiento.",
-    "precio": "221",
-    "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840056/A94_dhpoj0.png",
-    "categoria": "Suplementos",
-    "combo": false,
-    "pdf": "https://drive.google.com/file/d/1F-koSR_DqWa1oieO-F8z_iREPaedalk7/view?usp=drive_link",
-    "beneficios": [
-      "Ayuda en formación de células y tejidos",
-      "Fortalece cabello y uñas",
-      "Estimula formación de glóbulos rojos",
-      "Mejora calidad del fluido seminal",
-      "Soporte para crecimiento y desarrollo"
-    ],
-    "video": ""
+    "video": "https://youtu.be/tTwWootASTE?si=Rr2iorSB92ClU9My"
   }
-
 
 
 
