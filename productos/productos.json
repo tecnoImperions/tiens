@@ -6,6 +6,7 @@
     "descripcion": "Fortalece huesos, dientes y mejora el metabolismo.",
     "precio": "210,00",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840051/A01_zf5hc8.png",
+    "audio": "https://res.cloudinary.com/dv6d41ect/video/upload/v1765067251/calcio_q6bih1.mp3",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1vPhHwGwj9pO8eRecVejQtPWtEpHLmxhU/view?usp=drive_link",
@@ -16,7 +17,7 @@
       "Mejora funciones nerviosas",
       "Absorción con Vitamina D"
     ],
-    "video": "https://www.youtube.com/watch?v=VIDEO_A01"
+    "video": "https://res.cloudinary.com/dv6d41ect/video/upload/v1765067251/calcio_q6bih1.mp3"
   },
   {
     "id": 2,
@@ -44,6 +45,7 @@
     "descripcion": "Ayuda al crecimiento y refuerza defensas.",
     "precio": "196,30",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840051/A03_huuq0n.png",
+    "audio": "https://res.cloudinary.com/dv6d41ect/video/upload/v1765079654/nene_qqbq5j.mp3",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1ESG5fZVSZi74SOLsQ7OCz3UsQbxs85Yy/view?usp=drive_link",
@@ -63,6 +65,7 @@
     "descripcion": "Mejora la digestión y ayuda a controlar el peso.",
     "precio": "196,30",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840052/A05_eazlgz.png",
+    "audio": "https://res.cloudinary.com/dv6d41ect/video/upload/v1765079654/tianshi_wxcf0a.mp3",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1tzfHiBEs0phyKqMAABYkkCmRp6SoKOCF/view?usp=drive_link",
@@ -234,6 +237,7 @@
     "descripcion": "Té para limpiar, desintoxicar y apoyar la digestión.",
     "precio": "196,30",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840053/A39_ot9ewl.png",
+    "audio": "https://res.cloudinary.com/dv6d41ect/video/upload/v1765079654/milenario_xldvxi.mp3",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1_rvPLCMSJIWIp8OSYoWXXBvoNCxKYESD/view?usp=drive_link",
@@ -329,6 +333,7 @@
     "descripcion": "Energizante natural que mejora concentración y digestión.",
     "precio": "142,35",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840055/A75_vzmmrq.png",
+    "audio": "https://res.cloudinary.com/dv6d41ect/video/upload/v1765079654/cafe_or8wt1.mp3",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1ZQRUK40_NwXzuFrpYT4cF0Qs5UDs9RvC/view?usp=drive_link",
@@ -405,6 +410,7 @@
     "descripcion": "Suplemento para fortalecer piel, huesos y músculos, manteniéndolos saludables y jóvenes.",
     "precio": "312",
     "imagen": "https://res.cloudinary.com/dv6d41ect/image/upload/v1758840055/A93_g8qawb.png",
+    "audio": "https://res.cloudinary.com/dv6d41ect/video/upload/v1765079655/colageno_q0f0pj.mp3",
     "categoria": "Suplementos",
     "combo": false,
     "pdf": "https://drive.google.com/file/d/1zpxTnNHa3kuiOA4YtY5V152m1Uv4_zxn/view?usp=drive_link",
