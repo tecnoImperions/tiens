@@ -120,7 +120,6 @@
       flex-wrap: nowrap;
     }
 
-    #btnDark,
     .cart-btn {
       background: rgba(255, 255, 255, 0.15);
       border: 1px solid rgba(255, 255, 255, 0.25);
@@ -138,7 +137,6 @@
       justify-content: center;
     }
 
-    #btnDark:hover,
     .cart-btn:hover {
       background: var(--dorado);
       color: var(--primario) !important;
@@ -180,13 +178,252 @@
     #buscador {
       border: 2px solid rgba(255, 255, 255, 0.25);
       border-radius: 25px;
-      padding: 0.65rem 1rem 0.65rem 2.8rem;
+      /* dejar espacio a la izquierda para el icono de búsqueda y a la derecha para el micrófono */
+      padding: 0.65rem 3.2rem 0.65rem 2.8rem;
       background: rgba(255, 255, 255, 0.95);
       transition: var(--transicion);
       font-weight: 500;
       width: 100%;
       color: var(--texto);
       font-size: 0.95rem;
+    }
+
+    /* Botón de voz dentro del contenedor de búsqueda */
+    .voice-btn {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: #7a8b9a;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transicion);
+      z-index: 3;
+      font-size: 1rem;
+    }
+
+    /* Botón de retroceso dentro del overlay, a la izquierda del input */
+    .overlay-back {
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: #64748b;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      z-index: 4;
+      cursor: pointer;
+    }
+
+    .overlay-back:hover { color: var(--primario); }
+
+    /* Ajustes de padding del input para icons */
+    #buscador { padding-left: 44px; padding-right: 96px; }
+
+    /* (Se quitó el estilo .close-in-search; se usa .clear-search como botón para borrar el input) */
+
+    /* Botón para borrar el texto del input (simple y ligero) */
+    .clear-search {
+      position: absolute;
+      right: 56px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: #7a8b9a;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 3;
+      font-size: 1rem;
+    }
+
+    /* Botón de cierre del modal (esquina superior del search-box) */
+    .modal-close-top {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      color: #64748b;
+      font-size: 1.2rem;
+      z-index: 5;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+
+    .modal-close-top:hover {
+      background: rgba(0,0,0,0.04);
+      color: #c53030;
+    }
+
+    /* Botón Cerrar con estilo acorde (texto) */
+    .btn-close-modal {
+      top: 10px;
+      left: 12px;
+      right: auto;
+      background: linear-gradient(135deg, var(--primario), var(--secundario));
+      color: white;
+      font-weight: 700;
+      padding: 0.4rem 0.8rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(46,139,87,0.12);
+      width: auto;
+      height: auto;
+      font-size: 0.95rem;
+    }
+
+    .btn-close-modal:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(46,139,87,0.14);
+    }
+
+    /* Overlay de búsqueda */
+    .search-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1.5rem;
+    }
+
+    /* Ocultar el botón nativo de limpiar en inputs type=search (evitar la X del navegador) */
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration {
+      display: none;
+    }
+    input[type="search"]::-ms-clear { display: none; }
+
+    .search-overlay.active {
+      display: flex;
+    }
+
+    .search-box {
+      width: 100%;
+      max-width: 720px;
+      background: var(--blanco);
+      padding: 1.25rem;
+      padding-top: 2.2rem; /* dejar espacio para el botón 'Cerrar' en la parte superior */
+      border-radius: 12px;
+      box-shadow: var(--sombra);
+      position: relative;
+    }
+
+    /* Resultado en lista dentro del overlay */
+    .search-results-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-height: 60vh;
+      overflow: auto;
+      padding-top: 0.5rem;
+    }
+
+    .search-results-list .list-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.6rem;
+      border-radius: 10px;
+      background: #f7faf9;
+      cursor: pointer;
+      transition: var(--transicion);
+      border: 1px solid rgba(46,139,87,0.04);
+    }
+
+    .search-results-list .list-item:hover {
+      background: linear-gradient(90deg, rgba(46,139,87,0.04), rgba(218,165,32,0.02));
+      transform: translateY(-2px);
+    }
+
+    .search-results-list .thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #e6f4ef;
+    }
+
+    .search-results-list .meta {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .search-results-list .meta .name {
+      font-weight: 600;
+      color: var(--primario);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .search-results-list .meta .sub {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .search-results-list .price {
+      margin-left: auto;
+      font-weight: 700;
+      color: var(--dorado);
+      white-space: nowrap;
+    }
+
+    .search-box .btn-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      color: #64748b;
+    }
+
+    @media (max-width: 480px) {
+      .search-box { padding: 0.5rem; border-radius: 0.5rem; height: 100%; max-width: 100%; }
+      .search-overlay { padding: 0; }
+      .search-results-list { max-height: calc(100vh - 140px); }
+      .search-results-list .thumb { width: 48px; height: 48px; }
+    }
+
+    .voice-btn:hover {
+      background: rgba(46, 139, 87, 0.06);
+      color: var(--primario);
+      transform: translateY(-50%) scale(1.03);
+    }
+
+    .voice-btn.listening {
+      background: linear-gradient(135deg, var(--primario), var(--secundario));
+      color: white;
+      box-shadow: 0 6px 18px rgba(46,139,87,0.18);
+      animation: pulse 1.2s infinite;
     }
 
     #buscador:focus {
@@ -203,8 +440,8 @@
     .search-icon {
       position: absolute;
       left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
+      padding: 1.25rem;
+      padding-top: 1.2rem;
       color: #7a8b9a;
       z-index: 2;
       font-size: 1rem;
@@ -892,120 +1129,7 @@
       font-size: clamp(0.9rem, 2.2vw, 1rem);
     }
 
-    /* ======================
-       MODO OSCURO
-       ====================== */
-    body.dark {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-      color: #e2e8f0;
-    }
-
-    .navbar.dark-mode {
-      background: linear-gradient(135deg, #1e293b, #334155) !important;
-    }
-
-    body.dark .card {
-      background: #1e293b;
-      color: #e2e8f0;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    body.dark .card-title {
-      color: var(--dorado) !important;
-    }
-
-    body.dark .card-text {
-      color: #cbd5e1 !important;
-    }
-
-    body.dark .dropdown-menu {
-      background: #1e293b;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #e2e8f0;
-    }
-
-    body.dark .dropdown-item {
-      color: #e2e8f0;
-    }
-
-    body.dark .dropdown-item:hover {
-      background: rgba(218, 165, 32, 0.15);
-      color: var(--dorado);
-    }
-
-    body.dark #buscador {
-      background: #334155;
-      color: #e2e8f0;
-      border-color: rgba(255, 255, 255, 0.15);
-    }
-
-    body.dark #buscador:focus {
-      background: #475569;
-      border-color: var(--dorado);
-    }
-
-    body.dark .modal-content {
-      background: #1e293b;
-      color: #e2e8f0;
-    }
-
-    body.dark .modal-header {
-      background: linear-gradient(135deg, #1e293b, #334155);
-      border-color: rgba(255, 255, 255, 0.08);
-    }
-
-    body.dark #modalCodigo {
-      background: #334155;
-      color: #e2e8f0;
-    }
-
-    body.dark .precio,
-    body.dark #modalPrecio {
-      background: rgba(218, 165, 32, 0.1);
-      color: var(--dorado);
-    }
-
-    body.dark #modalNombre {
-      color: var(--dorado) !important;
-    }
-
-    body.dark #modalDescripcion {
-      color: #cbd5e1 !important;
-    }
-
-    body.dark .cart-sidebar {
-      background: #1e293b;
-      color: #e2e8f0;
-    }
-
-    body.dark .cart-header {
-      background: linear-gradient(135deg, #1e293b, #334155);
-    }
-
-    body.dark .cart-footer {
-      background: #334155;
-    }
-
-    body.dark .cart-total {
-      background: #475569;
-      color: var(--dorado);
-      border-color: var(--dorado);
-    }
-
-    body.dark .cart-item:hover {
-      background: #334155;
-    }
-
-    body.dark .quantity-btn {
-      background: #475569;
-      color: #e2e8f0;
-    }
-
-    body.dark .quantity-btn:hover {
-      background: var(--dorado);
-      color: var(--primario);
-    }
+    /* Modo oscuro eliminado a petición del usuario */
 
     /* ======================
        ANIMACIONES
@@ -1072,7 +1196,6 @@
         gap: 0.3rem;
       }
 
-      #btnDark,
       .cart-btn {
         padding: 0.3rem 0.5rem;
         font-size: 0.8rem;
@@ -1080,7 +1203,6 @@
         height: 32px;
       }
 
-      #btnDark span,
       .cart-btn span {
         display: none !important;
       }
@@ -1306,8 +1428,7 @@
 
     /* Mejoras de accesibilidad */
     .btn:focus,
-    .cart-btn:focus,
-    #btnDark:focus {
+    .cart-btn:focus {
       outline: 2px solid var(--dorado);
       outline-offset: 2px;
     }
@@ -1326,8 +1447,7 @@
         min-height: 44px;
       }
 
-      .cart-btn,
-      #btnDark {
+      .cart-btn {
         min-height: 44px;
         min-width: 44px;
       }
@@ -1405,9 +1525,8 @@
       
       <!-- Controles superiores -->
       <div class="navbar-controls">
-        <button id="btnDark" class="btn btn-sm" title="Cambiar tema">
-          <i class="bi bi-moon me-1"></i>
-          <span class="d-none d-sm-inline">Oscuro</span>
+        <button id="searchToggleBtn" class="btn btn-sm cart-btn" title="Buscar" aria-label="Abrir búsqueda">
+          <i class="bi bi-search"></i>
         </button>
         <button id="cartBtn" class="btn cart-btn" title="Carrito de compras">
           <i class="bi bi-cart3 me-1"></i>
@@ -1476,14 +1595,37 @@
           </li>
         </ul>
         
-        <!-- Buscador -->
-        <div class="search-container">
-          <input id="buscador" class="form-control" type="search" placeholder="Buscar producto o código..." autocomplete="off">
-          <i class="bi bi-search search-icon"></i>
-        </div>
+        <!-- Buscador removido del navbar; se abre como overlay al presionar la lupa -->
       </div>
     </div>
   </nav>
+
+  <!-- Overlay de búsqueda (abierto con el botón de lupa) -->
+  <div id="searchOverlay" class="search-overlay" aria-hidden="true">
+    <div class="search-box">
+      <!-- El cierre del modal se maneja con el botón de la navbar (lupa <-> flecha) -->
+      <div class="search-container">
+        <button id="overlayBackBtn" class="overlay-back" aria-label="Cerrar búsqueda" title="Cerrar" type="button">
+          <i class="bi bi-arrow-left"></i>
+        </button>
+        <input id="buscador" class="form-control" type="search" placeholder="Buscar producto o código..." autocomplete="off" aria-label="Buscar productos">
+        <button id="clearSearchInput" class="clear-search" aria-label="Borrar búsqueda" title="Borrar búsqueda" type="button">
+          <i class="bi bi-x-circle"></i>
+        </button>
+        <button id="voiceBtn" class="voice-btn" title="Buscar por voz" aria-label="Buscar por voz" type="button">
+          <i class="bi bi-mic"></i>
+        </button>
+      </div>
+      <div id="searchResults" class="search-results mt-3">
+        <div id="searchResultsList" class="search-results-list"></div>
+        <div id="searchMensajeVacio" style="display:none;" class="text-center text-muted mt-3">
+          <i class="bi bi-search"></i>
+          <h4 class="mt-2">No encontramos ese producto</h4>
+          <p>Prueba con otra búsqueda o usa la voz </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <!-- Botones flotantes -->
   <div class="floating-buttons">
@@ -1690,16 +1832,6 @@
     }
 
     // Funciones del carrito
-    function updateCartUI() {
-      const cartCount = document.getElementById('cartCount');
-      
-      if (carrito.length > 0) {
-        cartCount.style.display = 'flex';
-        cartCount.textContent = carrito.reduce((sum, item) => sum + item.quantity, 0);
-      } else {
-        cartCount.style.display = 'none';
-      }
-    }
 
     function addToCart(producto) {
       const existingItem = carrito.find(item => item.id === producto.id);
@@ -1874,28 +2006,7 @@
       }
     });
 
-    // Dark mode toggle
-    const btnDark = document.getElementById('btnDark');
-    const isDarkStored = localStorage.getItem('darkMode') === 'true';
-    
-    if (isDarkStored) {
-      document.body.classList.add('dark');
-      document.querySelector('.navbar').classList.add('dark-mode');
-      btnDark.innerHTML = '<i class="bi bi-sun me-1"></i><span class="d-none d-sm-inline">Claro</span>';
-    }
-    
-    btnDark.addEventListener('click', () => {
-      const isDark = document.body.classList.toggle('dark');
-      document.querySelector('.navbar').classList.toggle('dark-mode');
-      
-      localStorage.setItem('darkMode', isDark);
-      
-      if (isDark) {
-        btnDark.innerHTML = '<i class="bi bi-sun me-1"></i><span class="d-none d-sm-inline">Claro</span>';
-      } else {
-        btnDark.innerHTML = '<i class="bi bi-moon me-1"></i><span class="d-none d-sm-inline">Oscuro</span>';
-      }
-    });
+    // Modo oscuro eliminado: reemplazado por búsqueda tipo Facebook (overlay)
 
     // Cargar productos
     fetch('productos.json')
@@ -1924,51 +2035,85 @@
     }
 
     function mostrarProductos(lista) {
-      const contenedor = document.getElementById('contenedor-productos');
+      // Si el overlay de búsqueda está abierto, renderizar dentro del overlay
+      const overlay = document.getElementById('searchOverlay');
+      const inOverlay = overlay && overlay.classList.contains('active');
+      const contenedor = inOverlay ? document.getElementById('searchResultsList') : document.getElementById('contenedor-productos');
       contenedor.innerHTML = "";
-      
-      if(lista.length === 0) {
-        document.getElementById('mensaje-vacio').style.display = 'block';
-        return;
+
+      // Mensajes vacíos según contexto
+      if (inOverlay) {
+        document.getElementById('searchMensajeVacio').style.display = 'none';
       } else {
         document.getElementById('mensaje-vacio').style.display = 'none';
       }
 
-      lista.forEach((producto, index) => {
-        const mensajeWhatsApp = `*PEDIDO TIENS BOLIVIA* 🌿%0A%0A*PRODUCTO:*%0A${producto.nombre}%0ACódigo: ${producto.codigo}%0APrecio: ${formatPrice(producto.precio)} Bs%0A%0ANecesito información sobre:%0A• Disponibilidad%0A• Formas de pago%0A• Tiempo de entrega%0A%0AGracias! 😊`;
+      if(lista.length === 0) {
+        if (inOverlay) {
+          document.getElementById('searchMensajeVacio').style.display = 'block';
+        } else {
+          document.getElementById('mensaje-vacio').style.display = 'block';
+        }
+        return;
+      }
 
-        const div = document.createElement('div');
-        div.className = `col mb-4 produto fade-in`;
-        div.style.animationDelay = `${index * 0.05}s`;
-        div.innerHTML = `
-          <div class="card h-100">
-            <div class="image-container">
-              <div class="categoria-badge">${producto.categoria || 'TIENS'}</div>
-              <div class="codigo-producto">${producto.codigo || 'N/A'}</div>
-              <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}" 
-                   onclick="irAProducto(${producto.id})"
-                   loading="lazy"
-                   onerror="this.src='https://via.placeholder.com/400x500/2E8B57/ffffff?text=TIENS+Bolivia'">
+      lista.forEach((producto, index) => {
+        // Cuando el overlay está abierto mostramos resultados en lista (más adecuado para móvil)
+        if (inOverlay) {
+          const item = document.createElement('div');
+          item.className = 'list-item fade-in';
+          item.style.animationDelay = `${index * 0.04}s`;
+          item.setAttribute('role', 'button');
+          item.setAttribute('tabindex', '0');
+          item.onclick = () => openProductFromOverlay(producto.id);
+          item.onkeypress = (e) => { if (e.key === 'Enter') openProductFromOverlay(producto.id); };
+
+          item.innerHTML = `
+            <img class="thumb" src="${producto.imagen}" alt="${producto.nombre}" onerror="this.src='https://via.placeholder.com/80x80/2E8B57/ffffff?text=TN'">
+            <div class="meta">
+              <div class="name">${producto.nombre}</div>
+              <div class="sub">Código: ${producto.codigo || 'N/A'} · ${producto.categoria || ''}</div>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">${producto.nombre}</h5>
-              <p class="card-text">${producto.descripcion || 'Producto de calidad TIENS para tu bienestar'}</p>
-              <div class="precio">🇧🇴 ${formatPrice(producto.precio)} Bs</div>
-              <div class="btn-group">
-                <button onclick="irAProducto(${producto.id})" class="btn btn-primary btn-sm">
-                  <i class="bi bi-eye"></i> Ver
-                </button>
-                <button onclick="addToCart(${JSON.stringify(producto).replace(/"/g, '&quot;')})" class="btn btn-cart btn-sm">
-                  <i class="bi bi-cart-plus"></i> Carrito
-                </button>
-                <a href="https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}" 
-                   target="_blank" class="btn btn-success btn-sm">
-                  <i class="bi bi-whatsapp"></i> Pedir
-                </a>
+            <div class="price">${formatPrice(producto.precio)} Bs</div>
+          `;
+
+          contenedor.appendChild(item);
+        } else {
+          const mensajeWhatsApp = `*PEDIDO TIENS BOLIVIA* 🌿%0A%0A*PRODUCTO:*%0A${producto.nombre}%0ACódigo: ${producto.codigo}%0APrecio: ${formatPrice(producto.precio)} Bs%0A%0ANecesito información sobre:%0A• Disponibilidad%0A• Formas de pago%0A• Tiempo de entrega%0A%0AGracias! 😊`;
+
+          const div = document.createElement('div');
+          div.className = `col mb-4 produto fade-in`;
+          div.style.animationDelay = `${index * 0.05}s`;
+          div.innerHTML = `
+            <div class="card h-100">
+              <div class="image-container">
+                <div class="categoria-badge">${producto.categoria || 'TIENS'}</div>
+                <div class="codigo-producto">${producto.codigo || 'N/A'}</div>
+                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}" 
+                     onclick="irAProducto(${producto.id})"
+                     loading="lazy"
+                     onerror="this.src='https://via.placeholder.com/400x500/2E8B57/ffffff?text=TIENS+Bolivia'">
               </div>
-            </div>
-          </div>`;
-        contenedor.appendChild(div);
+              <div class="card-body">
+                <h5 class="card-title">${producto.nombre}</h5>
+                <p class="card-text">${producto.descripcion || 'Producto de calidad TIENS para tu bienestar'}</p>
+                <div class="precio">🇧🇴 ${formatPrice(producto.precio)} Bs</div>
+                <div class="btn-group">
+                  <button onclick="irAProducto(${producto.id})" class="btn btn-primary btn-sm">
+                    <i class="bi bi-eye"></i> Ver
+                  </button>
+                  <button onclick="addToCart(${JSON.stringify(producto).replace(/\"/g, '&quot;')})" class="btn btn-cart btn-sm">
+                    <i class="bi bi-cart-plus"></i> Carrito
+                  </button>
+                  <a href="https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}" 
+                     target="_blank" class="btn btn-success btn-sm">
+                    <i class="bi bi-whatsapp"></i> Pedir
+                  </a>
+                </div>
+              </div>
+            </div>`;
+          contenedor.appendChild(div);
+        }
       });
     }
 
@@ -1987,6 +2132,77 @@
         mostrarProductos(filtrados);
       }, 300);
     });
+
+    // Reconocimiento por voz (Web Speech API)
+    (function setupVoiceSearch(){
+      const voiceBtn = document.getElementById('voiceBtn');
+      if (!voiceBtn) return;
+
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      let recognition;
+      let recognizing = false;
+
+      if (SpeechRecognition) {
+        recognition = new SpeechRecognition();
+        recognition.lang = navigator.language || 'es-ES';
+        recognition.interimResults = true;
+        recognition.maxAlternatives = 1;
+        recognition.continuous = false;
+
+        recognition.onstart = () => {
+          recognizing = true;
+          voiceBtn.classList.add('listening');
+          voiceBtn.title = 'Escuchando...';
+        };
+
+        recognition.onend = () => {
+          recognizing = false;
+          voiceBtn.classList.remove('listening');
+          voiceBtn.title = 'Buscar por voz';
+        };
+
+        recognition.onerror = (evt) => {
+          recognizing = false;
+          voiceBtn.classList.remove('listening');
+          console.warn('Speech recognition error', evt);
+          showToast('Error en reconocimiento de voz o permiso denegado', 'info');
+        };
+
+        recognition.onresult = (event) => {
+          let interim = '';
+          let finalTranscript = '';
+          for (let i = event.resultIndex; i < event.results.length; ++i) {
+            if (event.results[i].isFinal) {
+              finalTranscript += event.results[i][0].transcript;
+            } else {
+              interim += event.results[i][0].transcript;
+            }
+          }
+
+          const input = document.getElementById('buscador');
+          const value = (finalTranscript || interim).trim();
+          input.value = value;
+          // Disparar evento input para que la lógica de filtrado se ejecute
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+        };
+
+        // Toggle start/stop
+        voiceBtn.addEventListener('click', () => {
+          try {
+            if (recognizing) {
+              recognition.stop();
+            } else {
+              recognition.start();
+            }
+          } catch (e) {
+            console.warn('Speech start/stop error', e);
+          }
+        });
+      } else {
+        // No soportado: ocultar botón para evitar confusión
+        voiceBtn.style.display = 'none';
+      }
+    })();
 
     // Filtros de categorías
     document.querySelectorAll('.filtro-categoria').forEach(link => {
@@ -2111,21 +2327,110 @@
     window.addToCart = addToCart;
     window.irAProducto = irAProducto;
 
-    // Actualizar contador del carrito flotante
+    // Actualizar contador del carrito (navbar + flotante)
     function updateCartUI() {
+      const cartCount = document.getElementById('cartCount');
       const floatingCount = document.getElementById('floatingCartCount');
-      
-      if (carrito.length > 0) {
-        const totalItems = carrito.reduce((sum, item) => sum + item.quantity, 0);
-        floatingCount.style.display = 'flex';
-        floatingCount.textContent = totalItems;
-      } else {
-        floatingCount.style.display = 'none';
+      const totalItems = carrito.reduce((sum, item) => sum + item.quantity, 0);
+
+      if (cartCount) {
+        if (totalItems > 0) {
+          cartCount.style.display = 'flex';
+          cartCount.textContent = totalItems;
+        } else {
+          cartCount.style.display = 'none';
+        }
+      }
+
+      if (floatingCount) {
+        if (totalItems > 0) {
+          floatingCount.style.display = 'flex';
+          floatingCount.textContent = totalItems;
+        } else {
+          floatingCount.style.display = 'none';
+        }
       }
     }
 
     // Abrir carrito al hacer clic en el botón flotante
     document.getElementById('floatingCartBtn').addEventListener('click', openCart);
+
+    // Abrir overlay de búsqueda al presionar la lupa en la navbar
+    const searchToggleBtn = document.getElementById('searchToggleBtn');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const closeSearchOverlay = document.getElementById('closeSearchOverlay') || document.getElementById('closeSearchOverlay');
+
+    function openSearchOverlay() {
+      searchOverlay.classList.add('active');
+      searchOverlay.setAttribute('aria-hidden', 'false');
+      const input = document.getElementById('buscador');
+      input.focus();
+      // Seleccionar todo para facilitar reemplazo por voz
+      input.select && input.select();
+      // Mostrar lista inicial de productos en el overlay
+      mostrarProductos(productos);
+      // asegurar que el icono en la navbar sea la flecha
+      if (searchToggleBtn) searchToggleBtn.innerHTML = '<i class="bi bi-arrow-left"></i>';
+    }
+
+    function closeSearch() {
+      searchOverlay.classList.remove('active');
+      searchOverlay.setAttribute('aria-hidden', 'true');
+      const input = document.getElementById('buscador');
+      input.value = '';
+      // Limpiar resultados del overlay y restaurar vista completa
+      const grid = document.getElementById('searchResultsList');
+      const msg = document.getElementById('searchMensajeVacio');
+      if (grid) grid.innerHTML = '';
+      if (msg) msg.style.display = 'none';
+      mostrarProductos(productos);
+      // restaurar icono lupa en navbar
+      if (searchToggleBtn) searchToggleBtn.innerHTML = '<i class="bi bi-search"></i>';
+    }
+
+    // Transformar comportamiento del botón de la lupa: actúa como toggle; cuando el overlay está abierto
+    // se convierte en una flecha de retroceso que cierra el overlay.
+    if (searchToggleBtn) {
+      searchToggleBtn.addEventListener('click', () => {
+        if (searchOverlay.classList.contains('active')) {
+          closeSearch();
+          // volver a icono lupa
+          searchToggleBtn.innerHTML = '<i class="bi bi-search"></i>';
+        } else {
+          openSearchOverlay();
+          // cambiar a flecha
+          searchToggleBtn.innerHTML = '<i class="bi bi-arrow-left"></i>';
+        }
+      });
+    }
+    if (closeSearchOverlay) closeSearchOverlay.addEventListener('click', closeSearch);
+    // botón retroceso dentro del overlay
+    const overlayBack = document.getElementById('overlayBackBtn');
+    if (overlayBack) overlayBack.addEventListener('click', closeSearch);
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && searchOverlay.classList.contains('active')) closeSearch(); });
+
+    // Navegar a producto desde overlay: cerrar overlay primero
+    function openProductFromOverlay(id) {
+      closeSearch();
+      setTimeout(() => {
+        irAProducto(id);
+      }, 120);
+    }
+
+    // Limpiar el campo de búsqueda (botón clear)
+    const clearBtn = document.getElementById('clearSearchInput');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        const input = document.getElementById('buscador');
+        if (input) {
+          input.value = '';
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+          input.focus();
+        }
+      });
+    }
+    if (searchOverlay) searchOverlay.addEventListener('click', (e) => { if (e.target === searchOverlay) closeSearch(); });
 
     // Función para abrir el carrito
     function openCart() {
@@ -2147,5 +2452,4 @@
   </script>
 </body>
 </html>
-
 
