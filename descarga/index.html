@@ -1,77 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TIENS Bolivia - Web App</title>
-
-  <!-- PWA Config -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mi aplicación PWA">
+  <meta name="theme-color" content="#007bff">
+  
+  <title>Mi App PWA</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://res.cloudinary.com/dv6d41ect/image/upload/v1769974482/photo_5186249765740547232_y_kvdq0u.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dv6d41ect/image/upload/v1769974482/photo_5186249765740547232_y_kvdq0u.jpg">
+  
+  <!-- Manifest PWA -->
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#2E8B57" />
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-
-  <!-- Favicon + Iconos -->
-  <link rel="icon" href="https://assets.berty.tech/files/favicon_berty--android-chrome-192x192.png" type="image/png">
-  <link rel="apple-touch-icon" href="https://assets.berty.tech/files/favicon_berty--android-chrome-192x192.png" />
-
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  
+  <style>
+    body {
+      padding-top: 56px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .btn-install {
+      display: none;
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      color: #667eea;
+    }
+  </style>
 </head>
+<body>
+  
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-app-indicator"></i> Mi App PWA
+      </a>
+      <button class="btn btn-outline-light btn-sm btn-install" id="installBtn">
+        <i class="bi bi-download"></i> Instalar
+      </button>
+    </div>
+  </nav>
 
-<body class="bg-light text-center d-flex flex-column align-items-center justify-content-center vh-100 p-4">
+  <!-- Contenido Principal -->
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        
+        <!-- Card Principal -->
+        <div class="card mb-4">
+          <div class="card-body text-center p-5">
+            <i class="bi bi-rocket-takeoff feature-icon mb-3"></i>
+            <h1 class="card-title mb-3">¡Bienvenido a Mi App!</h1>
+            <p class="card-text text-muted mb-4">
+              Esta es una Progressive Web App simple y responsive. Puedes instalarla en tu dispositivo móvil.
+            </p>
+            <button class="btn btn-primary btn-lg">
+              <i class="bi bi-play-fill"></i> Comenzar
+            </button>
+          </div>
+        </div>
 
-  <h1 class="mb-3">TIENS Bolivia</h1>
-  <p class="mb-4">Accede a nuestra app de productos de salud y bienestar</p>
+        <!-- Features -->
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <i class="bi bi-phone feature-icon"></i>
+                <h5 class="mt-3">Responsive</h5>
+                <p class="text-muted">Funciona en todos los dispositivos</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <i class="bi bi-cloud-download feature-icon"></i>
+                <h5 class="mt-3">Instalable</h5>
+                <p class="text-muted">Descarga como app nativa</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <i class="bi bi-lightning-charge feature-icon"></i>
+                <h5 class="mt-3">Rápida</h5>
+                <p class="text-muted">Carga instantánea</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <button id="installBtn" class="btn btn-success btn-lg px-4 py-2" style="display: none;">
-    📲 Instalar Aplicación
-  </button>
+      </div>
+    </div>
+  </div>
 
-  <p id="iosInstructions" class="text-muted mt-3" style="display: none;">
-    En iPhone: toca <strong>Compartir</strong> y selecciona <strong>Añadir a pantalla de inicio</strong>
-  </p>
-
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- PWA Script -->
   <script>
-    let deferredPrompt;
-    const installBtn = document.getElementById('installBtn');
-    const iosInstructions = document.getElementById('iosInstructions');
-
     // Registrar Service Worker
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(reg => console.log('✅ SW registrado'))
-        .catch(err => console.error('❌ SW error:', err));
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => console.log('Service Worker registrado'))
+          .catch(err => console.log('Error al registrar SW:', err));
+      });
     }
 
-    // Captura el evento beforeinstallprompt
+    // Botón de instalación
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      installBtn.style.display = 'inline-block';
+      installBtn.style.display = 'block';
     });
 
-    // Click del botón instalar
     installBtn.addEventListener('click', async () => {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log('Instalación:', outcome);
-      installBtn.style.display = 'none';
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`Usuario ${outcome === 'accepted' ? 'aceptó' : 'rechazó'} la instalación`);
+        deferredPrompt = null;
+        installBtn.style.display = 'none';
+      }
     });
-
-    // iOS fallback
-    function isIos() {
-      return /iphone|ipad|ipod/i.test(window.navigator.userAgent);
-    }
-
-    function isInStandaloneMode() {
-      return ('standalone' in window.navigator) && window.navigator.standalone;
-    }
-
-    if (isIos() && !isInStandaloneMode()) {
-      iosInstructions.style.display = 'block';
-    }
   </script>
 
 </body>
