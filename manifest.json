@@ -2,7 +2,7 @@
   "name": "Mi App PWA",
   "short_name": "MiApp",
   "description": "Una Progressive Web App simple y responsive",
-  "start_url": "/",
+  "start_url": "/tiens/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#007bff",
