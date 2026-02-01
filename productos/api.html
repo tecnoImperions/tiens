@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CordyClub | Suplementos Naturales</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Suplementos naturales para energía, digestión y bienestar. Compra fácil por WhatsApp.">
+
+  <style>
+    :root {
+      --primario: #2E8B57;
+      --secundario: #20B2AA;
+      --dorado: #DAA520;
+      --dorado-claro: #F0E68C;
+      --fondo: #f8fffe;
+      --texto: #2c3e50;
+      --blanco: #ffffff;
+      --gris-claro: #e8f5f3;
+      --verde-claro: #f0f9f6;
+      --sombra: 0 2px 15px rgba(46, 139, 87, 0.08);
+      --sombra-hover: 0 8px 25px rgba(46, 139, 87, 0.12);
+      --transicion: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--blanco);
+      box-shadow: var(--sombra);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      color: var(--primario);
+      font-size: 1.4rem;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      font-weight: 500;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--verde-claro), var(--gris-claro));
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primario);
+      color: var(--blanco);
+      padding: 0.8rem 1.6rem;
+      border-radius: 30px;
+      transition: var(--transicion);
+      box-shadow: var(--sombra);
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background: var(--secundario);
+      box-shadow: var(--sombra-hover);
+    }
+
+    /* SECCIONES */
+    section {
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      color: var(--primario);
+    }
+
+    /* BENEFICIOS */
+    .beneficios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .beneficio {
+      background: var(--blanco);
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: var(--sombra);
+      text-align: center;
+    }
+
+    /* CATEGORÍAS */
+    .categorias {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .categoria {
+      background: var(--primario);
+      color: var(--blanco);
+      padding: 2rem;
+      border-radius: 18px;
+      text-align: center;
+      font-weight: bold;
+      transition: var(--transicion);
+    }
+
+    .categoria:hover {
+      background: var(--secundario);
+    }
+
+    /* CTA */
+    .cta {
+      background: var(--primario);
+      color: var(--blanco);
+      text-align: center;
+      padding: 3rem 2rem;
+      border-radius: 25px;
+      margin: 3rem 0;
+    }
+
+    .cta h3 {
+      color: var(--blanco);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--blanco);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>CordyClub</h1>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#beneficios">Beneficios</a>
+    <a href="#categorias">Productos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <h2>Energía, Salud y Bienestar Natural</h2>
+  <p>Suplementos naturales de alta calidad para mejorar tu energía, digestión y calidad de vida.</p>
+  <a class="btn" href="productos.html">Ver catálogo</a>
+</section>
+
+<section id="beneficios">
+  <h3>¿Por qué elegirnos?</h3>
+  <div class="beneficios">
+    <div class="beneficio">🌿 Productos naturales certificados</div>
+    <div class="beneficio">⚡ Energía y bienestar diario</div>
+    <div class="beneficio">🧠 Mejora digestión y concentración</div>
+    <div class="beneficio">📲 Atención directa por WhatsApp</div>
+  </div>
+</section>
+
+<section id="categorias">
+  <h3>Categorías</h3>
+  <div class="categorias">
+    <div class="categoria">Energía</div>
+    <div class="categoria">Digestión</div>
+    <div class="categoria">Huesos</div>
+    <div class="categoria">Nutrición</div>
+  </div>
+</section>
+
+<div class="cta" id="contacto">
+  <h3>¿Listo para mejorar tu bienestar?</h3>
+  <p>Escríbenos ahora y recibe asesoría personalizada.</p>
+  <a class="btn" href="https://wa.me/59170000000" target="_blank">WhatsApp</a>
+</div>
+
+<footer>
+  © 2026 CordyClub · Suplementos Naturales
+</footer>
+
+</body>
+</html>
