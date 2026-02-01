@@ -1,7 +1,7 @@
 const CACHE_NAME = 'mi-app-pwa-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
+  '/tiens/',
+  '/tiens/index.html',
   'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
   'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css',
   'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',
@@ -67,7 +67,7 @@ self.addEventListener('fetch', event => {
       })
       .catch(() => {
         // Si falla, mostrar página offline (opcional)
-        return caches.match('/index.html');
+        return caches.match('/tiens/index.html');
       })
   );
 });
