@@ -3,229 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <title>CordyClub | Suplementos Naturales</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Suplementos naturales para energía, digestión y bienestar. Compra fácil por WhatsApp.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     :root {
       --primario: #2E8B57;
       --secundario: #20B2AA;
       --dorado: #DAA520;
-      --dorado-claro: #F0E68C;
       --fondo: #f8fffe;
       --texto: #2c3e50;
-      --blanco: #ffffff;
-      --gris-claro: #e8f5f3;
-      --verde-claro: #f0f9f6;
-      --sombra: 0 2px 15px rgba(46, 139, 87, 0.08);
-      --sombra-hover: 0 8px 25px rgba(46, 139, 87, 0.12);
-      --transicion: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", sans-serif;
+      --sombra: 0 8px 25px rgba(46, 139, 87, 0.12);
     }
 
     body {
       background: var(--fondo);
       color: var(--texto);
-      line-height: 1.6;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* HEADER */
-    header {
-      background: var(--blanco);
+    .navbar {
       box-shadow: var(--sombra);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
 
-    header h1 {
-      color: var(--primario);
-      font-size: 1.4rem;
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--primario) !important;
     }
 
-    nav a {
-      margin-left: 1rem;
-      font-weight: 500;
+    .btn-primary {
+      background-color: var(--primario);
+      border: none;
     }
 
-    /* HERO */
+    .btn-primary:hover {
+      background-color: var(--secundario);
+    }
+
     .hero {
-      background: linear-gradient(135deg, var(--verde-claro), var(--gris-claro));
-      padding: 4rem 2rem;
-      text-align: center;
+      background: linear-gradient(135deg, #f0f9f6, #e8f5f3);
+      padding: 5rem 1rem;
     }
 
-    .hero h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
+    .hero h1 {
+      font-weight: 700;
     }
 
-    .hero p {
-      max-width: 600px;
-      margin: auto;
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--primario);
-      color: var(--blanco);
-      padding: 0.8rem 1.6rem;
-      border-radius: 30px;
-      transition: var(--transicion);
+    .card {
+      border: none;
       box-shadow: var(--sombra);
-      font-weight: 600;
+      border-radius: 1rem;
     }
 
-    .btn:hover {
-      background: var(--secundario);
-      box-shadow: var(--sombra-hover);
-    }
-
-    /* SECCIONES */
-    section {
-      padding: 3rem 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    section h3 {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1.8rem;
-      color: var(--primario);
-    }
-
-    /* BENEFICIOS */
-    .beneficios {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .beneficio {
-      background: var(--blanco);
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: var(--sombra);
-      text-align: center;
-    }
-
-    /* CATEGORÍAS */
-    .categorias {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-
-    .categoria {
-      background: var(--primario);
-      color: var(--blanco);
-      padding: 2rem;
-      border-radius: 18px;
-      text-align: center;
-      font-weight: bold;
-      transition: var(--transicion);
-    }
-
-    .categoria:hover {
-      background: var(--secundario);
-    }
-
-    /* CTA */
-    .cta {
-      background: var(--primario);
-      color: var(--blanco);
-      text-align: center;
-      padding: 3rem 2rem;
-      border-radius: 25px;
-      margin: 3rem 0;
-    }
-
-    .cta h3 {
-      color: var(--blanco);
-    }
-
-    /* FOOTER */
     footer {
-      background: var(--blanco);
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    @media (max-width: 600px) {
-      .hero h2 {
-        font-size: 1.8rem;
-      }
+      background: #fff;
+      border-top: 1px solid #eee;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>CordyClub</h1>
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#beneficios">Beneficios</a>
-    <a href="#categorias">Productos</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-</header>
+<!-- NAVBAR RESPONSIVE -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">CordyClub</a>
 
-<section class="hero" id="inicio">
-  <h2>Energía, Salud y Bienestar Natural</h2>
-  <p>Suplementos naturales de alta calidad para mejorar tu energía, digestión y calidad de vida.</p>
-  <a class="btn" href="productos.html">Ver catálogo</a>
-</section>
+    <!-- BOTÓN HAMBURGUESA -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<section id="beneficios">
-  <h3>¿Por qué elegirnos?</h3>
-  <div class="beneficios">
-    <div class="beneficio">🌿 Productos naturales certificados</div>
-    <div class="beneficio">⚡ Energía y bienestar diario</div>
-    <div class="beneficio">🧠 Mejora digestión y concentración</div>
-    <div class="beneficio">📲 Atención directa por WhatsApp</div>
+    <!-- MENÚ -->
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="inicio" class="hero text-center mt-5 pt-5">
+  <div class="container">
+    <h1 class="mb-3">Energía y Bienestar Natural</h1>
+    <p class="lead mb-4">Suplementos naturales para mejorar tu salud, digestión y rendimiento diario.</p>
+    <a href="#productos" class="btn btn-primary btn-lg">Ver catálogo</a>
   </div>
 </section>
 
-<section id="categorias">
-  <h3>Categorías</h3>
-  <div class="categorias">
-    <div class="categoria">Energía</div>
-    <div class="categoria">Digestión</div>
-    <div class="categoria">Huesos</div>
-    <div class="categoria">Nutrición</div>
+<!-- BENEFICIOS -->
+<section id="beneficios" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">¿Por qué elegirnos?</h2>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="card p-4 text-center">🌿 Productos naturales certificados</div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-4 text-center">⚡ Energía y vitalidad diaria</div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-4 text-center">🧠 Mejor digestión y enfoque</div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-4 text-center">📲 Atención personalizada</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<div class="cta" id="contacto">
-  <h3>¿Listo para mejorar tu bienestar?</h3>
-  <p>Escríbenos ahora y recibe asesoría personalizada.</p>
-  <a class="btn" href="https://wa.me/59170000000" target="_blank">WhatsApp</a>
-</div>
+<!-- PRODUCTOS / CATEGORÍAS -->
+<section id="productos" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Categorías</h2>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">⚡ Energía</div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">🌿 Digestión</div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">🦴 Huesos</div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">💪 Nutrición</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<footer>
-  © 2026 CordyClub · Suplementos Naturales
+<!-- CTA -->
+<section id="contacto" class="py-5 text-center">
+  <div class="container">
+    <h2 class="mb-3">Compra fácil por WhatsApp</h2>
+    <p class="mb-4">Te asesoramos personalmente en minutos.</p>
+    <a href="https://wa.me/59170000000" target="_blank" class="btn btn-primary btn-lg">
+      Escribir por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-4 text-center">
+  <div class="container">
+    <small>© 2026 CordyClub · Suplementos Naturales</small>
+  </div>
 </footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
