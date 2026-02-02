@@ -1,49 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mi aplicación PWA">
-  <meta name="theme-color" content="#007bff">
-  
-  <title>Mi App PWA v2.0</title>
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mi aplicación PWA v2.1" />
+  <meta name="theme-color" content="#667eea" />
+
+  <title>Mi App PWA v2.1</title>
+
   <!-- Favicon -->
-  <link rel="icon" href="https://res.cloudinary.com/dv6d41ect/image/upload/v1769974482/photo_5186249765740547232_y_kvdq0u.jpg" type="image/jpeg">
+  <link rel="icon" href="https://res.cloudinary.com/dv6d41ect/image/upload/v1769974482/photo_5186249765740547232_y_kvdq0u.jpg">
   <link rel="apple-touch-icon" href="https://res.cloudinary.com/dv6d41ect/image/upload/v1769974482/photo_5186249765740547232_y_kvdq0u.jpg">
-  
-  <!-- Manifest PWA -->
+
+  <!-- Manifest -->
   <link rel="manifest" href="manifest.json">
-  
-  <!-- Bootstrap CSS -->
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-  
+
   <style>
     body {
       padding-top: 56px;
       padding-bottom: 60px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #667eea, #764ba2);
       min-height: 100vh;
+      transition: background 0.3s;
     }
-    
+
+    body.dark {
+      background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
+      color: #fff;
+    }
+
     .card {
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
-    
-    .btn-install {
-      display: none;
+
+    body.dark .card {
+      background-color: #2b2b2b;
     }
-    
+
     .feature-icon {
       font-size: 3rem;
       color: #667eea;
     }
-    
-    /* Bottom Navigation */
+
+    .counter {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #667eea;
+    }
+
+    .counter.animate {
+      transform: scale(1.2);
+      color: #28a745;
+      transition: all 0.3s ease;
+    }
+
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -53,7 +68,11 @@
       box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    
+
+    body.dark .bottom-nav {
+      background: #1f1f1f;
+    }
+
     .bottom-nav .nav-link {
       color: #6c757d;
       text-align: center;
@@ -62,357 +81,178 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: all 0.3s;
     }
-    
-    .bottom-nav .nav-link i {
-      font-size: 1.5rem;
-      margin-bottom: 0.25rem;
-    }
-    
+
     .bottom-nav .nav-link.active {
       color: #667eea;
     }
-    
-    .bottom-nav .nav-link:hover {
-      color: #667eea;
-      background: #f8f9fa;
+
+    .bottom-nav .nav-link.active::after {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: #667eea;
+      border-radius: 50%;
+      margin-top: 3px;
     }
-    
-    /* Badge de actualización */
-    .update-badge {
-      position: fixed;
-      top: 70px;
-      right: 20px;
-      z-index: 1050;
-      display: none;
-    }
-    
-    .update-badge.show {
-      display: block;
-      animation: slideInRight 0.5s;
-    }
-    
-    @keyframes slideInRight {
-      from {
-        transform: translateX(100%);
-      }
-      to {
-        transform: translateX(0);
-      }
-    }
-    
-    /* Secciones */
+
     .content-section {
       display: none;
     }
-    
+
     .content-section.active {
       display: block;
     }
-    
-    /* Contador animado */
-    .counter {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #667eea;
-    }
   </style>
 </head>
+
 <body>
-  
-  <!-- Navbar Superior -->
-  <nav class="navbar navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <i class="bi bi-app-indicator"></i> Mi App v2.0
-      </a>
-      <div>
-        <span class="badge bg-success me-2" id="onlineStatus">
-          <i class="bi bi-wifi"></i> Online
-        </span>
-        <button class="btn btn-outline-light btn-sm btn-install" id="installBtn">
-          <i class="bi bi-download"></i> Instalar
-        </button>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Badge de actualización -->
-  <div class="alert alert-success alert-dismissible fade update-badge" role="alert" id="updateBadge">
-    <i class="bi bi-arrow-repeat"></i> Nueva versión disponible
-    <button type="button" class="btn btn-sm btn-success ms-2" onclick="location.reload()">
-      Actualizar
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <span class="navbar-brand">
+      <i class="bi bi-app-indicator"></i> Mi App v2.1
+    </span>
+    <button class="btn btn-outline-light btn-sm" id="installBtn" style="display:none">
+      <i class="bi bi-download"></i> Instalar
     </button>
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+</nav>
+
+<div class="container py-4">
+
+  <!-- HOME -->
+  <div class="content-section active" id="homeSection">
+    <div class="card text-center p-4">
+      <i class="bi bi-rocket-takeoff feature-icon mb-3"></i>
+      <h2>Bienvenido 🚀</h2>
+      <p class="text-muted">Versión 2.1 con mejoras visibles</p>
+      <div class="counter mb-3" id="counter">0</div>
+      <button class="btn btn-primary" onclick="incrementCounter()">Incrementar</button>
+      <button class="btn btn-outline-secondary ms-2" onclick="resetCounter()">Reset</button>
+    </div>
   </div>
 
-  <!-- Contenido Principal -->
-  <div class="container py-4">
-    
-    <!-- Sección Home -->
-    <div class="content-section active" id="homeSection">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          
-          <!-- Card Principal -->
-          <div class="card mb-4">
-            <div class="card-body text-center p-5">
-              <i class="bi bi-rocket-takeoff feature-icon mb-3"></i>
-              <h1 class="card-title mb-3">¡Actualización v2.0!</h1>
-              <p class="card-text text-muted mb-4">
-                Ahora con navegación móvil mejorada, contador interactivo y detección de actualizaciones.
-              </p>
-              <div class="counter mb-3" id="counter">0</div>
-              <button class="btn btn-primary btn-lg" onclick="incrementCounter()">
-                <i class="bi bi-plus-circle"></i> Incrementar
-              </button>
-              <button class="btn btn-outline-secondary btn-lg ms-2" onclick="resetCounter()">
-                <i class="bi bi-arrow-clockwise"></i> Reset
-              </button>
-            </div>
-          </div>
-
-          <!-- Features -->
-          <div class="row g-4">
-            <div class="col-md-4">
-              <div class="card h-100">
-                <div class="card-body text-center">
-                  <i class="bi bi-phone feature-icon"></i>
-                  <h5 class="mt-3">Responsive</h5>
-                  <p class="text-muted">Optimizado para móviles</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-md-4">
-              <div class="card h-100">
-                <div class="card-body text-center">
-                  <i class="bi bi-arrow-repeat feature-icon"></i>
-                  <h5 class="mt-3">Auto-Update</h5>
-                  <p class="text-muted">Detecta actualizaciones</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-md-4">
-              <div class="card h-100">
-                <div class="card-body text-center">
-                  <i class="bi bi-menu-button-wide feature-icon"></i>
-                  <h5 class="mt-3">Nav Móvil</h5>
-                  <p class="text-muted">Navegación inferior</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
+  <!-- PERFIL -->
+  <div class="content-section" id="profileSection">
+    <div class="card text-center p-4">
+      <i class="bi bi-person-circle feature-icon"></i>
+      <h3 class="mt-3">Perfil</h3>
+      <p class="text-muted">Opciones de usuario</p>
     </div>
-
-    <!-- Sección Perfil -->
-    <div class="content-section" id="profileSection">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="card">
-            <div class="card-body text-center p-5">
-              <i class="bi bi-person-circle feature-icon mb-3"></i>
-              <h2>Perfil de Usuario</h2>
-              <p class="text-muted">Información del usuario y configuración</p>
-              <div class="list-group mt-4">
-                <a href="#" class="list-group-item list-group-item-action">
-                  <i class="bi bi-gear"></i> Configuración
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                  <i class="bi bi-bell"></i> Notificaciones
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                  <i class="bi bi-shield-check"></i> Privacidad
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sección Configuración -->
-    <div class="content-section" id="settingsSection">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="card">
-            <div class="card-body p-4">
-              <h2 class="text-center mb-4">
-                <i class="bi bi-sliders"></i> Configuración
-              </h2>
-              <div class="form-check form-switch mb-3">
-                <input class="form-check-input" type="checkbox" id="darkMode">
-                <label class="form-check-label" for="darkMode">
-                  Modo Oscuro
-                </label>
-              </div>
-              <div class="form-check form-switch mb-3">
-                <input class="form-check-input" type="checkbox" id="notifications" checked>
-                <label class="form-check-label" for="notifications">
-                  Notificaciones
-                </label>
-              </div>
-              <div class="form-check form-switch mb-3">
-                <input class="form-check-input" type="checkbox" id="autoUpdate" checked>
-                <label class="form-check-label" for="autoUpdate">
-                  Actualización Automática
-                </label>
-              </div>
-              <hr>
-              <div class="text-center text-muted">
-                <small>Versión 2.0 - PWA Demo</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-  <!-- Bottom Navigation -->
-  <nav class="bottom-nav">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-4 p-0">
-          <a href="#" class="nav-link active" onclick="showSection('homeSection', this); return false;">
-            <i class="bi bi-house-door-fill"></i>
-            <span>Inicio</span>
-          </a>
-        </div>
-        <div class="col-4 p-0">
-          <a href="#" class="nav-link" onclick="showSection('profileSection', this); return false;">
-            <i class="bi bi-person-fill"></i>
-            <span>Perfil</span>
-          </a>
-        </div>
-        <div class="col-4 p-0">
-          <a href="#" class="nav-link" onclick="showSection('settingsSection', this); return false;">
-            <i class="bi bi-gear-fill"></i>
-            <span>Config</span>
-          </a>
-        </div>
+  <!-- CONFIG -->
+  <div class="content-section" id="settingsSection">
+    <div class="card p-4">
+      <h3 class="text-center mb-3"><i class="bi bi-sliders"></i> Configuración</h3>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="darkMode">
+        <label class="form-check-label">Modo Oscuro</label>
       </div>
+      <hr>
+      <small class="text-muted text-center d-block">Versión 2.1 - PWA Demo</small>
     </div>
-  </nav>
+  </div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <!-- PWA Script -->
-  <script>
-    let counter = 0;
+</div>
 
-    // Función para incrementar contador
-    function incrementCounter() {
-      counter++;
-      document.getElementById('counter').textContent = counter;
-      localStorage.setItem('appCounter', counter);
-    }
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <div class="row">
+    <div class="col-4 p-0">
+      <a class="nav-link active" onclick="showSection('homeSection',this)">
+        <i class="bi bi-house-door-fill"></i>Inicio
+      </a>
+    </div>
+    <div class="col-4 p-0">
+      <a class="nav-link" onclick="showSection('profileSection',this)">
+        <i class="bi bi-person-fill"></i>Perfil
+      </a>
+    </div>
+    <div class="col-4 p-0">
+      <a class="nav-link" onclick="showSection('settingsSection',this)">
+        <i class="bi bi-gear-fill"></i>Config
+      </a>
+    </div>
+  </div>
+</nav>
 
-    // Función para resetear contador
-    function resetCounter() {
-      counter = 0;
-      document.getElementById('counter').textContent = counter;
-      localStorage.setItem('appCounter', counter);
-    }
+<!-- TOAST -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="toast" class="toast text-bg-primary">
+    <div class="toast-body" id="toastMsg"></div>
+  </div>
+</div>
 
-    // Cargar contador al inicio
-    window.addEventListener('load', () => {
-      const savedCounter = localStorage.getItem('appCounter');
-      if (savedCounter) {
-        counter = parseInt(savedCounter);
-        document.getElementById('counter').textContent = counter;
-      }
-    });
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    // Función para cambiar secciones
-    function showSection(sectionId, element) {
-      // Ocultar todas las secciones
-      document.querySelectorAll('.content-section').forEach(section => {
-        section.classList.remove('active');
-      });
-      
-      // Mostrar la sección seleccionada
-      document.getElementById(sectionId).classList.add('active');
-      
-      // Actualizar navegación activa
-      document.querySelectorAll('.bottom-nav .nav-link').forEach(link => {
-        link.classList.remove('active');
-      });
-      element.classList.add('active');
-    }
+<script>
+  let counter = Number(localStorage.getItem('appCounter')) || 0;
+  document.getElementById('counter').textContent = counter;
 
-    // Detectar estado de conexión
-    function updateOnlineStatus() {
-      const statusBadge = document.getElementById('onlineStatus');
-      if (navigator.onLine) {
-        statusBadge.innerHTML = '<i class="bi bi-wifi"></i> Online';
-        statusBadge.className = 'badge bg-success me-2';
-      } else {
-        statusBadge.innerHTML = '<i class="bi bi-wifi-off"></i> Offline';
-        statusBadge.className = 'badge bg-danger me-2';
-      }
-    }
+  const toast = new bootstrap.Toast(document.getElementById('toast'));
+  const toastMsg = document.getElementById('toastMsg');
 
-    window.addEventListener('online', updateOnlineStatus);
-    window.addEventListener('offline', updateOnlineStatus);
+  function notify(msg) {
+    toastMsg.textContent = msg;
+    toast.show();
+  }
 
-    // Registrar Service Worker
-    if ('serviceWorker' in navigator) {
-      let refreshing = false;
-      
-      navigator.serviceWorker.register('sw.js').then(reg => {
-        console.log('Service Worker registrado');
-        
-        // Detectar actualizaciones
-        reg.addEventListener('updatefound', () => {
-          const newWorker = reg.installing;
-          
-          newWorker.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              // Hay una actualización disponible
-              const updateBadge = document.getElementById('updateBadge');
-              updateBadge.classList.add('show');
-            }
-          });
-        });
-      });
+  function incrementCounter() {
+    counter++;
+    const el = document.getElementById('counter');
+    el.textContent = counter;
+    el.classList.add('animate');
+    setTimeout(() => el.classList.remove('animate'), 300);
+    localStorage.setItem('appCounter', counter);
+    notify('Contador incrementado 🚀');
+  }
 
-      // Recargar cuando el nuevo SW toma control
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (!refreshing) {
-          refreshing = true;
-          window.location.reload();
-        }
-      });
-    }
+  function resetCounter() {
+    counter = 0;
+    document.getElementById('counter').textContent = 0;
+    localStorage.setItem('appCounter', 0);
+    notify('Contador reiniciado 🔄');
+  }
 
-    // Botón de instalación
-    let deferredPrompt;
-    const installBtn = document.getElementById('installBtn');
+  function showSection(id, el) {
+    document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    el.classList.add('active');
+  }
 
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installBtn.style.display = 'block';
-    });
+  const darkSwitch = document.getElementById('darkMode');
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark');
+    darkSwitch.checked = true;
+  }
 
-    installBtn.addEventListener('click', async () => {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        console.log(`Usuario ${outcome === 'accepted' ? 'aceptó' : 'rechazó'} la instalación`);
-        deferredPrompt = null;
-        installBtn.style.display = 'none';
-      }
-    });
-  </script>
+  darkSwitch.addEventListener('change', () => {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('darkMode', darkSwitch.checked);
+  });
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+
+  let deferredPrompt;
+  const installBtn = document.getElementById('installBtn');
+
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.style.display = 'block';
+  });
+
+  installBtn.onclick = async () => {
+    deferredPrompt.prompt();
+    deferredPrompt = null;
+    installBtn.style.display = 'none';
+  };
+</script>
 
 </body>
 </html>
