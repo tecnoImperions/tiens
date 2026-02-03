@@ -1,152 +1,196 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mi aplicación PWA">
-  <meta name="theme-color" content="#007bff">
-  
-  <title>Mi App PWA</title>
-  
-  <!-- Favicon -->
-  <link rel="icon" href="https://res.cloudinary.com/dv6d41ect/image/upload/v1769974482/photo_5186249765740547232_y_kvdq0u.jpg" type="image/jpeg">
-  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dv6d41ect/image/upload/v1769974482/photo_5186249765740547232_y_kvdq0u.jpg">
-  
-  <!-- Manifest PWA -->
-  <link rel="manifest" href="manifest.json">
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-  
-  <style>
-    body {
-      padding-top: 56px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-    }
-    
-    .card {
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-    
-    .btn-install {
-      display: none;
-    }
-    
-    .feature-icon {
-      font-size: 3rem;
-      color: #667eea;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Salud - Productos Naturales</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 0.5rem;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        /* Productos */
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .producto {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .producto img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Carrito */
+        #carrito {
+            padding: 1rem;
+            background: white;
+            margin: 1rem;
+            border-radius: 8px;
+        }
+
+        #cart-items p {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsividad móvil */
+        @media (max-width: 600px) {
+            .productos-grid {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  
-  <!-- Navbar -->
-  <nav class="navbar navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <i class="bi bi-app-indicator"></i> Mi App PWA
-      </a>
-      <button class="btn btn-outline-light btn-sm btn-install" id="installBtn">
-        <i class="bi bi-download"></i> Instalar
-      </button>
-    </div>
-  </nav>
+    <header>
+        <h1>Tienda de Salud</h1>
+        <nav>
+            <a href="#productos">Productos</a>
+            <a href="#carrito">Carrito (<span id="cart-count">0</span>)</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
 
-  <!-- Contenido Principal -->
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        
-        <!-- Card Principal -->
-        <div class="card mb-4">
-          <div class="card-body text-center p-5">
-            <i class="bi bi-rocket-takeoff feature-icon mb-3"></i>
-            <h1 class="card-title mb-3">¡Bienvenido a Mi App!</h1>
-            <p class="card-text text-muted mb-4">
-              Esta es una Progressive Web App simple y responsive. Puedes instalarla en tu dispositivo móvil.
-            </p>
-            <button class="btn btn-primary btn-lg">
-              <i class="bi bi-play-fill"></i> Comenzar
-            </button>
-          </div>
+    <section id="productos">
+        <h2>Catálogo de Productos</h2>
+        <div class="productos-grid">
+            <div class="producto">
+                <img src="https://res.cloudinary.com/dv6d41ect/image/upload/v1758840051/A01_zf5hc8.png" alt="Suplemento Vitamina C">
+                <h3>Suplemento Vitamina C</h3>
+                <p>Fortalece el sistema inmunológico. 60 cápsulas.</p>
+                <p class="precio">$15.00</p>
+                <button onclick="addToCart('Suplemento Vitamina C', 15)">Agregar al Carrito</button>
+            </div>
+            <div class="producto">
+                <img src="https://res.cloudinary.com/dv6d41ect/image/upload/v1758840051/A01_zf5hc8.png" alt="Aceite de CBD">
+                <h3>Aceite de CBD</h3>
+                <p>Relaja y reduce el estrés. 30ml.</p>
+                <p class="precio">$25.00</p>
+                <button onclick="addToCart('Aceite de CBD', 25)">Agregar al Carrito</button>
+            </div>
+            <div class="producto">
+                <img src="https://res.cloudinary.com/dv6d41ect/image/upload/v1758840051/A01_zf5hc8.png" alt="Máscara Facial Natural">
+                <h3>Máscara Facial Natural</h3>
+                <p>Hidrata y purifica la piel. Paquete de 5.</p>
+                <p class="precio">$10.00</p>
+                <button onclick="addToCart('Máscara Facial Natural', 10)">Agregar al Carrito</button>
+            </div>
+            <!-- Agrega más productos aquí si necesitas -->
         </div>
+    </section>
 
-        <!-- Features -->
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="card h-100">
-              <div class="card-body text-center">
-                <i class="bi bi-phone feature-icon"></i>
-                <h5 class="mt-3">Responsive</h5>
-                <p class="text-muted">Funciona en todos los dispositivos</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-md-4">
-            <div class="card h-100">
-              <div class="card-body text-center">
-                <i class="bi bi-cloud-download feature-icon"></i>
-                <h5 class="mt-3">Instalable</h5>
-                <p class="text-muted">Descarga como app nativa</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-md-4">
-            <div class="card h-100">
-              <div class="card-body text-center">
-                <i class="bi bi-lightning-charge feature-icon"></i>
-                <h5 class="mt-3">Rápida</h5>
-                <p class="text-muted">Carga instantánea</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section id="carrito">
+        <h2>Tu Carrito</h2>
+        <div id="cart-items">Carrito vacío</div>
+        <p>Total: $<span id="total">0</span></p>
+        <button id="checkout-btn" onclick="checkout()" disabled>Enviar Pedido por WhatsApp</button>
+    </section>
 
-      </div>
-    </div>
-  </div>
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Envíanos un mensaje para consultas. WhatsApp: +1234567890</p>
+    </section>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <!-- PWA Script -->
-  <script>
-    // Registrar Service Worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js')
-          .then(reg => console.log('Service Worker registrado'))
-          .catch(err => console.log('Error al registrar SW:', err));
-      });
-    }
+    <footer>
+        <p>&copy; 2023 Tienda de Salud. Consulta a un médico antes de usar productos.</p>
+    </footer>
 
-    // Botón de instalación
-    let deferredPrompt;
-    const installBtn = document.getElementById('installBtn');
+    <script>
+        // Carrito de compras
+        let cart = [];
+        let total = 0;
 
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installBtn.style.display = 'block';
-    });
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            total += price;
+            updateCart();
+        }
 
-    installBtn.addEventListener('click', async () => {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        console.log(`Usuario ${outcome === 'accepted' ? 'aceptó' : 'rechazó'} la instalación`);
-        deferredPrompt = null;
-        installBtn.style.display = 'none';
-      }
-    });
-  </script>
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+            const totalSpan = document.getElementById('total');
+            const checkoutBtn = document.getElementById('checkout-btn');
 
+            cartItems.innerHTML = cart.length === 0 ? 'Carrito vacío' : cart.map(item => `<p>${item.name} - $${item.price}</p>`).join('');
+            cartCount.textContent = cart.length;
+            totalSpan.textContent = total;
+            checkoutBtn.disabled = cart.length === 0;
+        }
+
+        function checkout() {
+            // Formatea el mensaje para WhatsApp
+            const items = cart.map(item => `${item.name} ($${item.price})`).join(', ');
+            const message = `Hola, quiero hacer un pedido: ${items}. Total: $${total}. Mi nombre: [Ingresa tu nombre], Dirección: [Ingresa dirección], Teléfono: [Ingresa teléfono].`;
+            
+            // Reemplaza con tu número de WhatsApp (formato internacional, sin +)
+            const whatsappNumber = '1234567890'; // Ejemplo: 1234567890 para +1 234 567 890
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            // Abre WhatsApp
+            window.open(whatsappUrl, '_blank');
+            
+            // Opcional: Limpia el carrito después de enviar
+            cart = [];
+            total = 0;
+            updateCart();
+        }
+    </script>
 </body>
 </html>
