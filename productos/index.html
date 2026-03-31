@@ -2037,6 +2037,14 @@
       }, 800);
     }
 
+    function renderMedia(producto, cssClass, onclick, onerrorSrc) {
+      if (producto.imagen.toLowerCase().endsWith('.mp4')) {
+        return `<video autoplay muted loop playsinline src="${producto.imagen}" class="${cssClass}" ${onclick ? `onclick="${onclick}"` : ''}></video>`;
+      } else {
+        return `<img src="${producto.imagen}" alt="${producto.nombre}" class="${cssClass}" ${onclick ? `onclick="${onclick}"` : ''} loading="lazy" onerror="this.src='${onerrorSrc}'">`;
+      }
+    }
+
     function mostrarProductos(lista) {
       // Si el overlay de búsqueda está abierto, renderizar dentro del overlay
       const overlay = document.getElementById('searchOverlay');
@@ -2072,7 +2080,7 @@
           item.onkeypress = (e) => { if (e.key === 'Enter') openProductFromOverlay(producto.id); };
 
           item.innerHTML = `
-            <img class="thumb" src="${producto.imagen}" alt="${producto.nombre}" onerror="this.src='https://via.placeholder.com/80x80/2E8B57/ffffff?text=TN'">
+            ${renderMedia(producto, 'thumb', '', 'https://via.placeholder.com/80x80/2E8B57/ffffff?text=TN')}
             <div class="meta">
               <div class="name">${producto.nombre}</div>
               <div class="sub">Código: ${producto.codigo || 'N/A'} · ${producto.categoria || ''}</div>
@@ -2092,10 +2100,7 @@
               <div class="image-container">
                 <div class="categoria-badge">${producto.categoria || 'TIENS'}</div>
                 <div class="codigo-producto">${producto.codigo || 'N/A'}</div>
-                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}" 
-                     onclick="irAProducto(${producto.id})"
-                     loading="lazy"
-                     onerror="this.src='https://via.placeholder.com/400x500/2E8B57/ffffff?text=TIENS+Bolivia'">
+                ${renderMedia(producto, 'card-img-top', `irAProducto(${producto.id})`, 'https://via.placeholder.com/400x500/2E8B57/ffffff?text=TIENS+Bolivia')}
               </div>
               <div class="card-body">
                 <h5 class="card-title">${producto.nombre}</h5>
@@ -2455,6 +2460,5 @@
   </script>
 </body>
 </html>
-
 
 
